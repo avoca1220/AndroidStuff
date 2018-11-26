@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SpinnerTest</string>
+    <string-array name="teachers_array">
+        <item>Andresen</item>
+        <item>McBrien</item>
+        <item>Huff</item>
+        <item>Xavier</item>
+    </string-array>
+
+    <string-array name="room_array">
+        <item>C5</item>
+        <item>Engineering</item>
+        <item>D6</item>
+        <item>School for Gifted Youngsters</item>
+    </string-array>
+</resources>

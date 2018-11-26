@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+
+    <string-array name="teachers_array">
+        <item>Andresen</item>
+        <item>McBrien</item>
+        <item>Huff</item>
+    </string-array>
+
+    <string-array name="rooms_array">
+        <item>C5</item>
+        <item>Engineering</item>
+        <item>D6</item>
+    </string-array>
+</resources>
