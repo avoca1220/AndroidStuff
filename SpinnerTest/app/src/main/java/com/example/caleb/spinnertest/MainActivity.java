@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import com.ortiz.touch.TouchImageView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private static final String[] paths = {"Andresen", "McBrien", "Huff"};
     private Spinner spinner;
+    private TouchImageView map;
 
     private Map<String, String> teacherMap = new HashMap<String, String>();
 
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d("SpinnerTest", getResources().getStringArray(R.array.teachers_array)[position]);
         TextView roomView = (TextView) findViewById(R.id.roomView);
         roomView.setText(getResources().getStringArray(R.array.room_array)[position]);
+        map = (com.ortiz.touch.TouchImageView)findViewById(R.id.map);
+        map.setZoom(2, (float)0.75, (float)0.75);
 }
 
     public void onNothingSelected(AdapterView<?> parent)

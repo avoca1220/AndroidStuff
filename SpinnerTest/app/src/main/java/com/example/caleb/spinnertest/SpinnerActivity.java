@@ -10,6 +10,8 @@ public class SpinnerActivity extends Activity implements AdapterView.OnItemSelec
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
     {
         Log.d("SpinnerTest", String.valueOf(parent.getItemAtPosition(pos)));
+
+
     }
 
     public void onNothingSelected(AdapterView<?> parent)

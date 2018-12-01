@@ -1,0 +1,112 @@
+<item>C5</item>
+<item>B3</item>
+<item>Attendance Office</item>
+<item>B1</item>
+<item>D8</item>
+<item>Main Office</item>
+<item>Ag 2</item>
+<item>Gym</item>
+<item>Drama Room</item>
+<item>B Office 1</item>
+<item>Library</item>
+<item>B4</item>
+<item>B1</item>
+<item>E5</item>
+<item>E9</item>
+<item>FL4</item>
+<item>C10</item>
+<item>E4</item>
+<item>A2</item>
+<item>Attendance Office</item>
+<item>Main Office</item>
+<item>Life Skills</item>
+<item>D7</item>
+<item>B5</item>
+<item>Cafeteria</item>
+<item>E1</item>
+<item>Choir Room</item>
+<item>Athletic/Activity Office</item>
+<item>A4</item>
+<item>H2</item>
+<item>B Office 3</item>
+<item>C9</item>
+<item>B Resource</item>
+<item>FL3</item>
+<item>C8</item>
+<item>Athletic/Activity Office</item>
+<item>H2</item>
+<item>Activities</item>
+<item>B Office 2</item>
+<item>Life Skills</item>
+<item>Main Office</item>
+<item>Attendance Office</item>
+<item>Main Office</item>
+<item>Attendance Office</item>
+<item>D6</item>
+<item>Counseling</item>
+<item>A6</item>
+<item>Band Room</item>
+<item>Counseling Office</item>
+<item>H2</item>
+<item>Break Room</item>
+<item>D3</item>
+<item>Attendance Office</item>
+<item>Attendance Office</item>
+<item>Culinary</item>
+<item>Main Office</item>
+<item>Gym</item>
+<item>FL2</item>
+<item>FL2</item>
+<item>Library</item>
+<item>A1</item>
+<item>C4</item>
+<item>FL4</item>
+<item>SPED in Ed Center</item>
+<item>Auto Shop/A3</item>
+<item>Engineering Room/C6</item>
+<item>C7</item>
+<item>Custodial Office</item>
+<item>Custodial Office</item>
+<item>B Office 4</item>
+<item>A7</item>
+<item>D4</item>
+<item>E7</item>
+<item>Life Skills</item>
+<item>Life Skills</item>
+<item>Counseling</item>
+<item>D1</item>
+<item>C1</item>
+<item>D5</item>
+<item>Counseling</item>
+<item>Cafeteria</item>
+<item>B Office 5</item>
+<item>Ag 1/Metal shop</item>
+<item>A Hall Office 3</item>
+<item>A1</item>
+<item>Life Skills</item>
+<item>D2</item>
+<item>Counseling</item>
+<item>A3</item>
+<item>Drama Room</item>
+<item>Attendance</item>
+<item>Attendance</item>
+<item>C11</item>
+<item>FL1</item>
+<item>E6</item>
+<item>Life Skills</item>
+<item>D Hall Office/Resource</item>
+<item>Wood Shop</item>
+<item>H1</item>
+<item>A8</item>
+<item>A5</item>
+<item>C2</item>
+<item>E2/Media Arts Lab</item>
+<item>Counseling Office</item>
+<item>E3</item>
+<item>Counseling Office</item>
+<item>E8</item>
+<item>Attendance Office</item>
+<item>A Hall Office 2</item>
+<item>B Resource Office</item>
+<item>c3</item>
+<item>Media Arts/Bistro</item>
