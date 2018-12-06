@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         roomView.setText(getResources().getStringArray(R.array.room_array)[position]);
         map = (com.ortiz.touch.TouchImageView)findViewById(R.id.map);
         map.setZoom(2, (float)0.75, (float)0.75);
+
 }
 
     public void onNothingSelected(AdapterView<?> parent)
