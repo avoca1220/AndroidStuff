@@ -41,7 +41,6 @@
         <item>Leahy</item>
         <item>Leapaldt</item>
         <item>Liu</item>
-        <item>Lopez</item>
         <item>Lyons</item>
         <item>McBrien</item>
         <item>McCabe</item>
@@ -116,7 +115,6 @@
         <item>A1</item>
         <item>C4</item>
         <item>FL4</item>
-        <item>SPED in Ed Center</item>
         <item>Auto Shop/A3</item>
         <item>Engineering Room/C6</item>
         <item>C7</item>
@@ -146,7 +144,155 @@
         <item>E2/Media Arts Lab</item>
         <item>E3</item>
         <item>E8</item>
-        <item>c3</item>
+        <item>C3</item>
         <item>Media Arts/Bistro</item>
     </string-array>
+
+    <integer-array name="x_coords">
+        <item>1970</item>
+        <item>1480</item>
+        <item>1580</item>
+        <item>2012</item>
+        <item>2200</item>
+        <item>3030</item>
+        <item>1430</item>
+        <item>1485</item>
+        <item>1570</item>
+        <item>2390</item>
+        <item>2235</item>
+        <item>1500</item>
+        <item>1930</item>
+        <item>2400</item>
+        <item>1270</item>
+        <item>1590</item>
+        <item>2010</item>
+        <item>1580</item>
+        <item>2420</item>
+        <item>2790</item>
+        <item>1365</item>
+        <item>1725</item>
+        <item>1810</item>
+        <item>1500</item>
+        <item>1810</item>
+        <item>1725</item>
+        <item>1590</item>
+        <item>2010</item>
+        <item>1370</item>
+        <item>2655</item>
+        <item>1725</item>
+        <item>2235</item>
+        <item>1715</item>
+        <item>2200</item>
+        <item>1380</item>
+        <item>1380</item>
+        <item>1440</item>
+        <item>1365</item>
+        <item>1740</item>
+        <item>1505</item>
+        <item>2170</item>
+        <item>1260</item>
+        <item>1905</item>
+        <item>1490</item>
+        <item>2230</item>
+        <item>2140</item>
+        <item>1590</item>
+        <item>1590</item>
+        <item>2150</item>
+        <item>1740</item>
+        <item>2145</item>
+        <item>1975</item>
+        <item>1370</item>
+        <item>1590</item>
+        <item>2230</item>
+        <item>1275</item>
+        <item>3030</item>
+        <item>1930</item>
+        <item>1380</item>
+        <item>2235</item>
+        <item>1590</item>
+        <item>1680</item>
+        <item>1720</item>
+        <item>1490</item>
+        <item>1365</item>
+        <item>1735</item>
+        <item>2415</item>
+        <item>2420</item>
+        <item>2140</item>
+        <item>1745</item>
+        <item>1755</item>
+    </integer-array>
+
+    <integer-array name="y_coords">
+        <item>1600</item>
+        <item>1350</item>
+        <item>1250</item>
+        <item>1240</item>
+        <item>1000</item>
+        <item>1300</item>
+        <item>960</item>
+        <item>1440</item>
+        <item>1250</item>
+        <item>1680</item>
+        <item>1710</item>
+        <item>770</item>
+        <item>1830</item>
+        <item>1590</item>
+        <item>1340</item>
+        <item>720</item>
+        <item>1380</item>
+        <item>1450</item>
+        <item>1300</item>
+        <item>1310</item>
+        <item>1450</item>
+        <item>888</item>
+        <item>1830</item>
+        <item>670</item>
+        <item>1750</item>
+        <item>888</item>
+        <item>720</item>
+        <item>1500</item>
+        <item>1680</item>
+        <item>1295</item>
+        <item>888</item>
+        <item>1340</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>666</item>
+        <item>666</item>
+        <item>950</item>
+        <item>1250</item>
+        <item>1600</item>
+        <item>770</item>
+        <item>730</item>
+        <item>700</item>
+        <item>1360</item>
+        <item>1670</item>
+        <item>1440</item>
+        <item>1600</item>
+        <item>720</item>
+        <item>720</item>
+        <item>1250</item>
+        <item>1245</item>
+        <item>1465</item>
+        <item>710</item>
+        <item>1250</item>
+        <item>720</item>
+        <item>1245</item>
+        <item>1445</item>
+        <item>1300</item>
+        <item>1740</item>
+        <item>770</item>
+        <item>1600</item>
+        <item>720</item>
+        <item>480</item>
+        <item>1000</item>
+        <item>1590</item>
+        <item>1590</item>
+        <item>1340</item>
+        <item>1420</item>
+        <item>1500</item>
+        <item>1710</item>
+        <item>1490</item>
+        <item>650</item>
+    </integer-array>
 </resources>

@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final String[] paths = {"Andresen", "McBrien", "Huff"};
     private Spinner spinner;
     private TouchImageView map;
+    private final int WIDTH = 3840;
+    private final int HEIGHT = 2160;
 
     private Map<String, String> teacherMap = new HashMap<String, String>();
 
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        map = (com.ortiz.touch.TouchImageView)findViewById(R.id.map);
+        map.setMaxZoom(20);
+
         String[] teachersArray = getResources().getStringArray(R.array.teachers_array);
         String[] roomArray = getResources().getStringArray(R.array.room_array);
 
@@ -45,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d("SpinnerTest", getResources().getStringArray(R.array.teachers_array)[position]);
         TextView roomView = (TextView) findViewById(R.id.roomView);
         roomView.setText(getResources().getStringArray(R.array.room_array)[position]);
-        map = (com.ortiz.touch.TouchImageView)findViewById(R.id.map);
-        map.setZoom(2, (float)0.75, (float)0.75);
+
+        map.setZoom((float)20, (float)(getResources().getIntArray(R.array.x_coords)[position])/WIDTH, (float)(getResources().getIntArray(R.array.y_coords)[position])/HEIGHT);
 
 }
 
