@@ -1,0 +1,306 @@
+<resources>
+    <string name="app_name">School Map</string>
+        <!-- This is an array of all of the teachers.-->
+	   <string-array name="teachers_array">
+        <item>Andresen</item>
+        <item>Andrews</item>
+        <item>Ballantine</item>
+        <item>Bohnlein</item>
+        <item>Broaddus</item>
+        <item>Burden</item>
+        <item>Byers</item>
+        <item>Chroninger</item>
+        <item>Clark</item>
+        <item>Clements (Joel)</item>
+        <item>Clements (Michele)</item>
+        <item>Cole</item>
+        <item>Collins</item>
+        <item>Combs</item>
+        <item>Contreras</item>
+        <item>Coronado</item>
+        <item>Crum</item>
+        <item>Dusan</item>
+        <item>Erickson</item>
+        <item>Evans</item>
+        <item>Farner</item>
+        <item>Forsythe</item>
+        <item>Gonzales</item>
+        <item>Grubb</item>
+        <item>Gylling</item>
+        <item>Hackney</item>
+        <item>Hardy</item>
+        <item>Huff</item>
+        <item>Hutchison</item>
+        <item>Hymans</item>
+        <item>Jimenez</item>
+        <item>Johnson (Shauna)</item>
+        <item>Kimerling</item>
+        <item>Kuka</item>
+        <item>Kurian</item>
+        <item>Larwin</item>
+        <item>Layne</item>
+        <item>Leahy</item>
+        <item>Leapaldt</item>
+        <item>Liu</item>
+        <item>Lyons</item>
+        <item>McBrien</item>
+        <item>McBrien</item>
+        <item>McCabe</item>
+        <item>Medina</item>
+        <item>Medley</item>
+        <item>Mellor</item>
+        <item>Mesina</item>
+        <item>Meyer</item>
+        <item>Mottern</item>
+        <item>Myers</item>
+        <item>Neff</item>
+        <item>Papke</item>
+        <item>Parnakian</item>
+        <item>Peery</item>
+        <item>Pfeifer</item>
+        <item>Riper</item>
+        <item>Robinson</item>
+        <item>Romero</item>
+        <item>Ross</item>
+        <item>Rubenstein</item>
+        <item>Saling</item>
+        <item>Schrader</item>
+        <item>Schulz</item>
+        <item>Sieveking</item>
+        <item>Soto</item>
+        <item>Stark</item>
+        <item>Stermer</item>
+        <item>Taroli</item>
+        <item>Vallerga</item>
+        <item>Young</item>
+        <item>Zilk</item>
+    </string-array>
+
+    <!--This is an array of the classrooms. Their indexes correspond with those of the teachers.-->
+    <string-array name="room_array">
+        <item>C5</item>
+        <item>B3</item>
+        <item>B1</item>
+        <item>D8</item>
+        <item>Gym</item>
+        <item>Drama Room</item>
+        <item>Library</item>
+        <item>B4</item>
+        <item>B1</item>
+        <item>E5</item>
+        <item>E9</item>
+        <item>FL4</item>
+        <item>C10</item>
+        <item>E4</item>
+        <item>A2</item>
+        <item>Life Skills</item>
+        <item>D7</item>
+        <item>B5</item>
+        <item>E1</item>
+        <item>Choir Room</item>
+        <item>A4</item>
+        <item>H2</item>
+        <item>C9</item>
+        <item>FL3</item>
+        <item>C8</item>
+        <item>H2</item>
+        <item>Life Skills</item>
+        <item>D6</item>
+        <item>A6</item>
+        <item>Band Room</item>
+        <item>H2</item>
+        <item>D3</item>
+        <item>Culinary</item>
+        <item>Gym</item>
+        <item>FL2</item>
+        <item>FL2</item>
+        <item>Library</item>
+        <item>A1</item>
+        <item>C4</item>
+        <item>FL4</item>
+        <item>Auto Shop/A3</item>
+        <item>Engineering Room</item>
+        <item>C6</item>
+        <item>C7</item>
+        <item>A7</item>
+        <item>D4</item>
+        <item>E7</item>
+        <item>Life Skills</item>
+        <item>Life Skills</item>
+        <item>D1</item>
+        <item>C1</item>
+        <item>D5</item>
+        <item>Ag1/Metal Shop</item>
+        <item>A1</item>
+        <item>Life Skills</item>
+        <item>D2</item>
+        <item>A3</item>
+        <item>Drama Room</item>
+        <item>C11</item>
+        <item>FL1</item>
+        <item>E6</item>
+        <item>Life Skills</item>
+        <item>Wood Shop</item>
+        <item>H1</item>
+        <item>A8</item>
+        <item>A5</item>
+        <item>C2</item>
+        <item>E2/Media Arts Lab</item>
+        <item>E3</item>
+        <item>E8</item>
+        <item>C3</item>
+        <item>Media Arts/Bistro</item>
+    </string-array>
+
+    <!--This is an array of the x coordinates of each classroom. Their indexes corresponds with the indexes of the teachers in their respective array.-->
+    <integer-array name="x_coords">
+        <item>1970</item>
+        <item>1480</item>
+        <item>1580</item>
+        <item>2012</item>
+        <item>2200</item>
+        <item>3030</item>
+        <item>1430</item>
+        <item>1485</item>
+        <item>1570</item>
+        <item>2390</item>
+        <item>2235</item>
+        <item>1500</item>
+        <item>1930</item>
+        <item>2400</item>
+        <item>1270</item>
+        <item>1590</item>
+        <item>2010</item>
+        <item>1580</item>
+        <item>2420</item>
+        <item>2790</item>
+        <item>1365</item>
+        <item>1725</item>
+        <item>1810</item>
+        <item>1500</item>
+        <item>1810</item>
+        <item>1725</item>
+        <item>1590</item>
+        <item>2010</item>
+        <item>1370</item>
+        <item>2655</item>
+        <item>1725</item>
+        <item>2235</item>
+        <item>1715</item>
+        <item>2200</item>
+        <item>1380</item>
+        <item>1380</item>
+        <item>1440</item>
+        <item>1365</item>
+        <item>1740</item>
+        <item>1505</item>
+        <item>2170</item>
+        <item>1260</item>
+        <item>1908</item>
+        <item>1905</item>
+        <item>1490</item>
+        <item>2230</item>
+        <item>2140</item>
+        <item>1590</item>
+        <item>1590</item>
+        <item>2150</item>
+        <item>1740</item>
+        <item>2145</item>
+        <item>1975</item>
+        <item>1370</item>
+        <item>1590</item>
+        <item>2230</item>
+        <item>1275</item>
+        <item>3030</item>
+        <item>1930</item>
+        <item>1380</item>
+        <item>2235</item>
+        <item>1590</item>
+        <item>1680</item>
+        <item>1720</item>
+        <item>1490</item>
+        <item>1365</item>
+        <item>1735</item>
+        <item>2415</item>
+        <item>2420</item>
+        <item>2140</item>
+        <item>1745</item>
+        <item>1755</item>
+    </integer-array>
+
+    <!--This is an array of the y coordinates of each classroom. Their indexes corresponds with the indexes of the teachers in their respective array.-->
+    <integer-array name="y_coords">
+        <item>1600</item>
+        <item>1350</item>
+        <item>1250</item>
+        <item>1240</item>
+        <item>1000</item>
+        <item>1300</item>
+        <item>960</item>
+        <item>1440</item>
+        <item>1250</item>
+        <item>1680</item>
+        <item>1710</item>
+        <item>770</item>
+        <item>1830</item>
+        <item>1590</item>
+        <item>1340</item>
+        <item>720</item>
+        <item>1380</item>
+        <item>1450</item>
+        <item>1300</item>
+        <item>1310</item>
+        <item>1450</item>
+        <item>888</item>
+        <item>1830</item>
+        <item>670</item>
+        <item>1750</item>
+        <item>888</item>
+        <item>720</item>
+        <item>1500</item>
+        <item>1680</item>
+        <item>1295</item>
+        <item>888</item>
+        <item>1340</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>666</item>
+        <item>666</item>
+        <item>950</item>
+        <item>1250</item>
+        <item>1600</item>
+        <item>770</item>
+        <item>730</item>
+        <item>700</item>
+        <item>1472</item>
+        <item>1360</item>
+        <item>1670</item>
+        <item>1440</item>
+        <item>1600</item>
+        <item>720</item>
+        <item>720</item>
+        <item>1250</item>
+        <item>1245</item>
+        <item>1465</item>
+        <item>710</item>
+        <item>1250</item>
+        <item>720</item>
+        <item>1245</item>
+        <item>1445</item>
+        <item>1300</item>
+        <item>1740</item>
+        <item>770</item>
+        <item>1600</item>
+        <item>720</item>
+        <item>480</item>
+        <item>1000</item>
+        <item>1590</item>
+        <item>1590</item>
+        <item>1340</item>
+        <item>1420</item>
+        <item>1500</item>
+        <item>1710</item>
+        <item>1490</item>
+        <item>650</item>
+    </integer-array>
+</resources>
