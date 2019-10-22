@@ -1,3 +1,10 @@
+/**
+ * Where I'm at:
+ *
+ * Fixed entries in strings.xml.
+ * Need to modify TeacherClassroomMap to work with teacher and classroom objects instead of strings.
+ */
+
 package com.example.newmap;
 
 import androidx.appcompat.app.AppCompatActivity;
