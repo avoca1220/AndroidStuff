@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         spinner = (Spinner)findViewById(R.id.teachers_spinner);
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(MainActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.teachers_array));
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         map.setZoom((float)20, (float)(getResources().getIntArray(R.array.x_coords)[position])/WIDTH, (float)(getResources().getIntArray(R.array.y_coords)[position])/HEIGHT);
 
-}
+    }
 
     public void onNothingSelected(AdapterView<?> parent)
     {
