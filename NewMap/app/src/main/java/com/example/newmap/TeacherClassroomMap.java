@@ -4,76 +4,76 @@ import android.util.Log;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Set;
 
 public class TeacherClassroomMap {
 
 
     private String[] teacherArray;
-    private String[] classroomArray;
+    private String[] classroomArrayByTeacher;
 
     private int[] xCoords;
     private int[] yCoords;
 
-    private HashMap<String, String[]> stringMap = new HashMap<String, String[]>();
-    //private HashMap<Teacher, Classroom[]> objectMap = new HashMap<Teacher ,Classroom[]>();
+    private HashMap<String, String[]> stringMap = new LinkedHashMap<String, String[]>();
+    private HashMap<Teacher, Classroom[]> objectMap = new LinkedHashMap<Teacher ,Classroom[]>();
 
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
 
     /**
      * Create a map of Teacher objects and their corresponding Classroom objects
-     * @param teacherArray
-     * @param classroomArray
+     * @param teacherArray Strings of teacher names
+     * @param classroomArrayByTeacher Strings of classroom names in order of teachers
+     * @param classroomArray Strings of classrooms names in alphabetical order
+     * @param xCoords Strings of classroom x coordinates
+     * @param yCoords Strings of classroom y coordinates
      */
-    public TeacherClassroomMap(String[] teacherArray, String[] classroomArray)
+    public TeacherClassroomMap(String[] teacherArray, String[] classroomArrayByTeacher, String[] classroomArray, int[] xCoords, int[] yCoords)
     {
         this.teacherArray = teacherArray;
-        this.classroomArray = classroomArray;
+        this.classroomArrayByTeacher = classroomArrayByTeacher;
 
-        //this.teacherObjectArray = Resources.getTeacherObjectArray(teacherArray);
-        //this.classroomObjectArray = Resources.getClassroomObjectArray(classroomArray, xCoords, yCoords);
+        teacherObjectArray = Resources.getTeacherObjectArray(teacherArray);
+        classroomObjectArray = Resources.getClassroomObjectArray(classroomArray, xCoords, yCoords);
+
 
         //Make sure the arrays are valid (of equal length)
-        if (teacherArray.length != classroomArray.length)
+
+        if (teacherArray.length != classroomArrayByTeacher.length)
         {
             throw new InvalidParameterException();
         }
 
         //Start with String array for mapping out relationships. Add the necessary key-value pairs,
         //and add the classrooms to teachers that already exist (if they do indeed exist).
-        //Also all of the values are classroom arrays so that we can have multiple.
+        //Also all of the classroom values are stored in arrays so that we can have multiple.
         for (int i = 0; i < teacherArray.length; i++)
         {
 
-            //If teacher exists
+            //If teacher already exists, add classroom
             if (stringMap.containsKey(teacherArray[i]))
             {
-                //Add classroom
-
-                //Temp holds classrooms in teacher's array of their classrooms
+                //Temp holds classrooms from teacher's array of their classrooms
                 String temp[] = new String[stringMap.get(teacherArray[i]).length + 1];
                 for(int j = 0; j < stringMap.get(teacherArray[i]).length; j++)
                 {
                     temp[j] = stringMap.get(teacherArray[i])[j];
                 }
 
-                temp[stringMap.get(teacherArray[i]).length] = classroomArray[i];
+                temp[stringMap.get(teacherArray[i]).length] = classroomArrayByTeacher[i];
 
                 stringMap.put(teacherArray[i], temp);
             }
             //Add teacher-classroom pair
             else
             {
-                stringMap.put(teacherArray[i], new String[]{classroomArray[i]});
+                stringMap.put(teacherArray[i], new String[]{classroomArrayByTeacher[i]});
             }
-
-
-
-
         }
 
-        //Get arrays of actual objects, iterate through map of strings to build map of objects.
+        //Iterate through map of strings to build map of objects.
 
 
     }
@@ -94,12 +94,17 @@ public class TeacherClassroomMap {
             Log.d("strings", " ");
         }
 
-        /*
-        for(int i = 0; i < teacherObjectArray.length; i++)
+        for(int i = 0; i < teacherArray.length; i++)
         {
-            Log.d("Strings", teacherObjectArray[i].getName());
+            Classroom[] temp = new Classroom[stringMap.get(teacherArray[i]).length];
+
+            for(int j = 0; j < temp.length; j++)
+            {
+                temp[j] = Resources.getClassroomByName(stringMap.get(teacherArray[i])[j], classroomObjectArray);
+            }
+
+            //FINISH THIS
         }
-        */
     }
 
 

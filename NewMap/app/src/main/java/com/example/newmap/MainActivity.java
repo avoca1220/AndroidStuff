@@ -2,7 +2,7 @@
  * Where I'm at:
  *
  * Fixed entries in strings.xml.
- * Need to modify TeacherClassroomMap to work with teacher and classroom objects instead of strings.
+ * Need to modify TeacherClassroomMap to work with teacher and classroom objects instead of just strings.
  */
 
 package com.example.newmap;
@@ -10,6 +10,7 @@ package com.example.newmap;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +51,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         //Set up the map
-        testMap = new TeacherClassroomMap(getResources().getStringArray(R.array.teachers_array), getResources().getStringArray(R.array.room_array_by_teacher));
+        testMap = new TeacherClassroomMap(
+                getResources().getStringArray(R.array.teachers_array),
+                getResources().getStringArray(R.array.room_array_by_teacher),
+                getResources().getStringArray(R.array.room_array),
+                getResources().getIntArray(R.array.x_coordinates),
+                getResources().getIntArray(R.array.y_coordinates));
+
         testMap.printStrings();
     }
 

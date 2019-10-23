@@ -1,5 +1,7 @@
 package com.example.newmap;
 
+import android.util.Log;
+
 import java.security.InvalidParameterException;
 
 public abstract class Resources {
@@ -40,11 +42,37 @@ public abstract class Resources {
             //Create the aforementioned array of Classroom objects
             Classroom[] classroomArray = new Classroom[classrooms.length];
 
-            for (int i = 0; 9 < classrooms.length; i++) {
+            for (int i = 0; i < classrooms.length; i++) {
                 classroomArray[i] = new Classroom(classrooms[i], xCoord[i], yCoord[i]);
             }
 
             return classroomArray;
         }
+    }
+
+    public static Teacher getTeacherByName(String name, Teacher[] teachers)
+    {
+        for(int i = 0; i < teachers.length; i++)
+        {
+            if(teachers[i].getName().equals(name))
+            {
+                return teachers[i];
+            }
+        }
+
+        return null;
+    }
+
+    public static Classroom getClassroomByName(String name, Classroom[] classrooms)
+    {
+        for(int i = 0; i < classrooms.length; i++)
+        {
+            if(classrooms[i].getName().equals(name))
+            {
+                return classrooms[i];
+            }
+        }
+
+        return null;
     }
 }
