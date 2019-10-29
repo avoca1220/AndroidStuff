@@ -1,8 +1,7 @@
 /**
  * Where I'm at:
  *
- * Fixed entries in strings.xml.
- * Need to modify TeacherClassroomMap to work with teacher and classroom objects instead of just strings.
+ * Have modified TeacherClassroomMap to work with objects instead of just strings. Yay.
  */
 
 package com.example.newmap;

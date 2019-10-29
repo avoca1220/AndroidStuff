@@ -74,37 +74,41 @@ public class TeacherClassroomMap {
         }
 
         //Iterate through map of strings to build map of objects.
+        for(int i = 0; i < teacherArray.length; i++) {
+            Classroom[] temp = new Classroom[stringMap.get(teacherArray[i]).length];
 
+            for (int j = 0; j < temp.length; j++) {
+                temp[j] = Resources.getClassroomByName(stringMap.get(teacherArray[i])[j], classroomObjectArray);
+            }
+
+            objectMap.put(Resources.getTeacherByName(teacherArray[i], teacherObjectArray), temp);
+        }
 
     }
 
     public void printStrings(){
+        //Display all data within object map
+        Teacher[] listOfTeacherObjects = objectMap.keySet().toArray(new Teacher[objectMap.size()]);
+        String[] listOfTeacherObjectNames = new String[listOfTeacherObjects.length];
 
-        String[] listOfTeacherNames = stringMap.keySet().toArray(new String[stringMap.size()]);
-
-
-        for(int i = 0; i < stringMap.size(); i++)
+        for(int i = 0; i < listOfTeacherObjects.length; i++)
         {
-            Log.d("strings", listOfTeacherNames[i]);
+            listOfTeacherObjectNames[i] = listOfTeacherObjects[i].getName();
+        }
 
-            for(int j = 0; j < stringMap.get(listOfTeacherNames[i]).length; j++)
+        for(int i = 0; i < objectMap.size(); i++)
+        {
+            Log.d("strings", listOfTeacherObjectNames[i]);
+
+            for(int j = 0; j < objectMap.get(listOfTeacherObjects[i]).length; j++)
             {
-                Log.d("strings", stringMap.get(listOfTeacherNames[i])[j]);
+                Log.d("strings", objectMap.get(listOfTeacherObjects[i])[j].name);
             }
+            
             Log.d("strings", " ");
         }
 
-        for(int i = 0; i < teacherArray.length; i++)
-        {
-            Classroom[] temp = new Classroom[stringMap.get(teacherArray[i]).length];
 
-            for(int j = 0; j < temp.length; j++)
-            {
-                temp[j] = Resources.getClassroomByName(stringMap.get(teacherArray[i])[j], classroomObjectArray);
-            }
-
-            //FINISH THIS
-        }
     }
 
 

@@ -2,7 +2,7 @@ package com.example.newmap;
 
 public class Classroom {
 
-    private String name;
+    public String name;
     private int xCoord;
     private int yCoord;
 
