@@ -76,4 +76,16 @@ public abstract class Resources {
 
         return null;
     }
+
+    public static int getIndexOfClassroom(Classroom classroom, String[] listOfClassrooms)
+    {
+        for(int i = 0; i < listOfClassrooms.length; i++)
+        {
+            if(listOfClassrooms[i].equals(classroom.getName()))
+            {
+                return i;
+            }
+        }
+        throw new InvalidParameterException();
+    }
 }

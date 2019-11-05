@@ -104,11 +104,16 @@ public class TeacherClassroomMap {
             {
                 Log.d("strings", objectMap.get(listOfTeacherObjects[i])[j].name);
             }
-            
+
             Log.d("strings", " ");
         }
+    }
 
-
+    public Classroom[] getClassrooms(Teacher teacher)
+    {
+        Log.d("strings", "Got here!");
+        Log.d("strings", "Length of array according to TeacherClassroomMap: " + Integer.toString(objectMap.get(teacher).length));
+        return objectMap.get(teacher);
     }
 
 
