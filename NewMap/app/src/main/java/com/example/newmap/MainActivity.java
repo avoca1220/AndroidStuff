@@ -1,12 +1,7 @@
 /**
  * Where I'm at:
  *
- * Have modified TeacherClassroomMap to work with objects instead of just strings. Yay.
- *
- * TeacherClassroomMap is not workin very well, most likely because I'm trying to use it with a set
- * of arrays from this class (which, though they have identical data, are different apparently).
- *
- * So fix that.
+ * Need to fix counter/spinner changer (doesn't change right number of times or work in general)
  */
 
 package com.example.newmap;
@@ -31,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private final int HEIGHT = 2160;
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
+
+    //Make this less sloppy!
+    private int counter = 0;
 
     TeacherClassroomMap teacherClassroomMap;
 
@@ -68,25 +66,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         teacherClassroomMap.printStrings();
 
-        //Set up the arrays we'll need
-        teacherObjectArray = Resources.getTeacherObjectArray(getResources().getStringArray(R.array.teachers_array));
+        //Set up the arrays we'll need (we copy the ones from teacherClassroomMap because otherwise it's a bitch)
+        teacherObjectArray = teacherClassroomMap.getTeacherObjectArray();
 
-        classroomObjectArray = Resources.getClassroomObjectArray(
-                getResources().getStringArray(R.array.room_array),
-                getResources().getIntArray(R.array.x_coordinates),
-                getResources().getIntArray(R.array.y_coordinates));
+        classroomObjectArray = teacherClassroomMap.getClassroomObjectArray();
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
     {
-        if (parent == teacherSpinner)
-        {
-            Teacher tempTeacher = Resources.getTeacherByName((String)teacherSpinner.getSelectedItem(), teacherObjectArray);
-            Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
-            //Log.d("strings", "Length is " + Integer.toString(teacherClassroomMap.getClassrooms(tempTeacher).length));
-            //Log.d("strings", Integer.toString(Resources.getIndexOfClassroom(
-            //        teacherClassroomMap.getClassrooms(tempTeacher)[0],
-            //        getResources().getStringArray(R.array.room_array))));
+        //Count each time we're told that a spinner has been changed. If it's been changed twice,
+        //then that second time was us, ignore and reset.
+        if(counter != 2) {
+            Log.d("strings", Integer.toString(counter));
+            counter++;
+
+            if (parent == teacherSpinner) {
+                Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
+                Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
+                int index = Resources.getIndexOfClassroom(classrooms[0], getResources().getStringArray(R.array.room_array));
+                Log.d("strings", "changed to " + Integer.toString(counter));
+
+                classroomSpinner.setSelection(index);
+            } else if (parent == classroomSpinner) {
+                Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
+                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherObjectArray, teacherClassroomMap);
+            int index = Resources.getIndexOfTeacher(tempTeacher, getResources().getStringArray(R.array.teachers_array));
+
+            teacherSpinner.setSelection(index);
+            Log.d("strings", "changed to " + Integer.toString(counter));
+        }
+    }
+        else
+    {
+            Log.d("strings", "Reset counter");
+            counter = 0;
         }
     }
 

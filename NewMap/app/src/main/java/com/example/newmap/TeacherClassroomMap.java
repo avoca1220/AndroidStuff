@@ -111,11 +111,21 @@ public class TeacherClassroomMap {
 
     public Classroom[] getClassrooms(Teacher teacher)
     {
-        Log.d("strings", "Got here!");
-        Log.d("strings", "Length of array according to TeacherClassroomMap: " + Integer.toString(objectMap.get(teacher).length));
         return objectMap.get(teacher);
     }
 
+    /**
+     * We gon' use the arrays from this object in some other ones.
+     */
+    public Teacher[] getTeacherObjectArray()
+    {
+        return this.teacherObjectArray;
+    }
+
+    public Classroom[] getClassroomObjectArray()
+    {
+        return this.classroomObjectArray;
+    }
 
 
 
