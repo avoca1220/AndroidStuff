@@ -3,8 +3,8 @@
  *
  * Need to fix counter/spinner changer (doesn't change right number of times or work in general)
  *
- * 1. Dual-classroomed teachers in arrays twice
- * 2. McBrien crashes application
+ * 1. Dual-classroomed teachers in arrays twice                                         --Resolved
+ * 2. McBrien crashes application                                                       --Resolved
  * 3. Changing teacher changes classroom changes teacher to that classroom's default
  */
 
@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
 
-    //Make this less sloppy!
-    private int counter = 0;
+    //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
+    //program
+    private int counter = -3;
 
     TeacherClassroomMap teacherClassroomMap;
 
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Set up the map
         teacherClassroomMap = new TeacherClassroomMap(
-                getResources().getStringArray(R.array.teachers_array),
+                getResources
+                        ().getStringArray(R.array.teachers_array),
                 getResources().getStringArray(R.array.room_array_by_teacher),
                 getResources().getStringArray(R.array.room_array),
                 getResources().getIntArray(R.array.x_coordinates),
@@ -80,10 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
     {
-        //Count each time we're told that a spinner has been changed. If it's been changed twice,
-        //then that second time was us, ignore and reset.
-        if(true) {
-            counter++;
+        if(counter <= 0) {
 
             if (parent == teacherSpinner) {
                 Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
@@ -94,13 +93,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             } else if (parent == classroomSpinner) {
                 Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
                 Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap);
-                Log.d("strings", "Found teacher of " + tempTeacher.getName());
+                //Log.d("strings", "Found teacher of " + tempTeacher.getName());
                 int index = Resources.getIndexOfTeacher(tempTeacher, teacherClassroomMap.getTeacherStrings());
+                //Log.d("strings", "Teachers index is: " + Integer.toString(index));
 
                 teacherSpinner.setSelection(index);
             }
 
-            //Log.d("strings", "Times run:  " + Integer.toString(counter));
+            counter++;
+
+            Log.d("strings", "Times run:  " + Integer.toString(counter));
     }
         else
     {
