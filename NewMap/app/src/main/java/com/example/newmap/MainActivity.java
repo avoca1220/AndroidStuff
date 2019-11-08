@@ -2,6 +2,10 @@
  * Where I'm at:
  *
  * Need to fix counter/spinner changer (doesn't change right number of times or work in general)
+ *
+ * 1. Dual-classroomed teachers in arrays twice
+ * 2. McBrien crashes application
+ * 3. Changing teacher changes classroom changes teacher to that classroom's default
  */
 
 package com.example.newmap;
@@ -37,10 +41,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        //Set up the map
+        teacherClassroomMap = new TeacherClassroomMap(
+                getResources().getStringArray(R.array.teachers_array),
+                getResources().getStringArray(R.array.room_array_by_teacher),
+                getResources().getStringArray(R.array.room_array),
+                getResources().getIntArray(R.array.x_coordinates),
+                getResources().getIntArray(R.array.y_coordinates));
+
         //Set up the spinners!
         teacherSpinner = (Spinner) findViewById(R.id.teacherSpinner);
         ArrayAdapter<String> teacherAdapter = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.teachers_array));
+                android.R.layout.simple_spinner_item, teacherClassroomMap.getTeacherStrings());
 
         teacherAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         teacherSpinner.setAdapter(teacherAdapter);
@@ -56,14 +70,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        //Set up the map
-        teacherClassroomMap = new TeacherClassroomMap(
-                getResources().getStringArray(R.array.teachers_array),
-                getResources().getStringArray(R.array.room_array_by_teacher),
-                getResources().getStringArray(R.array.room_array),
-                getResources().getIntArray(R.array.x_coordinates),
-                getResources().getIntArray(R.array.y_coordinates));
-
         teacherClassroomMap.printStrings();
 
         //Set up the arrays we'll need (we copy the ones from teacherClassroomMap because otherwise it's a bitch)
@@ -76,25 +82,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
         //Count each time we're told that a spinner has been changed. If it's been changed twice,
         //then that second time was us, ignore and reset.
-        if(counter != 2) {
-            Log.d("strings", Integer.toString(counter));
+        if(true) {
             counter++;
 
             if (parent == teacherSpinner) {
                 Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
                 Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
                 int index = Resources.getIndexOfClassroom(classrooms[0], getResources().getStringArray(R.array.room_array));
-                Log.d("strings", "changed to " + Integer.toString(counter));
 
                 classroomSpinner.setSelection(index);
             } else if (parent == classroomSpinner) {
                 Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
-                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherObjectArray, teacherClassroomMap);
-            int index = Resources.getIndexOfTeacher(tempTeacher, getResources().getStringArray(R.array.teachers_array));
+                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap);
+                Log.d("strings", "Found teacher of " + tempTeacher.getName());
+                int index = Resources.getIndexOfTeacher(tempTeacher, teacherClassroomMap.getTeacherStrings());
 
-            teacherSpinner.setSelection(index);
-            Log.d("strings", "changed to " + Integer.toString(counter));
-        }
+                teacherSpinner.setSelection(index);
+            }
+
+            //Log.d("strings", "Times run:  " + Integer.toString(counter));
     }
         else
     {

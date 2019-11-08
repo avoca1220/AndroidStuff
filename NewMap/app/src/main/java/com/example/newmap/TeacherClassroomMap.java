@@ -3,6 +3,7 @@ package com.example.newmap;
 import android.util.Log;
 
 import java.security.InvalidParameterException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -127,6 +128,15 @@ public class TeacherClassroomMap {
         return this.classroomObjectArray;
     }
 
+    public String[] getTeacherStrings()
+    {
+        //Stupid way to convert Object[] to String[]
+        return Arrays.copyOf(stringMap.keySet().toArray(), stringMap.keySet().toArray().length, String[].class);
+    }
 
+    public Teacher[] getNoDuplicatesTeacherObjectArray()
+    {
+        return Arrays.copyOf(objectMap.keySet().toArray(), objectMap.keySet().toArray().length, Teacher[].class);
+    }
 
 }

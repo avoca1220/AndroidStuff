@@ -86,9 +86,15 @@ public abstract class Resources {
         throw new InvalidParameterException();
     }
 
-    public static Teacher getTeacherFromClassroom(Classroom classroom, Teacher[] teachers, TeacherClassroomMap map) {
+    public static Teacher getTeacherFromClassroom(Classroom classroom, TeacherClassroomMap map) {
+        Teacher[] teachers = map.getNoDuplicatesTeacherObjectArray();
+        Log.d("strings", " ");
+        Log.d("strings", "Target: " + classroom.getName());
         for (int i = 0; i < teachers.length; i++) {
+            Log.d("strings", " ");
+            Log.d("strings", "Teacher: " + teachers[i].getName());
             for (int j = 0; j < map.getClassrooms(teachers[i]).length; j++) {
+                Log.d("strings", "Classroom: " + map.getClassrooms(teachers[i])[j].getName());
                 if (map.getClassrooms(teachers[i])[j].getName().equals(classroom.getName())) {
                     return teachers[i];
                 }
