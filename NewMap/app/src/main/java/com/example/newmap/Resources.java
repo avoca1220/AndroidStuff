@@ -86,20 +86,61 @@ public abstract class Resources {
         throw new InvalidParameterException();
     }
 
-    public static Teacher getTeacherFromClassroom(Classroom classroom, TeacherClassroomMap map) {
+    public static Teacher getTeacherFromClassroom(Classroom classroom, TeacherClassroomMap map, int index) {
         Teacher[] teachers = map.getNoDuplicatesTeacherObjectArray();
         //Log.d("strings", " ");
         //Log.d("strings", "Target: " + classroom.getName());
+
+        //Return the teacher with the order of appearance from index. Use iterator to do this.
+        int iterator = -1;
+
         for (int i = 0; i < teachers.length; i++) {
             //Log.d("strings", " ");
             //Log.d("strings", "Teacher: " + teachers[i].getName());
             for (int j = 0; j < map.getClassrooms(teachers[i]).length; j++) {
                 //Log.d("strings", "Classroom: " + map.getClassrooms(teachers[i])[j].getName());
                 if (map.getClassrooms(teachers[i])[j].getName().equals(classroom.getName())) {
-                    return teachers[i];
+                    iterator++;
+                    if (iterator == index)
+                    {
+                        return teachers[i];
+                    }
                 }
             }
         }
         throw new InvalidParameterException();
     }
+
+    /**
+     * See if there are multiple teachers with the one classroom
+     * @param map
+     * @param classroom
+     * @return
+     */
+    public static boolean multipleTeachers(TeacherClassroomMap map, Classroom classroom)
+    {
+        int counter = 0;
+        Teacher[] teachers = map.getNoDuplicatesTeacherObjectArray();
+
+        for(int i = 0; i < teachers.length; i++)
+        {
+            for(int j = 0; j < map.getClassrooms(teachers[i]).length; j++)
+            {
+                if (map.getClassrooms(teachers[i])[j] == classroom)
+                {
+                    counter++;
+                }
+            }
+        }
+        Log.d("strings", "Number of teachers: " + Integer.toString(counter));
+        if(counter > 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

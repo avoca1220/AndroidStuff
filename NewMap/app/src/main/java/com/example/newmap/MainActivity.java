@@ -1,11 +1,11 @@
 /**
  * Where I'm at:
  *
- * Need to fix counter/spinner changer (doesn't change right number of times or work in general)
- *
  * 1. Dual-classroomed teachers in arrays twice                                         --Resolved
  * 2. McBrien crashes application                                                       --Resolved
- * 3. Changing teacher changes classroom changes teacher to that classroom's default
+ * 3. Changing teacher changes classroom changes teacher to that classroom's default    --Resolved
+ * 4. Consecutive teachers with the same classroom mess up order!!!                     --Resolved
+ * 5. Finish cycling buttons
  */
 
 package com.example.newmap;
@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import java.lang.reflect.Array;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private final int HEIGHT = 2160;
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
+
+    private ImageButton teacherCycleButton;
+    private ImageButton classroomCycleButton;
 
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
@@ -46,8 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Set up the map
         teacherClassroomMap = new TeacherClassroomMap(
-                getResources
-                        ().getStringArray(R.array.teachers_array),
+                getResources().getStringArray(R.array.teachers_array),
                 getResources().getStringArray(R.array.room_array_by_teacher),
                 getResources().getStringArray(R.array.room_array),
                 getResources().getIntArray(R.array.x_coordinates),
@@ -70,6 +74,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         classroomSpinner.setAdapter(classroomAdapter);
         classroomSpinner.setOnItemSelectedListener(this);
 
+        //Set up the buttons!
+        teacherCycleButton = findViewById(R.id.teacherCycleButton);
+        classroomCycleButton = findViewById(R.id.classroomCycleButton);
+
+        teacherCycleButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+
+            }
+        });
+
+        classroomCycleButton.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+
+            }
+        });
+
 
 
         teacherClassroomMap.printStrings();
@@ -89,18 +113,53 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
                 int index = Resources.getIndexOfClassroom(classrooms[0], getResources().getStringArray(R.array.room_array));
 
-                classroomSpinner.setSelection(index);
+                counter++;
+
+                //If the spinner already has a classroom selected with the same name as the one we
+                // want to change it to (because onItemSelected is only run if that value changes,
+                // which throws off our counter
+                if(((String) classroomSpinner.getSelectedItem()).equals(classrooms[0].getName()))
+                {
+                    counter = 0;
+                }
+                else
+                {
+                    classroomSpinner.setSelection(index);
+                }
+
+
             } else if (parent == classroomSpinner) {
                 Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
-                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap);
+                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap, 0);
                 //Log.d("strings", "Found teacher of " + tempTeacher.getName());
                 int index = Resources.getIndexOfTeacher(tempTeacher, teacherClassroomMap.getTeacherStrings());
                 //Log.d("strings", "Teachers index is: " + Integer.toString(index));
 
-                teacherSpinner.setSelection(index);
+                counter++;
+
+                if(((String) teacherSpinner.getSelectedItem()).equals(tempTeacher.getName()))
+                {
+                    counter = 0;
+                }
+                else
+                {
+                    teacherSpinner.setSelection(index);
+                }
+
+                Log.d("strings", "Got here.");
+                if(Resources.multipleTeachers(teacherClassroomMap, tempClassroom))
+                {
+                    teacherCycleButton.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    teacherCycleButton.setVisibility(View.INVISIBLE);
+                }
+
             }
 
-            counter++;
+            //Counter incrementer was initially here
+
 
             Log.d("strings", "Times run:  " + Integer.toString(counter));
     }
