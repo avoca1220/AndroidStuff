@@ -5,7 +5,8 @@
  * 2. McBrien crashes application                                                       --Resolved
  * 3. Changing teacher changes classroom changes teacher to that classroom's default    --Resolved
  * 4. Consecutive teachers with the same classroom mess up order!!!                     --Resolved
- * 5. Finish cycling buttons
+ * 5. Finish actual cycling of teachers and classrooms for the cycling buttons          --Resolved
+ * 6. Add map
  */
 
 package com.example.newmap;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
-        //Set up the map
+        //Set up the teacherClassroomMap map
         teacherClassroomMap = new TeacherClassroomMap(
                 getResources().getStringArray(R.array.teachers_array),
                 getResources().getStringArray(R.array.room_array_by_teacher),
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         {
             public void onClick(View v)
             {
-
+                Resources.swapTeachers(teacherClassroomMap, classroomSpinner, teacherSpinner);
             }
         });
 
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         {
             public void onClick(View v)
             {
-
+                Resources.swapClassrooms(teacherClassroomMap, classroomSpinner, teacherSpinner, getResources().getStringArray(R.array.room_array));
             }
         });
 
@@ -100,15 +101,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Set up the arrays we'll need (we copy the ones from teacherClassroomMap because otherwise it's a bitch)
         teacherObjectArray = teacherClassroomMap.getTeacherObjectArray();
-
         classroomObjectArray = teacherClassroomMap.getClassroomObjectArray();
+
+        //Set up the actual map of the school
+        map = findViewById(R.id.imageView);
+        map.setMaxZoom(20);
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
     {
         if(counter <= 0) {
 
-            if (parent == teacherSpinner) {
+            if (parent == teacherSpinner && !Resources.getFreezeTeacher()) {
                 Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
                 Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
                 int index = Resources.getIndexOfClassroom(classrooms[0], getResources().getStringArray(R.array.room_array));
@@ -128,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
 
 
-            } else if (parent == classroomSpinner) {
+            } else if (parent == classroomSpinner && !Resources.getFreezeClassroom()) {
                 Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
                 Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap, 0);
                 //Log.d("strings", "Found teacher of " + tempTeacher.getName());
@@ -145,27 +149,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 {
                     teacherSpinner.setSelection(index);
                 }
-
-                Log.d("strings", "Got here.");
-                if(Resources.multipleTeachers(teacherClassroomMap, tempClassroom))
-                {
-                    teacherCycleButton.setVisibility(View.VISIBLE);
-                }
-                else
-                {
-                    teacherCycleButton.setVisibility(View.INVISIBLE);
-                }
-
             }
 
-            //Counter incrementer was initially here
+            //See if classroom has multiple teachers or teacher has multiple classrooms and adjust
+            //cycler button visibility accordingly
+            Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
+            Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
 
+            if (Resources.multipleTeachers(teacherClassroomMap, tempClassroom))
+            {
+                teacherCycleButton.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                teacherCycleButton.setVisibility(View.INVISIBLE);
+            }
 
-            Log.d("strings", "Times run:  " + Integer.toString(counter));
-    }
+            if (Resources.multipleClassrooms(teacherClassroomMap, tempTeacher))
+            {
+                classroomCycleButton.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                classroomCycleButton.setVisibility(View.INVISIBLE);
+            }
+
+            if(Resources.getFreezeTeacher())
+            {
+                Resources.unfreezeTeacher();
+            }
+            if(Resources.getFreezeClassroom())
+            {
+                Resources.unfreezeClassroom();
+            }
+        }
         else
-    {
-            Log.d("strings", "Reset counter");
+        {
             counter = 0;
         }
     }
@@ -174,4 +193,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
 
     }
+
 }

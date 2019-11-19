@@ -17,8 +17,8 @@ public class TeacherClassroomMap {
     private int[] xCoords;
     private int[] yCoords;
 
-    private HashMap<String, String[]> stringMap = new LinkedHashMap<String, String[]>();
-    private HashMap<Teacher, Classroom[]> objectMap = new LinkedHashMap<Teacher ,Classroom[]>();
+    private LinkedHashMap<String, String[]> stringMap = new LinkedHashMap<String, String[]>();
+    private LinkedHashMap<Teacher, Classroom[]> objectMap = new LinkedHashMap<Teacher ,Classroom[]>();
 
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
@@ -137,6 +137,11 @@ public class TeacherClassroomMap {
     public Teacher[] getNoDuplicatesTeacherObjectArray()
     {
         return Arrays.copyOf(objectMap.keySet().toArray(), objectMap.keySet().toArray().length, Teacher[].class);
+    }
+
+    public LinkedHashMap<Teacher, Classroom[]> getWholeFuckingMap()
+    {
+        return this.objectMap;
     }
 
 }
