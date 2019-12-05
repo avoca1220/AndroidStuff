@@ -220,7 +220,7 @@
         <item>Wood Shop</item>
     </string-array>
 
-    <string-array name="x_coordinates">
+    <integer-array name="x_coordinates">
         <item>1365</item>
         <item>1270</item>
         <item>1275</item>
@@ -282,9 +282,9 @@
         <item>1100</item>
         <item>1975</item>
         <item>1680</item>
-    </string-array>
+    </integer-array>
 
-    <string-array name="y_coordinates">
+    <integer-array name="y_coordinates">
         <item>1250</item>
         <item>1340</item>
         <item>1445</item>
@@ -346,6 +346,6 @@
         <item>720</item>
         <item>710</item>
         <item>480</item>
-    </string-array>
+    </integer-array>
 
 </resources>

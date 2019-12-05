@@ -6,7 +6,9 @@
  * 3. Changing teacher changes classroom changes teacher to that classroom's default    --Resolved
  * 4. Consecutive teachers with the same classroom mess up order!!!                     --Resolved
  * 5. Finish actual cycling of teachers and classrooms for the cycling buttons          --Resolved
- * 6. Add map
+ * 6. Add map                                                                           --Resolved
+ * 7. Make map scroll                                                                   --Resolved
+ * 8. Make data editable
  */
 
 package com.example.newmap;
@@ -29,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Spinner teacherSpinner;
     private Spinner classroomSpinner;
     private TouchImageView map;
-    private final int WIDTH = 3840;
-    private final int HEIGHT = 2160;
+    private final float WIDTH = 3840;
+    private final float HEIGHT = 2160;
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
 
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         classroomObjectArray = teacherClassroomMap.getClassroomObjectArray();
 
         //Set up the actual map of the school
-        map = findViewById(R.id.imageView);
+        map = findViewById(R.id.map);
         map.setMaxZoom(20);
     }
 
@@ -182,6 +184,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {
                 Resources.unfreezeClassroom();
             }
+            float x = ((float)tempClassroom.getX() / WIDTH);
+            float y = ((float)tempClassroom.getY() / HEIGHT);
+
+            map.setZoom(12, x, y);
+
+
         }
         else
         {
