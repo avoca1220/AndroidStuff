@@ -3,8 +3,11 @@ package com.example.newmap;
 import android.util.Log;
 import android.widget.Spinner;
 
+import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Stores all of the bullshit I need (Organization! Put the bad stuff in one place so we don't have
@@ -149,7 +152,7 @@ public abstract class Resources {
                 }
             }
         }
-        Log.d("strings", "Number of teachers: " + Integer.toString(counter));
+        //Log.d("strings", "Number of teachers: " + Integer.toString(counter));
         if(counter > 1)
         {
             return true;
@@ -212,8 +215,8 @@ public abstract class Resources {
                     }
                 }
             }
-            Log.d("strings", Integer.toString(numTeachers) + " teachers share that classroom");
-            Log.d("strings", "Current teacher is number " + Integer.toString(currentAppearance));
+            //Log.d("strings", Integer.toString(numTeachers) + " teachers share that classroom");
+            //Log.d("strings", "Current teacher is number " + Integer.toString(currentAppearance));
 
             if(numTeachers == currentAppearance)
             {
@@ -279,6 +282,25 @@ public abstract class Resources {
             freezeClassroom();
             classroomSpinner.setSelection(targetIndex);
         }
+    }
+
+    public static String[] getFilledClassrooms(String[] orderedByClassroom, String[] orderedByTeacher)
+    {
+        ArrayList<String> output = new ArrayList();
+
+        for(int i = 0; i < orderedByClassroom.length; i ++)
+        {
+            for(int j = 0; j < orderedByTeacher.length; j++)
+            {
+                if(orderedByTeacher[j].equals(orderedByClassroom[i]))
+                {
+                    output.add(orderedByClassroom[i]);
+                    break;
+                }
+            }
+        }
+        String[] array = output.toArray(new String[0]);
+        return array;
     }
 
 

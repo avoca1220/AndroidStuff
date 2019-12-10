@@ -9,6 +9,7 @@
  * 6. Add map                                                                           --Resolved
  * 7. Make map scroll                                                                   --Resolved
  * 8. Make data editable
+ * 9. Crashes on AG2                                                                    --Resolved
  */
 
 package com.example.newmap;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ImageButton teacherCycleButton;
     private ImageButton classroomCycleButton;
 
+    private String[] roomArray;
+
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
     private int counter = -3;
@@ -50,7 +53,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //We're gonna' need this.
+        roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), getResources().getStringArray(R.array.room_array_by_teacher));
+        //roomArray = getResources().getStringArray(R.array.room_array);
 
         //Set up the teacherClassroomMap map
         teacherClassroomMap = new TeacherClassroomMap(
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         classroomSpinner = (Spinner) findViewById(R.id.classroomSpinner);
         ArrayAdapter<String> classroomAdapter = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.room_array));
+                android.R.layout.simple_spinner_item, roomArray);
 
         classroomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         classroomSpinner.setAdapter(classroomAdapter);
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         {
             public void onClick(View v)
             {
-                Resources.swapClassrooms(teacherClassroomMap, classroomSpinner, teacherSpinner, getResources().getStringArray(R.array.room_array));
+                Resources.swapClassrooms(teacherClassroomMap, classroomSpinner, teacherSpinner, roomArray);
             }
         });
 
@@ -117,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             if (parent == teacherSpinner && !Resources.getFreezeTeacher()) {
                 Teacher tempTeacher = Resources.getTeacherByName((String) teacherSpinner.getSelectedItem(), teacherObjectArray);
                 Classroom[] classrooms = teacherClassroomMap.getClassrooms(tempTeacher);
-                int index = Resources.getIndexOfClassroom(classrooms[0], getResources().getStringArray(R.array.room_array));
+                int index = Resources.getIndexOfClassroom(classrooms[0], roomArray);
 
                 counter++;
 
@@ -136,22 +141,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             } else if (parent == classroomSpinner && !Resources.getFreezeClassroom()) {
                 Classroom tempClassroom = classroomObjectArray[classroomSpinner.getSelectedItemPosition()];
-                Teacher tempTeacher = Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap, 0);
-                //Log.d("strings", "Found teacher of " + tempTeacher.getName());
-                int index = Resources.getIndexOfTeacher(tempTeacher, teacherClassroomMap.getTeacherStrings());
-                //Log.d("strings", "Teachers index is: " + Integer.toString(index));
+                Teacher tempTeacher;
 
-                counter++;
+                /*Sometimes we don't have a teacher for a classroom. I don't feel like doing
+                anything neater, so exceptions! Yay!
+                */
 
-                if(((String) teacherSpinner.getSelectedItem()).equals(tempTeacher.getName()))
+                try
                 {
-                    counter = 0;
+                    tempTeacher=Resources.getTeacherFromClassroom(tempClassroom, teacherClassroomMap, 0);
                 }
-                else
+                catch(Exception InvalidParameterException )
                 {
-                    teacherSpinner.setSelection(index);
+                    tempTeacher = null;
+                    classroomSpinner.setPrompt(null);
+                }
+
+                if(tempTeacher != null) {
+                    int index = Resources.getIndexOfTeacher(tempTeacher, teacherClassroomMap.getTeacherStrings());
+
+                    counter++;
+
+                    if (((String) teacherSpinner.getSelectedItem()).equals(tempTeacher.getName())) {
+                        counter = 0;
+                    } else {
+                        teacherSpinner.setSelection(index);
+                    }
                 }
             }
+
 
             //See if classroom has multiple teachers or teacher has multiple classrooms and adjust
             //cycler button visibility accordingly
@@ -176,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 classroomCycleButton.setVisibility(View.INVISIBLE);
             }
 
+            //Janky method of keeping position updater & friends from running when we don't want them to
             if(Resources.getFreezeTeacher())
             {
                 Resources.unfreezeTeacher();
@@ -184,6 +203,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {
                 Resources.unfreezeClassroom();
             }
+
+            //Move map position to proper classroom
             float x = ((float)tempClassroom.getX() / WIDTH);
             float y = ((float)tempClassroom.getY() / HEIGHT);
 

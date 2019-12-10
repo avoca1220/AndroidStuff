@@ -2,7 +2,9 @@ package com.example.newmap;
 
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -13,6 +15,7 @@ public class TeacherClassroomMap {
 
     private String[] teacherArray;
     private String[] classroomArrayByTeacher;
+    private String[] classroomArray;
 
     private int[] xCoords;
     private int[] yCoords;
@@ -35,6 +38,7 @@ public class TeacherClassroomMap {
     {
         this.teacherArray = teacherArray;
         this.classroomArrayByTeacher = classroomArrayByTeacher;
+        this.classroomArray = classroomArray;
 
         teacherObjectArray = Resources.getTeacherObjectArray(teacherArray);
         classroomObjectArray = Resources.getClassroomObjectArray(classroomArray, xCoords, yCoords);
@@ -125,7 +129,22 @@ public class TeacherClassroomMap {
 
     public Classroom[] getClassroomObjectArray()
     {
-        return this.classroomObjectArray;
+        ArrayList<Classroom> output = new ArrayList();
+
+
+
+        for(int i = 0; i < classroomObjectArray.length; i++)
+        {
+            for(int j = 0; j < classroomArrayByTeacher.length; j++)
+            {
+                if (classroomObjectArray[i].getName().equals(classroomArrayByTeacher[j]))
+                {
+                    output.add(classroomObjectArray[i]);
+                    break;
+                }
+            }
+        }
+        return output.toArray(new Classroom[0]);
     }
 
     public String[] getTeacherStrings()
