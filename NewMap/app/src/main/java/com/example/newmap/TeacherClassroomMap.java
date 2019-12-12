@@ -2,6 +2,8 @@ package com.example.newmap;
 
 import android.util.Log;
 
+import org.simpleframework.xml.Element;
+
 import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -12,15 +14,18 @@ import java.util.Set;
 
 public class TeacherClassroomMap {
 
-
+    @Element
     private String[] teacherArray;
+    @Element
     private String[] classroomArrayByTeacher;
+    @Element
     private String[] classroomArray;
 
     private int[] xCoords;
     private int[] yCoords;
 
     private LinkedHashMap<String, String[]> stringMap = new LinkedHashMap<String, String[]>();
+    @Element
     private LinkedHashMap<Teacher, Classroom[]> objectMap = new LinkedHashMap<Teacher ,Classroom[]>();
 
     private Teacher[] teacherObjectArray;
@@ -36,6 +41,7 @@ public class TeacherClassroomMap {
      */
     public TeacherClassroomMap(String[] teacherArray, String[] classroomArrayByTeacher, String[] classroomArray, int[] xCoords, int[] yCoords)
     {
+
         this.teacherArray = teacherArray;
         this.classroomArrayByTeacher = classroomArrayByTeacher;
         this.classroomArray = classroomArray;
@@ -87,6 +93,7 @@ public class TeacherClassroomMap {
             }
 
             objectMap.put(Resources.getTeacherByName(teacherArray[i], teacherObjectArray), temp);
+
         }
 
     }

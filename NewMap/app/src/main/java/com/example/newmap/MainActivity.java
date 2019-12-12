@@ -25,6 +25,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
+import java.io.File;
 import java.lang.reflect.Array;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
+    //*Never mind on the "making it less sloppy" bit. If it ain't broke, don't fix it.
     private int counter = -3;
 
     TeacherClassroomMap teacherClassroomMap;
@@ -113,6 +118,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Set up the actual map of the school
         map = findViewById(R.id.map);
         map.setMaxZoom(20);
+
+
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
