@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private String[] roomArray;
 
+    private Loader loader;
+
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
     //*Never mind on the "making it less sloppy" bit. If it ain't broke, don't fix it.
@@ -58,14 +60,46 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
+        //XML?
+        File directory = getFilesDir();
+        File xml = new File(directory, "example.xml");
+
+        Serializer serializer = new Persister();
+
+        if(!xml.exists())
+        {
+            loader = new Loader(getResources().getStringArray(R.array.teachers_array),
+                    getResources().getStringArray(R.array.room_array_by_teacher));
+            try {
+                serializer.write(loader, xml);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d("string", "Failed to write");
+            }
+        }
+        else
+        {
+            try {
+                loader = serializer.read(Loader.class, xml);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d("strings", "Failed to read");
+            }
+        }
+
+
+
         //We're gonna' need this.
         roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), getResources().getStringArray(R.array.room_array_by_teacher));
         //roomArray = getResources().getStringArray(R.array.room_array);
 
         //Set up the teacherClassroomMap map
         teacherClassroomMap = new TeacherClassroomMap(
-                getResources().getStringArray(R.array.teachers_array),
-                getResources().getStringArray(R.array.room_array_by_teacher),
+                loader.getTeacherArray(),
+                loader.getClassroomArray(),
                 getResources().getStringArray(R.array.room_array),
                 getResources().getIntArray(R.array.x_coordinates),
                 getResources().getIntArray(R.array.y_coordinates));
@@ -108,8 +142,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
 
-
-        teacherClassroomMap.printStrings();
+        //teacherClassroomMap.printStrings();
 
         //Set up the arrays we'll need (we copy the ones from teacherClassroomMap because otherwise it's a bitch)
         teacherObjectArray = teacherClassroomMap.getTeacherObjectArray();
@@ -118,7 +151,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Set up the actual map of the school
         map = findViewById(R.id.map);
         map.setMaxZoom(20);
-
 
     }
 

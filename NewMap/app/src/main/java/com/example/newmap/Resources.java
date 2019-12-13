@@ -108,17 +108,14 @@ public abstract class Resources {
      */
     public static Teacher getTeacherFromClassroom(Classroom classroom, TeacherClassroomMap map, int index) {
         Teacher[] teachers = map.getNoDuplicatesTeacherObjectArray();
-        //Log.d("strings", " ");
-        //Log.d("strings", "Target: " + classroom.getName());
 
         //Return the teacher with the order of appearance from index. Use iterator to do this.
         int iterator = -1;
 
         for (int i = 0; i < teachers.length; i++) {
-            //Log.d("strings", " ");
-            //Log.d("strings", "Teacher: " + teachers[i].getName());
+
             for (int j = 0; j < map.getClassrooms(teachers[i]).length; j++) {
-                //Log.d("strings", "Classroom: " + map.getClassrooms(teachers[i])[j].getName());
+
                 if (map.getClassrooms(teachers[i])[j].getName().equals(classroom.getName())) {
                     iterator++;
                     if (iterator == index)
@@ -152,7 +149,7 @@ public abstract class Resources {
                 }
             }
         }
-        //Log.d("strings", "Number of teachers: " + Integer.toString(counter));
+
         if(counter > 1)
         {
             return true;
@@ -215,8 +212,7 @@ public abstract class Resources {
                     }
                 }
             }
-            //Log.d("strings", Integer.toString(numTeachers) + " teachers share that classroom");
-            //Log.d("strings", "Current teacher is number " + Integer.toString(currentAppearance));
+
 
             if(numTeachers == currentAppearance)
             {
