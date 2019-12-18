@@ -42,4 +42,39 @@ public class Loader {
     }
 
 
+    public void addTeacher(String teacher)
+    {
+        String[] temp = new String[teacherArray.length+1];
+
+        for(int i = 0; i < teacherArray.length; i++)
+        {
+            temp[i] = teacherArray[i];
+        }
+
+        temp[teacherArray.length] = teacher;
+
+        teacherArray = temp;
+    }
+
+    public void addRoom(String room)
+    {
+        String[] temp = new String[classroomArray.length+1];
+
+        for(int i = 0; i < classroomArray.length; i++)
+        {
+            temp[i] = classroomArray[i];
+        }
+
+        temp[classroomArray.length] = room;
+
+        classroomArray = temp;
+    }
+
+    public void addEntry(String teacher, String room)
+    {
+        addTeacher(teacher);
+        addRoom(room);
+    }
+
+
 }

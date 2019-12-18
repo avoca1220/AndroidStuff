@@ -8,8 +8,9 @@
  * 5. Finish actual cycling of teachers and classrooms for the cycling buttons          --Resolved
  * 6. Add map                                                                           --Resolved
  * 7. Make map scroll                                                                   --Resolved
- * 8. Make data editable
+ * 8. Make data editable                                                                --Resolved
  * 9. Crashes on AG2                                                                    --Resolved
+ * 10.Add actual editing screen
  */
 
 package com.example.newmap;
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String[] roomArray;
 
     private Loader loader;
+
+    private String[] teacherArray;
+    private String[] roomArrayByTeacher;
+
 
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
@@ -90,16 +95,33 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
+        loader.addEntry("McBrien", "A6");
 
+        try {
+            serializer.write(loader, xml);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("string", "Failed to write");
+        }
 
-        //We're gonna' need this.
-        roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), getResources().getStringArray(R.array.room_array_by_teacher));
+        //All teachers, editable
+        teacherArray = loader.getTeacherArray();
+        //All filled classrooms, in order of teachers
+        roomArrayByTeacher = loader.getClassroomArray();
+
+        //All filled classrooms in order of classroom
+        roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), roomArrayByTeacher);
         //roomArray = getResources().getStringArray(R.array.room_array);
+
+        for(int i = 0; i < loader.getTeacherArray().length; i++)
+        {
+            Log.d("strings", loader.getTeacherArray()[i]);
+        }
 
         //Set up the teacherClassroomMap map
         teacherClassroomMap = new TeacherClassroomMap(
-                loader.getTeacherArray(),
-                loader.getClassroomArray(),
+                teacherArray,
+                roomArrayByTeacher,
                 getResources().getStringArray(R.array.room_array),
                 getResources().getIntArray(R.array.x_coordinates),
                 getResources().getIntArray(R.array.y_coordinates));
