@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">New Map</string>
+    <string name="app_name">MVHS Map</string>
     <string-array name="teachers_array">
         <item>Andresen</item>
         <item>Andrews</item>

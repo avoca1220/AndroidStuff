@@ -15,10 +15,13 @@
 
 package com.example.newmap;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -64,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        androidx.appcompat.widget.Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setActionBar(myToolbar);
 
 
         //XML?
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        loader.addEntry("McBrien", "A6");
+        //loader.addEntry("McBrien", "A6");
 
         try {
             serializer.write(loader, xml);
@@ -283,5 +286,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     {
 
     }
+
 
 }
