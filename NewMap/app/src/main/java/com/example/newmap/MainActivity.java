@@ -10,7 +10,9 @@
  * 7. Make map scroll                                                                   --Resolved
  * 8. Make data editable                                                                --Resolved
  * 9. Crashes on AG2                                                                    --Resolved
- * 10.Add actual editing screen
+ * 10.Add actual editing screen                                                         --Resolved
+ * 11.Make editing screen edit
+ * 12.Make main screen reload after editing
  */
 
 package com.example.newmap;
@@ -19,9 +21,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,15 +49,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
 
+    ArrayAdapter<String> teacherAdapter;
+    ArrayAdapter<String> classroomAdapter;
+
     private ImageButton teacherCycleButton;
     private ImageButton classroomCycleButton;
 
     private String[] roomArray;
 
-    private Loader loader;
-
     private String[] teacherArray;
     private String[] roomArrayByTeacher;
+
+    private Serializer serializer;
+    private File directory;
+    private File xml;
+    private Loader loader;
+
 
 
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
@@ -67,15 +78,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        androidx.appcompat.widget.Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setActionBar(myToolbar);
-
 
         //XML?
-        File directory = getFilesDir();
-        File xml = new File(directory, "example.xml");
+        directory = getFilesDir();
+        xml = new File(directory, "example.xml");
 
-        Serializer serializer = new Persister();
+        serializer = new Persister();
 
         if(!xml.exists())
         {
@@ -131,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Set up the spinners!
         teacherSpinner = (Spinner) findViewById(R.id.teacherSpinner);
-        ArrayAdapter<String> teacherAdapter = new ArrayAdapter<String>(MainActivity.this,
+        teacherAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, teacherClassroomMap.getTeacherStrings());
 
         teacherAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -139,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         teacherSpinner.setOnItemSelectedListener(this);
 
         classroomSpinner = (Spinner) findViewById(R.id.classroomSpinner);
-        ArrayAdapter<String> classroomAdapter = new ArrayAdapter<String>(MainActivity.this,
+       classroomAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, roomArray);
 
         classroomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -287,5 +295,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+
+    //Hit 'dat settings button
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+        return true;
+    }
 }
