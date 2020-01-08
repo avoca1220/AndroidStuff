@@ -106,14 +106,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
 
-        //loader.addEntry("McBrien", "A6");
 
+        /*
+        Why is this here?
         try {
             serializer.write(loader, xml);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("string", "Failed to write");
+            Log.d("strings", "Failed to write");
         }
+        */
 
         //All teachers, editable
         teacherArray = loader.getTeacherArray();
@@ -147,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         teacherSpinner.setOnItemSelectedListener(this);
 
         classroomSpinner = (Spinner) findViewById(R.id.classroomSpinner);
-       classroomAdapter = new ArrayAdapter<String>(MainActivity.this,
+        classroomAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_spinner_item, roomArray);
 
         classroomAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -297,8 +299,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
-        // If you don't have res/menu, just create a directory named "menu" inside res
         getMenuInflater().inflate(R.menu.settings, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -310,4 +310,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         return true;
     }
+
+    /*
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        this.onCreate(null);
+    }
+    */
+
+
+
 }
