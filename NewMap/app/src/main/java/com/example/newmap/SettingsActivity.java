@@ -28,10 +28,12 @@ public class SettingsActivity extends AppCompatActivity {
         Log.d("strings", "Creating settings!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-        getSupportFragmentManager()
+        /*getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.settings, new SettingsFragment())
                 .commit();
+
+         */
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -46,16 +48,12 @@ public class SettingsActivity extends AppCompatActivity {
         try {
             loader = serializer.read(Loader.class, xml);
             Log.d("string", "Read successfully!");
-            for(int i = 0; i < loader.getClassroomArray().length; i++)
-            {
-                Log.d("strings", loader.getClassroomArray()[i]);
-            }
         } catch (Exception e) {
             e.printStackTrace();
             Log.d("strings", "Failed to read");
         }
 
-        loader.addEntry("McBrien", "A6");
+        loader.addEntry("Andresen", "D6");
 
 
         //Write changes
@@ -76,8 +74,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        recreate();
-        //finish();
+        //recreate();
+        finish();
         return true;
     }
 }

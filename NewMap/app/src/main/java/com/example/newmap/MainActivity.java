@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private File xml;
     private Loader loader;
 
-
+    private boolean shouldRestart;
 
     //Make this less sloppy! Accounts for three "onItemSelected" bits that get run at beginning of
     //program
@@ -126,10 +126,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), roomArrayByTeacher);
         //roomArray = getResources().getStringArray(R.array.room_array);
 
-        for(int i = 0; i < loader.getTeacherArray().length; i++)
-        {
-            Log.d("strings", loader.getTeacherArray()[i]);
-        }
 
         //Set up the teacherClassroomMap map
         teacherClassroomMap = new TeacherClassroomMap(
@@ -186,6 +182,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Set up the actual map of the school
         map = findViewById(R.id.map);
         map.setMaxZoom(20);
+
+        shouldRestart = false;
 
     }
 
@@ -311,14 +309,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
-    /*
+
     @Override
     protected void onResume()
     {
+
         super.onResume();
-        this.onCreate(null);
+        Log.d("strings", "resuming");
+
+        if(shouldRestart)
+        {
+            Log.d("strings", "reloading");
+            this.recreate();
+        }
     }
-    */
+
+    @Override
+    protected void onPause()
+    {
+        Log.d("string", "Will restart");
+        super.onPause();
+        shouldRestart = true;
+    }
+
 
 
 
