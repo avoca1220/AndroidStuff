@@ -44,8 +44,8 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toStartOf="@+id/classroomSpinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/spinner_style" />
+        app:layout_constraintTop_toTopOf="parent"/>
+        <!--style="@style/spinner_style"-->
 
 
     <Spinner
@@ -58,8 +58,8 @@
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/teacherSpinner"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/spinner_style" />
+        app:layout_constraintTop_toTopOf="parent"/>
+        <!--style="@style/spinner_style"-->
 
     <ImageButton
         android:id="@+id/teacherCycleButton"
@@ -82,6 +82,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/classroomSpinner"
         app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

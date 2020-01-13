@@ -4,22 +4,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.Text;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Serializer serializer;
     private File directory;
     private File xml;
     private Loader loader;
+    private LinearLayout ll;
+    private String[] teacherArray;
+    private String[] classroomArray;
+    private TableLayout tb;
 
 
     @Override
@@ -63,19 +76,56 @@ public class SettingsActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.d("strings", "Failed to write");
         }
+
+        tb = (TableLayout) findViewById(R.id.tb);
+
+        teacherArray = loader.getTeacherArray();
+        classroomArray = loader.getClassroomArray();
+
+        TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
+
+        for(int i = 0; i < teacherArray.length; i++)
+        {
+            TextView tv1 = new TextView(getApplicationContext());
+            TextView tv2 = new TextView(getApplicationContext());
+            Button bt = new Button(getApplicationContext());
+            tv1.setText(teacherArray[i]);
+            tv2.setText(classroomArray[i]);
+            bt.setId(i);
+            bt.setOnClickListener(this);
+
+            TableRow row = new TableRow(getApplicationContext());
+            row.addView(tv1);
+            row.addView(tv2);
+            tb.addView(row, i);
+        }
+
+
+
+
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
+    /*public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
         }
     }
+    */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //recreate();
         finish();
         return true;
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+    {
+
+    }
+    public void onNothingSelected(AdapterView<?> parent)
+    {
+
     }
 }
