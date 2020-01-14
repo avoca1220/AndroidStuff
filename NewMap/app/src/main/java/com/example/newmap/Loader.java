@@ -76,5 +76,33 @@ public class Loader {
         addRoom(room);
     }
 
+    public void removeEntry(int index)
+    {
+        String[] tempTeacher = new String[teacherArray.length-1];
+        String[] tempClassroom = new String[classroomArray.length-1];
+
+        for(int i = 0; i < index; i++)
+        {
+            tempTeacher[i] = teacherArray[i];
+        }
+        for(int i = index+1; i < teacherArray.length; i++)
+        {
+            tempTeacher[i-1] = teacherArray[i];
+        }
+
+        for(int i = 0; i < index; i++)
+        {
+            tempClassroom[i] = classroomArray[i];
+        }
+        for(int i = index+1; i < classroomArray.length; i++)
+        {
+            tempClassroom[i-1] = classroomArray[i];
+        }
+
+        teacherArray = tempTeacher;
+        classroomArray = tempClassroom;
+    }
+
+
 
 }

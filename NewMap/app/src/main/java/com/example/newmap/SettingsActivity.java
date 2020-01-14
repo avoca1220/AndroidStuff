@@ -3,6 +3,7 @@ package com.example.newmap;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,7 +24,7 @@ import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 
-public class SettingsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Serializer serializer;
     private File directory;
@@ -66,7 +67,7 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
             Log.d("strings", "Failed to read");
         }
 
-        loader.addEntry("Andresen", "D6");
+        //loader.addEntry("Andresen", "D6");
 
 
         //Write changes
@@ -82,7 +83,8 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
         teacherArray = loader.getTeacherArray();
         classroomArray = loader.getClassroomArray();
 
-        TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
+        //TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,TableRow.LayoutParams.FILL_PARENT, 1);
 
         for(int i = 0; i < teacherArray.length; i++)
         {
@@ -90,13 +92,17 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
             TextView tv2 = new TextView(getApplicationContext());
             Button bt = new Button(getApplicationContext());
             tv1.setText(teacherArray[i]);
+            tv1.setLayoutParams(lp);
             tv2.setText(classroomArray[i]);
+            tv2.setLayoutParams(lp);
             bt.setId(i);
+            bt.setLayoutParams(lp);
             bt.setOnClickListener(this);
 
             TableRow row = new TableRow(getApplicationContext());
             row.addView(tv1);
             row.addView(tv2);
+            row.addView(bt);
             tb.addView(row, i);
         }
 
@@ -115,17 +121,37 @@ public class SettingsActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //recreate();
-        finish();
+        //startActivity(new Intent(SettingsActivity.this, ShowPopUp.class));
+        if (getResources().getResourceEntryName(item.getItemId()).equals("action_menu"))
+        {
+            Log.d("strings", "Clicked eem.");
+        }
+        else{
+            finish();
+        }
         return true;
     }
 
-    public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
+    @Override
+    public void onClick(View v)
     {
+        Log.d("strings", Integer.toString(v.getId()));
+        loader.removeEntry(v.getId());
 
-    }
-    public void onNothingSelected(AdapterView<?> parent)
-    {
+        try {
+            serializer.write(loader, xml);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("strings", "Failed to write");
+        }
 
+        recreate();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }

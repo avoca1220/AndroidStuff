@@ -3,8 +3,8 @@
 
     <!-- Settings, should always be in the overflow-->
     <item
-        android:id="@+id/action_menu"
-        android:icon="@android:drawable/ic_menu_add"
+        android:id="@+id/action_settings"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
         android:title="Settings"
         app:showAsAction="ifRoom" />
 
