@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.simpleframework.xml.Serializer;
@@ -34,6 +35,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private String[] teacherArray;
     private String[] classroomArray;
     private TableLayout tb;
+    private boolean shouldRestart = false;
 
 
     @Override
@@ -124,7 +126,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         //startActivity(new Intent(SettingsActivity.this, ShowPopUp.class));
         if (getResources().getResourceEntryName(item.getItemId()).equals("action_menu"))
         {
-            Log.d("strings", "Clicked eem.");
+            startActivity(new Intent(SettingsActivity.this, Entry.class));
         }
         else{
             finish();
@@ -152,6 +154,29 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    protected void onResume()
+    {
+
+        super.onResume();
+        Log.d("strings", "settings resuming");
+
+        if(shouldRestart)
+        {
+            Log.d("strings", "settings reloading");
+            this.recreate();
+        }
+    }
+
+
+    @Override
+    protected void onPause()
+    {
+        Log.d("string", "settings will restart");
+        super.onPause();
+        shouldRestart = true;
     }
 
 }
