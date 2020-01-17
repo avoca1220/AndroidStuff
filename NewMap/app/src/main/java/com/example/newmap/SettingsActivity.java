@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
@@ -86,13 +87,18 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         classroomArray = loader.getClassroomArray();
 
         //TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
-        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,TableRow.LayoutParams.FILL_PARENT, 1);
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
+        lp.setMargins(5, 30, 5, 30);
+
+        TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
+        bp.setMargins(5, 30, 5, 30);
+        
 
         for(int i = 0; i < teacherArray.length; i++)
         {
             TextView tv1 = new TextView(getApplicationContext());
             TextView tv2 = new TextView(getApplicationContext());
-            Button bt = new Button(getApplicationContext());
+            ImageButton bt = new ImageButton(getApplicationContext());
             tv1.setText(teacherArray[i]);
             tv1.setLayoutParams(lp);
             tv2.setText(classroomArray[i]);
@@ -100,11 +106,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             bt.setId(i);
             bt.setLayoutParams(lp);
             bt.setOnClickListener(this);
-
             TableRow row = new TableRow(getApplicationContext());
+            row.setLayoutParams(lp);
             row.addView(tv1);
             row.addView(tv2);
             row.addView(bt);
+
             tb.addView(row, i);
         }
 

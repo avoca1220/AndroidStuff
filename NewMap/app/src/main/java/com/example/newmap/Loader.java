@@ -56,6 +56,25 @@ public class Loader {
         teacherArray = temp;
     }
 
+    public void addTeacher(String teacher, int index)
+    {
+        String[] temp = new String[teacherArray.length+1];
+
+        for(int i = 0; i < index; i++)
+        {
+            temp[i] = teacherArray[i];
+        }
+
+        temp[index] = teacher;
+
+        for(int i = index; i < teacherArray.length; i++)
+        {
+            temp[i+1] = teacherArray[i];
+        }
+
+        teacherArray = temp;
+    }
+
     public void addRoom(String room)
     {
         String[] temp = new String[classroomArray.length+1];
@@ -70,10 +89,36 @@ public class Loader {
         classroomArray = temp;
     }
 
+    public void addRoom(String room, int index)
+    {
+        String[] temp = new String[classroomArray.length+1];
+
+        for(int i = 0; i < index; i++)
+        {
+            temp[i] = classroomArray[i];
+        }
+
+        temp[index] = room;
+
+        for(int i = index; i < classroomArray.length; i++)
+        {
+            temp[i+1] = classroomArray[i];
+        }
+
+        classroomArray = temp;
+    }
+
     public void addEntry(String teacher, String room)
     {
-        addTeacher(teacher);
-        addRoom(room);
+        for(int i = 0; i < teacherArray.length; i++)
+        {
+            if(teacher.compareTo(teacherArray[i]) < 0)
+            {
+                addTeacher(teacher, i);
+                addRoom(room, i);
+                break;
+            }
+        }
     }
 
     public void removeEntry(int index)

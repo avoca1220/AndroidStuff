@@ -11,8 +11,9 @@
  * 8. Make data editable                                                                --Resolved
  * 9. Crashes on AG2                                                                    --Resolved
  * 10.Add actual editing screen                                                         --Resolved
- * 11.Make editing screen edit
- * 12.Make main screen reload after editing
+ * 11.Make editing screen edit                                                          --Resolved
+ * 12.Make main screen reload after editing                                             --Resolved
+ * 13.Keep teacher in order
  */
 
 package com.example.newmap;
