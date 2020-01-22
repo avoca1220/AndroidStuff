@@ -1,6 +1,9 @@
 package com.example.newmap;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
@@ -18,6 +22,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.simpleframework.xml.Serializer;
@@ -26,6 +31,7 @@ import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
 
+@TargetApi(16)
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Serializer serializer;
@@ -89,10 +95,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         //TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
         lp.setMargins(5, 30, 5, 30);
+        lp.height=50;
 
         TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
-        bp.setMargins(5, 30, 5, 30);
-        
+        //bp.setMargins(5, 30, 5, 30);
+        bp.height=50;
+        bp.width=50;
+
+
 
         for(int i = 0; i < teacherArray.length; i++)
         {
@@ -104,15 +114,21 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             tv2.setText(classroomArray[i]);
             tv2.setLayoutParams(lp);
             bt.setId(i);
-            bt.setLayoutParams(lp);
+            bt.setLayoutParams(bp);
+            //bt.setMaxHeight(5);
+            //bt.setMaxWidth(5);
             bt.setOnClickListener(this);
+            //bt.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.delete, null));
             TableRow row = new TableRow(getApplicationContext());
             row.setLayoutParams(lp);
             row.addView(tv1);
             row.addView(tv2);
             row.addView(bt);
-
+            row.setId(i);
             tb.addView(row, i);
+
+
+            bt.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.delete, null));
         }
 
 
