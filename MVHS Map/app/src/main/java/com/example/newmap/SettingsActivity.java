@@ -97,10 +97,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         lp.setMargins(5, 30, 5, 30);
         lp.height=50;
 
-        TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
+        TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0);
         //bp.setMargins(5, 30, 5, 30);
-        bp.height=50;
-        bp.width=50;
+        //bp.height=50;
+        //bp.width=50;
 
 
 
@@ -128,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             tb.addView(row, i);
 
 
-            bt.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.delete, null));
+            bt.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.clear_grey, null));
         }
 
 

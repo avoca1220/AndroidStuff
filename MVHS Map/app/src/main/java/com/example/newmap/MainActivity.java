@@ -13,7 +13,10 @@
  * 10.Add actual editing screen                                                         --Resolved
  * 11.Make editing screen edit                                                          --Resolved
  * 12.Make main screen reload after editing                                             --Resolved
- * 13.Keep teacher in order
+ * 13.Keep teacher in order                                                             --Resolved
+ * 14.Fix glitch that corrupts xml when adding with blank fields                        --Resolved
+ * 15.Make pretty                                                                       --Arguable
+ * 16.Stop crashing when everybody is deleted
  */
 
 package com.example.newmap;
@@ -118,10 +121,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         */
 
-        //All teachers, editable
-        teacherArray = loader.getTeacherArray();
-        //All filled classrooms, in order of teachers
-        roomArrayByTeacher = loader.getClassroomArray();
+        //In case xml is corrupt
+        try {
+            //All teachers, editable
+            teacherArray = loader.getTeacherArray();
+            //All filled classrooms, in order of teachers
+            roomArrayByTeacher = loader.getClassroomArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            loader = new Loader(getResources().getStringArray(R.array.teachers_array),
+                    getResources().getStringArray(R.array.room_array_by_teacher));
+            //All teachers, editable
+            teacherArray = loader.getTeacherArray();
+            //All filled classrooms, in order of teachers
+            roomArrayByTeacher = loader.getClassroomArray();
+            try {
+                serializer.write(loader, xml);
+            } catch (Exception i) {
+                i.printStackTrace();
+                Log.d("string", "Failed to write");
+            }
+        }
 
         //All filled classrooms in order of classroom
         roomArray = Resources.getFilledClassrooms(getResources().getStringArray(R.array.room_array), roomArrayByTeacher);

@@ -84,14 +84,17 @@ public class Entry extends AppCompatActivity implements AdapterView.OnItemSelect
             {
                 String tempString = teacherName.getText().toString();
                 String tempString2 = (String) classroomSpinner.getSelectedItem();
-                loader.addEntry(tempString, tempString2);
-                try {
-                    serializer.write(loader, xml);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.d("string", "Failed to write");
+
+                if(!tempString.equals("")) {
+                    loader.addEntry(tempString, tempString2);
+                    try {
+                        serializer.write(loader, xml);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Log.d("string", "Failed to write");
+                    }
+                    finish();
                 }
-                finish();
             }
         });
 

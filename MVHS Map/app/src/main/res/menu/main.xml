@@ -4,7 +4,7 @@
     <!-- Settings, should always be in the overflow-->
     <item
         android:id="@+id/action_settings"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:icon="@drawable/baseline_menu_white_18dp"
         android:title="Settings"
         app:showAsAction="ifRoom" />
 
