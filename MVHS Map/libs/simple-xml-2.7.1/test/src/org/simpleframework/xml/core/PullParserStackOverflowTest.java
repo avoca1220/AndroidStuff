@@ -17,11 +17,11 @@ public class PullParserStackOverflowTest extends ValidationTestCase {
    
    private static final String BROKEN_ROOT_COMPLETE = 
    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-   "level number='10'><text>example text</text></level>"; 
+   "level number='10'><text>caleb text</text></level>";
    
    private static final String BROKEN_ELEMENT_COMPLETE = 
    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-   "<level number='10'>text>example text</text></level>"; 
+   "<level number='10'>text>caleb text</text></level>";
    
    @Root(name = "level")
    public static class Level {

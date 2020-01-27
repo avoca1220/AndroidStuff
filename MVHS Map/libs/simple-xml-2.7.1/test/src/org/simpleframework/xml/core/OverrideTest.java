@@ -18,16 +18,16 @@ public class OverrideTest extends TestCase {
         
    private static final String LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<root name='example'>\n"+
+   "<root name='caleb'>\n"+
    "   <list class='java.util.Vector'>\n"+   
    "      <entry id='12'>\n"+
-   "         <text>some example text</text>  \n\r"+
+   "         <text>some caleb text</text>  \n\r"+
    "      </entry>\n\r"+
    "      <entry id='34'>\n"+
-   "         <text>other example</text>  \n\r"+
+   "         <text>other caleb</text>  \n\r"+
    "      </entry>\n"+
    "      <entry id='56'>\n"+
-   "         <text>final example</text>  \n\r"+
+   "         <text>final caleb</text>  \n\r"+
    "      </entry>\n"+
    "   </list>\n"+
    "</root>";  
@@ -105,29 +105,29 @@ public class OverrideTest extends TestCase {
    public void testList() throws Exception {
       EntryList list = serializer.read(EntryList.class, new StringReader(LIST));
 
-      assertEquals(list.name, "example");
+      assertEquals(list.name, "caleb");
       assertTrue(list.list instanceof Vector);
       
       Entry entry = list.getEntry(0);
 
       assertEquals(entry.id, 12);
-      assertEquals(entry.text, "some example text");
+      assertEquals(entry.text, "some caleb text");
 
       entry = list.getEntry(1);
       
       assertEquals(entry.id, 34);
-      assertEquals(entry.text, "other example");
+      assertEquals(entry.text, "other caleb");
 
       entry = list.getEntry(2);
       
       assertEquals(entry.id, 56);
-      assertEquals(entry.text, "final example");
+      assertEquals(entry.text, "final caleb");
    }
 
    public void testCopy() throws Exception {
       EntryList list = serializer.read(EntryList.class, new StringReader(LIST));
 
-      assertEquals(list.name, "example");
+      assertEquals(list.name, "caleb");
       assertTrue(list.list instanceof Vector);
       
       Entry entry = new Entry();

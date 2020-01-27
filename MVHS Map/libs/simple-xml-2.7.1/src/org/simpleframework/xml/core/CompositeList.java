@@ -35,10 +35,10 @@ import org.simpleframework.xml.stream.OutputNode;
  *
  *    &lt;list&gt;
  *       &lt;entry attribute="value"&gt;
- *          &lt;text&gt;example text value&lt;/text&gt;
+ *          &lt;text&gt;caleb text value&lt;/text&gt;
  *       &lt;/entry&gt;
  *       &lt;entry attribute="demo"&gt;
- *          &lt;text&gt;some other example&lt;/text&gt;
+ *          &lt;text&gt;some other caleb&lt;/text&gt;
  *       &lt;/entry&gt;
  *    &lt;/list&gt;
  * 

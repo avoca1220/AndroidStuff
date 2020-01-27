@@ -23,9 +23,9 @@ public class VersionTest extends TestCase {
    private static final String VERSION_2 =
    "<?xml version=\"1.0\"?>\n"+
    "<Example version='2.0'>\n"+
-   "   <name>example name</name>  \n\r"+
+   "   <name>caleb name</name>  \n\r"+
    "   <value>text value</value> \n"+
-   "   <entry name='example'>\n"+   
+   "   <entry name='caleb'>\n"+
    "      <value>text value</value> \n"+   
    "   </entry>\n"+
    "   <ignore>ignore this element</ignore>\n"+

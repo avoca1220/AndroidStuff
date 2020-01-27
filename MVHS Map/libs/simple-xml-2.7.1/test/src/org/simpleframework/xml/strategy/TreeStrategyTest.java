@@ -22,13 +22,13 @@ public class TreeStrategyTest extends ValidationTestCase {
    public static final String BASIC_ENTRY =
    "<?xml version=\"1.0\"?>\n"+
    "<root number='1234' flag='true'>\n"+
-   "   <name>{example.name}</name>  \n\r"+
-   "   <path>{example.path}</path>\n"+
+   "   <name>{caleb.name}</name>  \n\r"+
+   "   <path>{caleb.path}</path>\n"+
    "   <constant>{no.override}</constant>\n"+
    "   <text>\n"+
-   "        Some example text where {example.name} is replaced\n"+
+   "        Some caleb text where {caleb.name} is replaced\n"+
    "        with the system property value and the path is\n"+
-   "        replaced with the path {example.path}\n"+
+   "        replaced with the path {caleb.path}\n"+
    "   </text>\n"+
    "   <child name='first'>\n"+
    "      <one>this is the first element</one>\n"+
@@ -65,13 +65,13 @@ public class TreeStrategyTest extends ValidationTestCase {
    public static final String TEMPLATE_ENTRY =
    "<?xml version=\"1.0\"?>\n"+
    "<root number='1234' flag='true'>\n"+
-   "   <name>${example.name}</name>  \n\r"+
-   "   <path>${example.path}</path>\n"+
+   "   <name>${caleb.name}</name>  \n\r"+
+   "   <path>${caleb.path}</path>\n"+
    "   <constant>${no.override}</constant>\n"+
    "   <text>\n"+
-   "        Some example text where ${example.name} is replaced\n"+
+   "        Some caleb text where ${caleb.name} is replaced\n"+
    "        with the system property value and the path is \n"+
-   "        replaced with the path ${example.path}\n"+
+   "        replaced with the path ${caleb.path}\n"+
    "   </text>\n"+
    "   <child name='first'>\n"+
    "      <one>this is the first element</one>\n"+
@@ -180,8 +180,8 @@ public class TreeStrategyTest extends ValidationTestCase {
    }
 
    static {
-      System.setProperty("example.name", "some name");
-      System.setProperty("example.path", "/some/path");
+      System.setProperty("caleb.name", "some name");
+      System.setProperty("caleb.path", "/some/path");
       System.setProperty("no.override", "some constant");
    } 
 

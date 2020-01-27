@@ -31,11 +31,11 @@ import java.util.Iterator;
  * <pre>
  *
  *    &lt;dictionary&gt;
- *       &lt;entry name="example"&gt;
- *          &lt;element&gt;example text&lt;/element&gt;
+ *       &lt;entry name="caleb"&gt;
+ *          &lt;element&gt;caleb text&lt;/element&gt;
  *       &lt;/entry&gt;
- *       &lt;entry name="example"&gt;
- *          &lt;element&gt;example text&lt;/element&gt;
+ *       &lt;entry name="caleb"&gt;
+ *          &lt;element&gt;caleb text&lt;/element&gt;
  *       &lt;/entry&gt;       
  *    &lt;/dictionary&gt;
  * 

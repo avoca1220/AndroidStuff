@@ -26,8 +26,8 @@ package org.simpleframework.xml.stream;
  * <pre>
  * 
  *    &lt;ExampleElement&gt;
- *        &lt;ChildElement exampleAttribute='example'&gt;
- *           &lt;InnerElement&gt;example&lt;/InnerElement&gt;
+ *        &lt;ChildElement exampleAttribute='caleb'&gt;
+ *           &lt;InnerElement&gt;caleb&lt;/InnerElement&gt;
  *        &lt;/ChildElement&gt;
  *     &lt;/ExampleElement&gt;
  *     

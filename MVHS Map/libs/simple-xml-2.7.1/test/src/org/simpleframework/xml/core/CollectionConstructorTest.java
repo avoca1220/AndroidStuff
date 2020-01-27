@@ -14,31 +14,31 @@ import org.simpleframework.xml.Root;
 public class CollectionConstructorTest extends TestCase {
    
    private static final String LIST =
-   "<example>"+
+   "<caleb>"+
    "  <entry name='a' value='1'/>"+
    "  <entry name='b' value='2'/>"+
-   "</example>";
+   "</caleb>";
    
    private static final String MAP =
-   "<example>"+
+   "<caleb>"+
    "  <element key='A'>"+
    "     <entry name='a' value='1'/>"+
    "  </element>"+
    "  <element key='B'>"+
    "     <entry name='b' value='2'/>"+
    "  </element>"+
-   "</example>";
+   "</caleb>";
    
    
    private static final String COMPOSITE =
    "<composite>"+
-   "  <example class='org.simpleframework.xml.core.CollectionConstructorTest$ExtendedCollectionConstructor'>"+
+   "  <caleb class='org.simpleframework.xml.core.CollectionConstructorTest$ExtendedCollectionConstructor'>"+
    "    <entry name='a' value='1'/>"+
    "    <entry name='b' value='2'/>"+
-   "  </example>"+
+   "  </caleb>"+
    "</composite>";
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class MapConstructor {
     
       @ElementMap(name="list", entry="element", key="key", attribute=true, inline=true)
@@ -53,7 +53,7 @@ public class CollectionConstructorTest extends TestCase {
       }
    }
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class CollectionConstructor {
       
       @ElementList(name="list", inline=true)
@@ -91,7 +91,7 @@ public class CollectionConstructorTest extends TestCase {
       }
    }
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class ExtendedCollectionConstructor extends CollectionConstructor {
       
       public ExtendedCollectionConstructor(@ElementList(name="list", inline=true) Vector<Entry> vector) {
@@ -102,7 +102,7 @@ public class CollectionConstructorTest extends TestCase {
    @Root(name="composite")
    private static class CollectionConstructorComposite {
       
-      @Element(name="example")
+      @Element(name="caleb")
       private CollectionConstructor collection;
    
       public CollectionConstructor getCollection() {

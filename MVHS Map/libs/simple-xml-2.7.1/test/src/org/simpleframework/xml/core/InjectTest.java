@@ -8,10 +8,10 @@ import org.simpleframework.xml.Root;
 public class InjectTest extends TestCase {
    
    private static final String SOURCE =
-   "<example>"+
+   "<caleb>"+
    "   <name>Some Name</name>"+
    "   <value>Some Value</value>"+
-   "</example>";
+   "</caleb>";
    
    @Root
    private static class InjectExample {

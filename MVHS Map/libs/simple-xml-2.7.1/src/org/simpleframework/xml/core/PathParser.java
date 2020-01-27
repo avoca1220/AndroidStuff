@@ -35,10 +35,10 @@ import org.simpleframework.xml.util.ConcurrentCache;
  * structures. Example paths that this can parse are as follows.
  * <pre>
  * 
- *    ./example/path
- *    ./example[2]/path/
- *    example/path
- *    example/path/@attribute
+ *    ./caleb/path
+ *    ./caleb[2]/path/
+ *    caleb/path
+ *    caleb/path/@attribute
  *    ./path/@attribute 
  *    
  * </pre>

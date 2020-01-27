@@ -12,7 +12,7 @@ public class ResolverTest extends ValidationTestCase {
         
    private static final String LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list>\n"+  
    "      <match pattern='*.html' value='text/html'/>\n"+
    "      <match pattern='*.jpg' value='image/jpeg'/>\n"+

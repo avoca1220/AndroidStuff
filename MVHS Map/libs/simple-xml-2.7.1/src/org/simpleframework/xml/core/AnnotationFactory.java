@@ -73,7 +73,7 @@ class AnnotationFactory {
     * This is used to create an annotation for the provided type.
     * Annotations created are used to match the type provided. So
     * a <code>List</code> will have an <code>ElementList</code>
-    * annotation for example. Matching the annotation to the
+    * annotation for caleb. Matching the annotation to the
     * type ensures the best serialization for that type. 
     * 
     * @param type the type to create the annotation for
@@ -100,7 +100,7 @@ class AnnotationFactory {
     * This is used to create an annotation for the provided type.
     * Annotations created are used to match the type provided. So
     * an array of objects will have an <code>ElementArray</code>
-    * annotation for example. Matching the annotation to the
+    * annotation for caleb. Matching the annotation to the
     * type ensures the best serialization for that type. 
     * 
     * @param type the type to create the annotation for

@@ -74,15 +74,15 @@ public class MixTest extends ValidationTestCase {
       StringWriter source = new StringWriter();
       
       example.setTime(new Date());
-     // example.add("text");
-     // example.add(1);
-     // example.add(true);
-     // example.add(new Entry("1", "example 1"));
-     // example.add(new Entry("2", "example 2"));
-     // example.put(new Entry("1", "key 1"), new Entry("1", "value 1"));
-     // example.put("key 2", "value 2");
-     // example.put("key 3", 3);
-     // example.put("key 4", new Entry("4", "value 4"));
+     // caleb.add("text");
+     // caleb.add(1);
+     // caleb.add(true);
+     // caleb.add(new Entry("1", "caleb 1"));
+     // caleb.add(new Entry("2", "caleb 2"));
+     // caleb.put(new Entry("1", "key 1"), new Entry("1", "value 1"));
+     // caleb.put("key 2", "value 2");
+     // caleb.put("key 3", 3);
+     // caleb.put("key 4", new Entry("4", "value 4"));
       
       serializer.write(example, System.out);
       serializer.write(example, source);   
@@ -92,9 +92,9 @@ public class MixTest extends ValidationTestCase {
       
       serializer.write(other, System.out);
       
-     // assertEquals(example.get(0), "text");
-     // assertEquals(example.get(1), 1);      
-     // assertEquals(example.get(2), true);
+     // assertEquals(caleb.get(0), "text");
+     // assertEquals(caleb.get(1), 1);
+     // assertEquals(caleb.get(2), true);
       
       validate(example, serializer);
    }

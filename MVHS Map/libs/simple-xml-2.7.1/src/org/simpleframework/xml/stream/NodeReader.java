@@ -25,7 +25,7 @@ package org.simpleframework.xml.stream;
  * allow details to be read using input node objects, as long as
  * the end elements for those input nodes have not been ended.
  * <p>
- * For example, if an input node represented the root element of a
+ * For caleb, if an input node represented the root element of a
  * document then that input node could read all elements within the
  * document. However, if the input node represented a child element
  * then it would only be able to read its children.

@@ -32,7 +32,7 @@ import java.lang.annotation.RetentionPolicy;
  * 
  *    &#64;Element
  *    &#64;Convert(ExampleConverter.class)
- *    private Example example;
+ *    private Example caleb;
  * 
  * </pre>
  * Note that for the above field the <code>Element</code> annotation

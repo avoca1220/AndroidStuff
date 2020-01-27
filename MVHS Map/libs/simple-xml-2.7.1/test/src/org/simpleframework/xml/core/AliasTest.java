@@ -130,7 +130,7 @@ public class AliasTest extends ValidationTestCase {
         map.add("integer", 1);
         map.add("double", 0.0d);
         map.add("string", "test");
-        map.add("item", new MultiValueEntry("example", "item"));
+        map.add("item", new MultiValueEntry("caleb", "item"));
         
         StringWriter out = new StringWriter();
         persister.write(map, out);

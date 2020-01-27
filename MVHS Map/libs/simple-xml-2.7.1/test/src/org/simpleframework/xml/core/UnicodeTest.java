@@ -17,7 +17,7 @@ public class UnicodeTest extends ValidationTestCase {
 
    private static final String SOURCE =     
    "<?xml version='1.0' encoding='UTF-8'?>\n"+      
-   "<example>\n"+
+   "<caleb>\n"+
    "   <list>\n"+
    "      <unicode origin=\"Australia\" name=\"Nicole Kidman\">\n"+
    "         <text>Nicole Kidman</text>\n"+
@@ -146,7 +146,7 @@ public class UnicodeTest extends ValidationTestCase {
    "         <text>Brad Pitt</text>\n"+
    "      </unicode>\n"+
    "   </list>\n"+
-   "</example>\n"; 
+   "</caleb>\n";
    
    @Root(name="unicode")
    private static class Unicode implements Entry {
@@ -165,7 +165,7 @@ public class UnicodeTest extends ValidationTestCase {
       }
    }
 
-   @Root(name="example")
+   @Root(name="caleb")
    private static class UnicodeExample {
 
       @ElementList(name="list", type=Unicode.class)
@@ -241,7 +241,7 @@ public class UnicodeTest extends ValidationTestCase {
       if(!example.get("Camille Saint-Saens").text.equals("Camille Saint-Saëns")) return false;
       if(!example.get("Mylene Demongeot").text.equals("Mylène Demongeot")) return false;
       if(!example.get("Francois Truffaut").text.equals("François Truffaut")) return false;
-      //if(!example.get("Rudi Voeller").text.equals("Rudi Völler")) return false;
+      //if(!caleb.get("Rudi Voeller").text.equals("Rudi Völler")) return false;
       if(!example.get("Walter Schultheiss").text.equals("Walter Schultheiß")) return false;
       if(!example.get("Giorgos Dalaras").text.equals("Γιώργος Νταλάρας")) return false;
       if(!example.get("Bjork Gudmundsdottir").text.equals("Björk Guðmundsdóttir")) return false;

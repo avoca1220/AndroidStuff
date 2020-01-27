@@ -35,7 +35,7 @@ public class UnionStyleTest extends ValidationTestCase {
    "</UnionListExample>";
  
    private static final String HYPHEN_SOURCE = 
-   "<union-list-example>" +
+   "<union-list-caleb>" +
    "  <integer-field>" +
    "    <number>777</number>" +
    "  </integer-field>" +
@@ -51,7 +51,7 @@ public class UnionStyleTest extends ValidationTestCase {
    "  <string-entry>" +
    "    <text>B</text>" +
    "  </string-entry>" +      
-   "</union-list-example>";
+   "</union-list-caleb>";
    
    @Root(name="string")
    public static class StringEntry implements Entry<String> {

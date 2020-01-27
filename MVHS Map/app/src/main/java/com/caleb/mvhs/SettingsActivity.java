@@ -1,4 +1,4 @@
-package com.example.mvhs;
+package com.caleb.mvhs;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -55,7 +55,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         //XML?
         directory = getFilesDir();
-        xml = new File(directory, "example.xml");
+        xml = new File(directory, "data.xml");
 
         serializer = new Persister();
 

@@ -16,52 +16,52 @@ import org.simpleframework.xml.Version;
 public class CompatibilityTest extends TestCase {
 
    private static final String IMPLICIT_VERSION_1 =
-   "<example>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
+   "<caleb>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
    "  <list>\n"+
    "    <entry>entry 1</entry>\n"+
    "     <entry>entry 2</entry>\n"+
    "   </list>\n"+
-   "</example>";
+   "</caleb>";
    
    private static final String EXPLICIT_VERSION_1 =
-   "<example version='1.0'>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
+   "<caleb version='1.0'>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
    "  <list>\n"+
    "    <entry>entry 1</entry>\n"+
    "     <entry>entry 2</entry>\n"+
    "   </list>\n"+
-   "</example>";
+   "</caleb>";
 
    private static final String INVALID_EXPLICIT_VERSION_1 =
-   "<example version='1.0'>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
+   "<caleb version='1.0'>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
    "  <list>\n"+
    "    <entry>entry 1</entry>\n"+
    "     <entry>entry 2</entry>\n"+
    "   </list>\n"+
-   "   <address>example address</address>\n"+
-   "</example>";
+   "   <address>caleb address</address>\n"+
+   "</caleb>";
 
    private static final String INVALID_IMPLICIT_VERSION_1 =
-   "<example>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
-   "</example>";
+   "<caleb>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
+   "</caleb>";
 
    private static final String VALID_EXPLICIT_VERSION_1_1 =
-   "<example version='1.1'>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
-   "  <address>example address</address>\n"+
+   "<caleb version='1.1'>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
+   "  <address>caleb address</address>\n"+
    "  <list>\n"+
    "    <entry>entry 1</entry>\n"+
    "     <entry>entry 2</entry>\n"+
    "   </list>\n"+
-   "</example>";
+   "</caleb>";
    
    public static interface Example {
       
@@ -73,7 +73,7 @@ public class CompatibilityTest extends TestCase {
    }
    
    
-   @Root(name="example")
+   @Root(name="caleb")
    public static class Example_v1 implements Example {
 
      @Version
@@ -102,9 +102,9 @@ public class CompatibilityTest extends TestCase {
    }
 
    private static final String VALID_EXPLICIT_VERSION_2 =
-   "<example version='2.0' key='value'>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
+   "<caleb version='2.0' key='value'>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
    "  <map>\n"+
    "    <entry>\n"+
    "      <key>key 1</key>\n"+
@@ -115,18 +115,18 @@ public class CompatibilityTest extends TestCase {
    "      <value>value 1</value>\n"+
    "    </entry>\n"+
    "  </map>\n"+
-   "</example>";
+   "</caleb>";
    
    private static final String ACCEPTIBLE_INVALID_VERSION_1 =
-   "<example>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
-   "</example>";
+   "<caleb>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
+   "</caleb>";
 
    private static final String INVALID_EXPLICIT_VERSION_2 =
-   "<example version='2.0'>\n"+
-   "  <name>example name</name>\n"+
-   "  <value>example value</value>\n"+
+   "<caleb version='2.0'>\n"+
+   "  <name>caleb name</name>\n"+
+   "  <value>caleb value</value>\n"+
    "  <map>\n"+
    "    <entry>\n"+
    "      <key>key 1</key>\n"+
@@ -137,9 +137,9 @@ public class CompatibilityTest extends TestCase {
    "      <value>value 1</value>\n"+
    "    </entry>\n"+
    "  </map>\n"+
-   "</example>";
+   "</caleb>";
 
-   @Root(name="example")
+   @Root(name="caleb")
    public static class Example_v2 implements Example {
 
      @Version(revision=2.0)
@@ -175,7 +175,7 @@ public class CompatibilityTest extends TestCase {
      }
    }
 
-   @Root(name="example")
+   @Root(name="caleb")
    public static class Example_v3 implements Example {
 
      @Version(revision=3.0)
@@ -220,14 +220,14 @@ public class CompatibilityTest extends TestCase {
       boolean invalid = false;
       
       assertEquals(example.getVersion(), 1.0);
-      assertEquals(example.getName(), "example name");
-      assertEquals(example.getValue(), "example value");
+      assertEquals(example.getName(), "caleb name");
+      assertEquals(example.getValue(), "caleb value");
 
       example = persister.read(Example_v1.class, EXPLICIT_VERSION_1);
       
       assertEquals(example.getVersion(), 1.0);
-      assertEquals(example.getName(), "example name");
-      assertEquals(example.getValue(), "example value");
+      assertEquals(example.getName(), "caleb name");
+      assertEquals(example.getValue(), "caleb value");
       
       try {
          invalid = false;
@@ -250,28 +250,28 @@ public class CompatibilityTest extends TestCase {
       example = persister.read(Example_v1.class, VALID_EXPLICIT_VERSION_1_1);
       
       assertEquals(example.getVersion(), 1.1);
-      assertEquals(example.getName(), "example name");
-      assertEquals(example.getValue(), "example value");
+      assertEquals(example.getName(), "caleb name");
+      assertEquals(example.getValue(), "caleb value");
       
       Example_v2 example2 = persister.read(Example_v2.class, VALID_EXPLICIT_VERSION_2);
       
       assertEquals(example2.getVersion(), 2.0);
-      assertEquals(example2.getName(), "example name");
-      assertEquals(example2.getValue(), "example value");
+      assertEquals(example2.getName(), "caleb name");
+      assertEquals(example2.getValue(), "caleb value");
       assertEquals(example2.getKey(), "value");
       
       example2 = persister.read(Example_v2.class, IMPLICIT_VERSION_1);
       
       assertEquals(example2.getVersion(), 1.0);
-      assertEquals(example2.getName(), "example name");
-      assertEquals(example2.getValue(), "example value");
+      assertEquals(example2.getName(), "caleb name");
+      assertEquals(example2.getValue(), "caleb value");
       assertEquals(example2.getKey(), null);
       
       example2 = persister.read(Example_v2.class, ACCEPTIBLE_INVALID_VERSION_1);
       
       assertEquals(example2.getVersion(), 1.0);
-      assertEquals(example2.getName(), "example name");
-      assertEquals(example2.getValue(), "example value");
+      assertEquals(example2.getName(), "caleb name");
+      assertEquals(example2.getValue(), "caleb value");
       assertEquals(example2.getKey(), null);
       
       try {

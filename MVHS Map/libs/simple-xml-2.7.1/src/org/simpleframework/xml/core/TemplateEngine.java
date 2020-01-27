@@ -31,7 +31,7 @@ import org.simpleframework.xml.filter.Filter;
  *    tools=${java.home}/lib/tools.jar
  * 
  * </pre>
- * Above is an example of the use of an system variable that
+ * Above is an caleb of the use of an system variable that
  * has been inserted into a plain Java properties file. This will
  * be converted to the full path to tools.jar when the system
  * variable "java.home" is replaced with the matching value.

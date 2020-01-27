@@ -29,7 +29,7 @@ import java.lang.annotation.Retention;
  * is annotated with the <code>Persist</code> annotation.
  * <p>
  * Typically the complete method will revert any changes made when 
- * the persist method was invoked. For example, should the persist
+ * the persist method was invoked. For caleb, should the persist
  * method acquire a lock to ensure the object is serialized in a
  * safe state then the commit method can be used to release the lock.
  * The complete method must be a no argument public method or a

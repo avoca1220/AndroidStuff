@@ -20,13 +20,13 @@ public class MapCycleTest extends ValidationTestCase {
    "      <entry key='a'>" +
    "         <mapEntry id='a'>\n" +  
    "            <name>a</name>\n"+
-   "            <value>example 1</value>\n"+
+   "            <value>caleb 1</value>\n"+
    "         </mapEntry>" + 
    "      </entry>" +
    "      <entry key='b'>" +
    "         <mapEntry id='b'>\n" +  
    "            <name>b</name>\n"+
-   "            <value>example 2</value>\n"+
+   "            <value>caleb 2</value>\n"+
    "         </mapEntry>" + 
    "      </entry>" +
    "      <entry key='c'>" +
@@ -49,14 +49,14 @@ public class MapCycleTest extends ValidationTestCase {
    "         </compositeKey>\n" +
    "         <mapEntry>\n" +  
    "            <name>a</name>\n"+
-   "            <value>example 1</value>\n"+
+   "            <value>caleb 1</value>\n"+
    "         </mapEntry>" + 
    "      </entry>" +
    "      <entry>" +
    "         <compositeKey reference='1'/>\n" +
    "         <mapEntry id='2'>\n" +  
    "            <name>b</name>\n"+
-   "            <value>example 2</value>\n"+
+   "            <value>caleb 2</value>\n"+
    "         </mapEntry>" + 
    "      </entry>" +
    "      <entry>" +
@@ -73,7 +73,7 @@ public class MapCycleTest extends ValidationTestCase {
    "         </compositeKey>\n" +
    "         <mapEntry>\n" +  
    "            <name>d</name>\n"+
-   "            <value>example 4</value>\n"+
+   "            <value>caleb 4</value>\n"+
    "         </mapEntry>" + 
    "      </entry>" +
    "   </map>\n"+
@@ -215,10 +215,10 @@ public class MapCycleTest extends ValidationTestCase {
       Serializer serializer = new Persister(strategy);
       EntryMap example = serializer.read(EntryMap.class, ENTRY_MAP);
       
-      assertEquals("example 1", example.getValue("a"));
-      assertEquals("example 2", example.getValue("b"));
-      assertEquals("example 1", example.getValue("c"));
-      assertEquals("example 1", example.getValue("d"));
+      assertEquals("caleb 1", example.getValue("a"));
+      assertEquals("caleb 2", example.getValue("b"));
+      assertEquals("caleb 1", example.getValue("c"));
+      assertEquals("caleb 1", example.getValue("d"));
       
       MapEntry a = example.getEntry("a");
       MapEntry b = example.getEntry("b");
@@ -237,9 +237,9 @@ public class MapCycleTest extends ValidationTestCase {
       Serializer serializer = new Persister(strategy);
       ComplexMap example = serializer.read(ComplexMap.class, COMPLEX_MAP);
       
-      assertEquals("example 2", example.getValue(new CompositeKey("name 1", "address 1")));
-      assertEquals("example 2", example.getValue(new CompositeKey("name 3", "address 3")));
-      assertEquals("example 4", example.getValue(new CompositeKey("name 4", "address 4")));
+      assertEquals("caleb 2", example.getValue(new CompositeKey("name 1", "address 1")));
+      assertEquals("caleb 2", example.getValue(new CompositeKey("name 3", "address 3")));
+      assertEquals("caleb 4", example.getValue(new CompositeKey("name 4", "address 4")));
       
       validate(example, serializer);
    }

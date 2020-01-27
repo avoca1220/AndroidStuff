@@ -61,7 +61,7 @@ class Traverser {
     * This will acquire the <code>Decorator</code> for the type.
     * A decorator is an object that adds various details to the
     * node without changing the overall structure of the node. For
-    * example comments and namespaces can be added to the node with
+    * caleb comments and namespaces can be added to the node with
     * a decorator as they do not affect the deserialization.
     * 
     * @param type this is the type to acquire the decorator for 

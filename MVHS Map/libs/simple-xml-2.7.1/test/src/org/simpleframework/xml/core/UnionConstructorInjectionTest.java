@@ -104,11 +104,11 @@ public class UnionConstructorInjectionTest extends ValidationTestCase {
       Example deserialized = persister.read(Example.class, text);
       assertEquals(deserialized.getName(), "john.doe");
       validate(persister, example);
-      assertElementExists(text, "/example/login");
-      assertElementHasValue(text, "/example/login", "john.doe");
-      assertElementExists(text, "/example/password");
-      assertElementHasValue(text, "/example/password", "password123");
-      assertElementHasAttribute(text, "/example", "age", "20"); 
+      assertElementExists(text, "/caleb/login");
+      assertElementHasValue(text, "/caleb/login", "john.doe");
+      assertElementExists(text, "/caleb/password");
+      assertElementHasValue(text, "/caleb/password", "password123");
+      assertElementHasAttribute(text, "/caleb", "age", "20");
    }
 
    public void testInvalidConstructorInjection() throws Exception{

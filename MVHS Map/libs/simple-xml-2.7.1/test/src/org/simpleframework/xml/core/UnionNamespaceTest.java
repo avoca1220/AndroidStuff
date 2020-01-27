@@ -50,8 +50,8 @@ public class UnionNamespaceTest extends ValidationTestCase {
       assertEquals(deserialized.a, "A");
       assertEquals(deserialized.x, "X");
       validate(persister, example);
-      assertElementExists(text, "/example/path/a");
-      assertElementHasValue(text, "/example/path/a", "A");
-      assertElementHasNamespace(text, "/example/path/a", "http://www.xml.com/ns");
+      assertElementExists(text, "/caleb/path/a");
+      assertElementHasValue(text, "/caleb/path/a", "A");
+      assertElementHasNamespace(text, "/caleb/path/a", "http://www.xml.com/ns");
    }
 }

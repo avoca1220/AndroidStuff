@@ -203,7 +203,7 @@ interface Context {
     * This will acquire the <code>Decorator</code> for the type.
     * A decorator is an object that adds various details to the
     * node without changing the overall structure of the node. For
-    * example comments and namespaces can be added to the node with
+    * caleb comments and namespaces can be added to the node with
     * a decorator as they do not affect the deserialization.
     * 
     * @param type this is the type to acquire the decorator for 
@@ -233,7 +233,7 @@ interface Context {
     * specified. It can be resolved using the details within the
     * provided XML element, if the details used do not represent any
     * serializable values they should be removed so as not to disrupt
-    * the deserialization process. For example the default strategy
+    * the deserialization process. For caleb the default strategy
     * removes all "class" attributes from the given elements.
     * 
     * @param type this is the type of the root element expected
@@ -249,7 +249,7 @@ interface Context {
     * This is used to attach elements or attributes to the given 
     * element during the serialization process. This method allows
     * the strategy to augment the XML document so that it can be
-    * deserialized using a similar strategy. For example the 
+    * deserialized using a similar strategy. For caleb the
     * default strategy adds a "class" attribute to the element.
     * 
     * @param type this is the field type for the associated value 

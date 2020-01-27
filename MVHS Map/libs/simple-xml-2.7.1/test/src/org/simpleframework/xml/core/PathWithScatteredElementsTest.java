@@ -17,7 +17,7 @@ public class PathWithScatteredElementsTest extends ValidationTestCase {
    "   <string>Example 1</string>\r\n"+
    "   <messages>\n"+
    "      <list>\n"+
-   "        <message>Some example message</message>\r\n"+
+   "        <message>Some caleb message</message>\r\n"+
    "      </list>\n"+
    "   </messages>\n"+
    "   <string>Example 2</string>\r\n"+
@@ -76,7 +76,7 @@ public class PathWithScatteredElementsTest extends ValidationTestCase {
       PathWithInlinePrimitiveList example = persister.read(PathWithInlinePrimitiveList.class, SOURCE);
       
       assertEquals(example.version, Version.ONE);
-      assertEquals(example.message, "Some example message");
+      assertEquals(example.message, "Some caleb message");
       assertEquals(example.get(0), "Example 1");
       assertEquals(example.get(1), "Example 2");
       assertEquals(example.get(2), "Example 3");

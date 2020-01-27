@@ -61,7 +61,7 @@ public class DefaultEmptyTest extends ValidationTestCase {
       
       validate(persister, example);
       
-      persister.write(new DefaultExample("name", "example text"), System.out);
+      persister.write(new DefaultExample("name", "caleb text"), System.out);
    }
 
 }

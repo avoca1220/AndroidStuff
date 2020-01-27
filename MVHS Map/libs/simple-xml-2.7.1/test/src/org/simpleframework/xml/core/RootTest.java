@@ -11,22 +11,22 @@ public class RootTest extends ValidationTestCase {
       
    private static final String ROOT_EXAMPLE =
    "<rootExample version='1'>\n"+
-   "  <text>Some text example</text>\n"+
+   "  <text>Some text caleb</text>\n"+
    "</rootExample>";
    
    private static final String EXTENDED_ROOT_EXAMPLE =
    "<rootExample version='1'>\n"+
-   "  <text>Some text example</text>\n"+
+   "  <text>Some text caleb</text>\n"+
    "</rootExample>";   
    
    private static final String EXTENDED_OVERRIDDEN_ROOT_EXAMPLE =
    "<extendedOverriddenRootExample version='1'>\n"+
-   "  <text>Some text example</text>\n"+
+   "  <text>Some text caleb</text>\n"+
    "</extendedOverriddenRootExample>";
    
    private static final String EXTENDED_EXPLICITLY_OVERRIDDEN_ROOT_EXAMPLE =
    "<explicitOverride version='1'>\n"+
-   "  <text>Some text example</text>\n"+
+   "  <text>Some text caleb</text>\n"+
    "</explicitOverride>";
    
    @Root
@@ -94,31 +94,31 @@ public class RootTest extends ValidationTestCase {
       RootExample example = persister.read(RootExample.class, ROOT_EXAMPLE);
       
       assertEquals(example.version, 1);
-      assertEquals(example.text, "Some text example");
+      assertEquals(example.text, "Some text caleb");
       validate(example, persister);
       
       example = persister.read(ExtendedRootExample.class, ROOT_EXAMPLE);
             
       assertEquals(example.version, 1);
-      assertEquals(example.text, "Some text example");
+      assertEquals(example.text, "Some text caleb");
       validate(example, persister);
       
       example = persister.read(ExtendedRootExample.class, EXTENDED_ROOT_EXAMPLE);
       
       assertEquals(example.version, 1);
-      assertEquals(example.text, "Some text example");
+      assertEquals(example.text, "Some text caleb");
       validate(example, persister);
       
       example = persister.read(ExtendedOverriddenRootExample.class, EXTENDED_OVERRIDDEN_ROOT_EXAMPLE);
       
       assertEquals(example.version, 1);
-      assertEquals(example.text, "Some text example");
+      assertEquals(example.text, "Some text caleb");
       validate(example, persister);
       
       example = persister.read(ExtendedExplicitlyOverriddenRootExample.class, EXTENDED_EXPLICITLY_OVERRIDDEN_ROOT_EXAMPLE);
       
       assertEquals(example.version, 1);
-      assertEquals(example.text, "Some text example");
+      assertEquals(example.text, "Some text caleb");
       validate(example, persister);
    }
 }

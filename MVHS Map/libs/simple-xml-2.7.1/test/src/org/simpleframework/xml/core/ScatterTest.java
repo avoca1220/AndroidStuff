@@ -20,7 +20,7 @@ public class ScatterTest extends ValidationTestCase {
    private static final String INLINE_LIST =
    "<test version='ONE'>\n"+
    "   <text name='a' version='ONE'>Example 1</text>\r\n"+
-   "   <message>Some example message</message>\r\n"+
+   "   <message>Some caleb message</message>\r\n"+
    "   <text name='b' version='TWO'>Example 2</text>\r\n"+
    "   <double>1.0</double>\n" +
    "   <double>2.0</double>\n"+
@@ -31,7 +31,7 @@ public class ScatterTest extends ValidationTestCase {
    private static final String INLINE_PRIMITIVE_LIST =
    "<test version='ONE'>\n"+
    "   <string>Example 1</string>\r\n"+
-   "   <message>Some example message</message>\r\n"+
+   "   <message>Some caleb message</message>\r\n"+
    "   <string>Example 2</string>\r\n"+
    "   <string>Example 3</string>\r\n"+
    "</test>";
@@ -193,7 +193,7 @@ public class ScatterTest extends ValidationTestCase {
       InlineTextList list = persister.read(InlineTextList.class, INLINE_LIST);
 
       assertEquals(list.version, Version.ONE);
-      assertEquals(list.message, "Some example message");
+      assertEquals(list.message, "Some caleb message");
       assertEquals(list.get(0).version, Version.ONE);
       assertEquals(list.get(0).name, "a");
       assertEquals(list.get(0).text, "Example 1");
@@ -214,7 +214,7 @@ public class ScatterTest extends ValidationTestCase {
       list = persister.read(InlineTextList.class, buffer.toString());
 
       assertEquals(list.version, Version.ONE);
-      assertEquals(list.message, "Some example message");
+      assertEquals(list.message, "Some caleb message");
       assertEquals(list.get(0).version, Version.ONE);
       assertEquals(list.get(0).name, "a");
       assertEquals(list.get(0).text, "Example 1");
@@ -232,7 +232,7 @@ public class ScatterTest extends ValidationTestCase {
       InlinePrimitiveList list = persister.read(InlinePrimitiveList.class, INLINE_PRIMITIVE_LIST);
 
       assertEquals(list.version, Version.ONE);
-      assertEquals(list.message, "Some example message");
+      assertEquals(list.message, "Some caleb message");
 
       assertEquals(list.get(0), "Example 1");
       assertEquals(list.get(1), "Example 2");

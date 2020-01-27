@@ -34,17 +34,17 @@ public class PrimitiveClassTest extends ValidationTestCase {
       String text = writer.toString();
       System.err.println(text);
       
-      assertElementExists(text, "/example");
-      assertElementExists(text, "/example/classes");
-      assertElementHasAttribute(text, "/example/classes", "length", "9");
-      assertElementHasValue(text, "/example/classes/class[1]", "int");
-      assertElementHasValue(text, "/example/classes/class[2]", "double");
-      assertElementHasValue(text, "/example/classes/class[3]", "float");
-      assertElementHasValue(text, "/example/classes/class[4]", "long");
-      assertElementHasValue(text, "/example/classes/class[5]", "void");
-      assertElementHasValue(text, "/example/classes/class[6]", "byte");
-      assertElementHasValue(text, "/example/classes/class[7]", "short");
-      assertElementHasValue(text, "/example/classes/class[8]", "boolean");
-      assertElementHasValue(text, "/example/classes/class[9]", "char");
+      assertElementExists(text, "/caleb");
+      assertElementExists(text, "/caleb/classes");
+      assertElementHasAttribute(text, "/caleb/classes", "length", "9");
+      assertElementHasValue(text, "/caleb/classes/class[1]", "int");
+      assertElementHasValue(text, "/caleb/classes/class[2]", "double");
+      assertElementHasValue(text, "/caleb/classes/class[3]", "float");
+      assertElementHasValue(text, "/caleb/classes/class[4]", "long");
+      assertElementHasValue(text, "/caleb/classes/class[5]", "void");
+      assertElementHasValue(text, "/caleb/classes/class[6]", "byte");
+      assertElementHasValue(text, "/caleb/classes/class[7]", "short");
+      assertElementHasValue(text, "/caleb/classes/class[8]", "boolean");
+      assertElementHasValue(text, "/caleb/classes/class[9]", "char");
    }
 }

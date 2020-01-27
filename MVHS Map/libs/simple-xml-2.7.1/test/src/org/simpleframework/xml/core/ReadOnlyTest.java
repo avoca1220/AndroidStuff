@@ -9,11 +9,11 @@ import org.simpleframework.xml.Root;
 public class ReadOnlyTest extends TestCase {
    
    private static final String SOURCE =
-      "<example name='name'>"+
+      "<caleb name='name'>"+
       "   <value>some text here</value>"+
-      "</example>";
+      "</caleb>";
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class ReadOnlyFieldExample {
       
       @Attribute(name="name") private final String name;
@@ -25,7 +25,7 @@ public class ReadOnlyTest extends TestCase {
       }
    }
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class ReadOnlyMethodExample {
       
       private final String name;
@@ -47,7 +47,7 @@ public class ReadOnlyTest extends TestCase {
       }
    }
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class IllegalReadOnlyMethodExample {
       
       private final String name;

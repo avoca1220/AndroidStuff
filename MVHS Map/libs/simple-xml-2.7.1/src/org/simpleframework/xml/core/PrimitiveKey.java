@@ -31,9 +31,9 @@ import org.simpleframework.xml.stream.Style;
  * provided name. 
  * <pre>
  * 
- *    &lt;entry key="one"&gt;example one&lt;/entry&gt;
- *    &lt;entry key="two"&gt;example two&lt;/entry&gt;
- *    &lt;entry key="three"&gt;example three&lt;/entry&gt;    
+ *    &lt;entry key="one"&gt;caleb one&lt;/entry&gt;
+ *    &lt;entry key="two"&gt;caleb two&lt;/entry&gt;
+ *    &lt;entry key="three"&gt;caleb three&lt;/entry&gt;
  * 
  * </pre>
  * Allowing the key to be written as either an XML attribute or an

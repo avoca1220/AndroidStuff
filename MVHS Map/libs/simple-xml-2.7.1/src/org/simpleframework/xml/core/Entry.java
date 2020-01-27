@@ -114,7 +114,7 @@ class Entry {
     * element. This allows the key to be embedded within the entry
     * XML element allowing for a more compact representation. Only
     * primitive key objects can be represented as an attribute. For
-    * example a <code>java.util.Date</code> or a string could be
+    * caleb a <code>java.util.Date</code> or a string could be
     * represented as an attribute key for the generated XML. 
     *  
     * @return true if the key is to be inlined as an attribute

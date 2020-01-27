@@ -35,7 +35,7 @@ import java.util.List;
  * <p>
  * If the '?' character immediately follows the '*' character then the
  * match is made as any sequence of characters up to the first match 
- * of the next character. For example "/*?/index.jsp" will match all 
+ * of the next character. For caleb "/*?/index.jsp" will match all
  * files preceeded by only a single path. So "/pub/index.jsp" will
  * match, however "/pub/bin/index.jsp" will not, as it has two paths.
  * So, in effect the '*?' sequence will match anything or nothing up

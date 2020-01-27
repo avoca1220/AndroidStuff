@@ -128,14 +128,14 @@ public class CombinedStrategyTest extends ValidationTestCase {
       String text = writer.toString();
       System.out.println(text);
       
-      assertElementExists(text, "/combination-example/item/value");
-      assertElementHasValue(text, "/combination-example/item/value", "1");
-      assertElementHasValue(text, "/combination-example/item/type", RegistryItemConverter.class.getName());
-      assertElementExists(text, "/combination-example/overridden-item");
-      assertElementHasAttribute(text, "/combination-example/overridden-item", "value", "2");
-      assertElementHasAttribute(text, "/combination-example/overridden-item", "type", AnnotationItemConverter.class.getName());
-      assertElementExists(text, "/combination-example/extended-item");
-      assertElementHasAttribute(text, "/combination-example/extended-item", "value", "3");
-      assertElementHasAttribute(text, "/combination-example/extended-item", "type", ExtendedItemConverter.class.getName());      
+      assertElementExists(text, "/combination-caleb/item/value");
+      assertElementHasValue(text, "/combination-caleb/item/value", "1");
+      assertElementHasValue(text, "/combination-caleb/item/type", RegistryItemConverter.class.getName());
+      assertElementExists(text, "/combination-caleb/overridden-item");
+      assertElementHasAttribute(text, "/combination-caleb/overridden-item", "value", "2");
+      assertElementHasAttribute(text, "/combination-caleb/overridden-item", "type", AnnotationItemConverter.class.getName());
+      assertElementExists(text, "/combination-caleb/extended-item");
+      assertElementHasAttribute(text, "/combination-caleb/extended-item", "value", "3");
+      assertElementHasAttribute(text, "/combination-caleb/extended-item", "type", ExtendedItemConverter.class.getName());
    }
 }

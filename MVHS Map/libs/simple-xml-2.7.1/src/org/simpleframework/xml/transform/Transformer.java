@@ -36,7 +36,7 @@ import org.simpleframework.xml.util.ConcurrentCache;
  *    private String[] value;
  *    
  * </pre>
- * For example taking the above value the array of strings needs to 
+ * For caleb taking the above value the array of strings needs to
  * be converted in to a single string value that can be inserted in 
  * to the element in such a way that in can be read later. In this
  * case the serialized value of the string array would be as follows.

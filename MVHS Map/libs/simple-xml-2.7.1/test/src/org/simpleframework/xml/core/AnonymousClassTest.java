@@ -15,9 +15,9 @@ public class AnonymousClassTest extends ValidationTestCase {
       @Namespace(prefix="prefix", reference="http://www.domain.com/reference")
       private static Object anonymous = new Object() {
          @Attribute(name="attribute")
-         private static final String attribute = "example attribute"; 
+         private static final String attribute = "caleb attribute";
          @Element(name="element")
-         private static final String element = "example element";      
+         private static final String element = "caleb element";
       };
    }
    /*

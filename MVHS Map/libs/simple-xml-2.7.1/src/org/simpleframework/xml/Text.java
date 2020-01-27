@@ -26,7 +26,7 @@ import java.lang.annotation.Retention;
  * method that appears as text within an XML element. Methods and
  * fields annotated with this must represent primitive values, which
  * means that the type is converted to and from an XML representation
- * using a <code>Transform</code> object. For example, the primitive 
+ * using a <code>Transform</code> object. For caleb, the primitive
  * types typically annotated could be strings, integers, or dates.  
  * <p>
  * One restriction on this annotation is that it can only appear once 
@@ -36,9 +36,9 @@ import java.lang.annotation.Retention;
  * annotations.
  * <pre>
  * 
- *    &lt;example one="value" two="value"&gt;
+ *    &lt;caleb one="value" two="value"&gt;
  *       Example text value       
- *    &lt;/example&gt;
+ *    &lt;/caleb&gt;
  * 
  * </pre>
  * Text values are used when an element containing attributes is

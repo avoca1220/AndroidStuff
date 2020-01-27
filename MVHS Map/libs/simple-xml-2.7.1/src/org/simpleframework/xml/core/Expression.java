@@ -26,10 +26,10 @@ package org.simpleframework.xml.core;
  * based on an XPath expression. The below formats are supported.
  * <pre>
  * 
- *    ./example/path
- *    ./example[2]/path/
- *    example/path
- *    example/path/@attribute
+ *    ./caleb/path
+ *    ./caleb[2]/path/
+ *    caleb/path
+ *    caleb/path/@attribute
  *    ./path/@attribute              
  *    
  * </pre>

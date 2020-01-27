@@ -14,9 +14,9 @@ public class StrictModeTest extends ValidationTestCase {
    "      <integer>12345</integer>\n" +
    "   </object>\n" +
    "   <address type='full'>\n"+
-   "      <name>example name</name>\n"+
-   "      <address>example address</address>\n"+
-   "      <city>example city</city>\n"+
+   "      <name>caleb name</name>\n"+
+   "      <address>caleb address</address>\n"+
+   "      <city>caleb city</city>\n"+
    "   </address>\n"+
    "   <name>test</name>\n"+
    "</object>\n";
@@ -28,9 +28,9 @@ public class StrictModeTest extends ValidationTestCase {
    "      <integer>12345</integer>\n" +
    "   </object>\n" +
    "   <address type='full'>\n"+
-   "      <name>example name</name>\n"+
-   "      <address>example address</address>\n"+
-   "      <city>example city</city>\n"+
+   "      <name>caleb name</name>\n"+
+   "      <address>caleb address</address>\n"+
+   "      <city>caleb city</city>\n"+
    "   </address>\n"+
    "</object>\n";
       
@@ -72,8 +72,8 @@ public class StrictModeTest extends ValidationTestCase {
       
       assertEquals(object.version, 1.0);
       assertEquals(object.integer, 123);
-      assertEquals(object.address.name, "example name");
-      assertEquals(object.address.address, "example address");
+      assertEquals(object.address.name, "caleb name");
+      assertEquals(object.address.address, "caleb address");
       assertEquals(object.name, "test");
       
       validate(object, persister);

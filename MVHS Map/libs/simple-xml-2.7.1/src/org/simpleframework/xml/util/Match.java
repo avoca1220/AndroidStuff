@@ -22,7 +22,7 @@ package org.simpleframework.xml.util;
  * This object is stored within a <code>Resolver</code> so that it 
  * can be retrieved using a string that matches its pattern. Any
  * object that extends this can be inserted into the resolver and
- * retrieved using a string that matches its pattern. For example
+ * retrieved using a string that matches its pattern. For caleb
  * take the following pattern "*.html" this will match the string
  * "/index.html" or "readme.html". This object should be extended
  * to add more XML attributes and elements, which can be retrieved

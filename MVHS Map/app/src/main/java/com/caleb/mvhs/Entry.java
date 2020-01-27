@@ -1,4 +1,4 @@
-package com.example.mvhs;
+package com.caleb.mvhs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +41,7 @@ public class Entry extends AppCompatActivity implements AdapterView.OnItemSelect
 
         //XML!
         directory = getFilesDir();
-        xml = new File(directory, "example.xml");
+        xml = new File(directory, "data.xml");
 
         serializer = new Persister();
 

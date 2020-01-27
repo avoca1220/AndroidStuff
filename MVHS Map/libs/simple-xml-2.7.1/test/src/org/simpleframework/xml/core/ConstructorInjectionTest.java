@@ -12,21 +12,21 @@ import org.simpleframework.xml.stream.Style;
 public class ConstructorInjectionTest extends ValidationTestCase {
    
    private static final String SOURCE = 
-   "<example number='32'>"+
+   "<caleb number='32'>"+
    "  <integer>12</integer>"+
    "  <string>text</string>"+
-   "</example>";
+   "</caleb>";
    
    private static final String PARTIAL = 
-   "<example>"+
+   "<caleb>"+
    "  <integer>12</integer>"+
    "  <string>text</string>"+
-   "</example>";
+   "</caleb>";
    
    private static final String BARE = 
-   "<example>"+
+   "<caleb>"+
    "  <integer>12</integer>"+
-   "</example>";
+   "</caleb>";
    
    private static final String ARRAY =
    "<ExampleArray>"+

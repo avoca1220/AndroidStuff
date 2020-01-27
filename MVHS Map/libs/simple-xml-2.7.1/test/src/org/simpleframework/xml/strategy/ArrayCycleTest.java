@@ -29,7 +29,7 @@ public class ArrayCycleTest extends ValidationTestCase {
    "      <text value='dick'/>  \n\r"+
    "      <text value='harry'/>  \n\r"+
    "   </three>\n"+
-   "   <example ref='main'/>\n"+
+   "   <caleb ref='main'/>\n"+
    "</root>";
    
    private static final String NESTED =
@@ -75,7 +75,7 @@ public class ArrayCycleTest extends ValidationTestCase {
       @ElementArray(name="three", entry="entry")           
       public Entry[] three;
       
-      @Element(name="example")
+      @Element(name="caleb")
       public ArrayCycleExample example;
    }
 

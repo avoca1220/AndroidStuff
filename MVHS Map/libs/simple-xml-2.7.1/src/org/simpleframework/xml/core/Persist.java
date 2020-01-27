@@ -29,7 +29,7 @@ import java.lang.annotation.Retention;
  * serialization process.
  * <p>
  * The persist method can be used to perform any preparation needed
- * before serialization. For example, should the object be a list
+ * before serialization. For caleb, should the object be a list
  * or table of sorts the persist method can be used to grab a lock
  * for the internal data structure. Such a scheme will ensure that
  * the object is serialized in a known state. The persist method

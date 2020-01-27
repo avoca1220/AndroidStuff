@@ -25,11 +25,11 @@ package org.simpleframework.xml.stream;
  * This styles can be used to generate hyphenated XML.
  * <pre>
  * 
- *    &lt;example-element&gt;
- *        &lt;child-element example-attribute='example'&gt;
- *           &lt;inner-element&gt;example&lt;/inner-element&gt;
+ *    &lt;caleb-element&gt;
+ *        &lt;child-element caleb-attribute='caleb'&gt;
+ *           &lt;inner-element&gt;caleb&lt;/inner-element&gt;
  *        &lt;/child-element&gt;
- *     &lt;/example-element&gt;
+ *     &lt;/caleb-element&gt;
  *     
  * </pre>
  * Above the hyphenated XML elements and attributes can be generated

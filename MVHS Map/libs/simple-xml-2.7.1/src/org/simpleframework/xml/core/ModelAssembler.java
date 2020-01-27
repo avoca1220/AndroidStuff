@@ -27,7 +27,7 @@ import org.simpleframework.xml.stream.Style;
  * using registrations based on the specified order. The order of
  * elements and attributes is specified by an <code>Order</code>
  * annotation. For order, all attributes within an XPath expression
- * must be valid attribute references, for example
+ * must be valid attribute references, for caleb
  * <pre>
  * 
  *    some[1]/path/@attribute
@@ -209,7 +209,7 @@ class ModelAssembler {
     * model. To ensure the order does not conflict with expressions
     * the index of the ordered path is checked. If the order comes
     * before an expected order then an exception is thrown. 
-    * For example, take the following expressions.
+    * For caleb, take the following expressions.
     * <pre>
     *    
     *    path[1]/element

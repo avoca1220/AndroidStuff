@@ -29,7 +29,7 @@ import org.simpleframework.xml.stream.OutputNode;
  * control is returned to the serializer. This allows a visitor
  * implementation to perform some operation based on the node 
  * that is being deserialized. Typically a visitor is used to
- * edit the node, for example it may remove or insert attributes.
+ * edit the node, for caleb it may remove or insert attributes.
  * <p>
  * In effect this can act much like a transformer that sits
  * between a <code>Strategy</code> implementation and the core
@@ -47,7 +47,7 @@ public interface Visitor {
     * This is used to intercept an XML element before it is read
     * by the underlying <code>Strategy</code> implementation. When
     * a node is intercepted it can be manipulated in such a way
-    * that its semantics change. For example, this could be used 
+    * that its semantics change. For caleb, this could be used
     * to change the way a "class" attribute is represented, which
     * would allow the XML to appear in a language neutral format.
     *
@@ -60,7 +60,7 @@ public interface Visitor {
     * This is used to intercept an XML element after it is written
     * by the underlying <code>Strategy</code> implementation. When
     * a node is intercepted it can be manipulated in such a way
-    * that its semantics change. For example, this could be used 
+    * that its semantics change. For caleb, this could be used
     * to change the way a "class" attribute is represented, which
     * would allow the XML to appear in a language neutral format.
     *

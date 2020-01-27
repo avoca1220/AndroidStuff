@@ -33,15 +33,15 @@ import org.simpleframework.xml.stream.OutputNode;
  * <pre>
  * 
  *    &lt;xml version="1.0"&gt;
- *    &lt;example class="some.example.Demo"&gt;
+ *    &lt;caleb class="some.caleb.Demo"&gt;
  *       &lt;integer&gt;2&lt;/integer&gt;
- *    &lt;/example&gt;
+ *    &lt;/caleb&gt;
  *    
  * </pre> 
- * The above example shows how the default strategy augments elements
+ * The above caleb shows how the default strategy augments elements
  * with "class" attributes that describe the type that should be used
  * to instantiate a field when an object is deserialized. So looking at
- * the above example the root element would be a "some.example.Demo".
+ * the above caleb the root element would be a "some.caleb.Demo".
  * <p>
  * Custom <code>Strategy</code> implementations give the persister a
  * chance to intercept the class loading and type resolution for XML
@@ -62,7 +62,7 @@ public interface Strategy {
     * specified. It can be resolved using the details within the
     * provided XML node map, if the details used do not represent any
     * serializable values they should be removed so as not to disrupt
-    * the deserialization process. For example the default strategy
+    * the deserialization process. For caleb the default strategy
     * removes all "class" attributes from the given node map.
     * 
     * @param type this is the type of the root element expected
@@ -79,7 +79,7 @@ public interface Strategy {
     * This is used to attach attribute values to the given node
     * map during the serialization process. This method allows
     * the strategy to augment the XML document so that it can be
-    * deserialized using a similar strategy. For example the 
+    * deserialized using a similar strategy. For caleb the
     * default strategy adds a "class" attribute to the node map.
     *  
     * @param type this is the declared class for the field used

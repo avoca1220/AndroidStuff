@@ -106,7 +106,7 @@ public class MapNullTest extends ValidationTestCase {
    "<primitiveMap>\r\n" +
    "   <table class='java.util.HashMap'>\r\n" +
    "      <entry>\r\n" +
-   "         <string>example</string>\r\n" +            
+   "         <string>caleb</string>\r\n" +
    "      </entry>\r\n" +
    "   </table>\r\n" +
    "</primitiveMap>\r\n";
@@ -115,7 +115,7 @@ public class MapNullTest extends ValidationTestCase {
    "<primitiveMap>\r\n" +
    "   <table class='java.util.HashMap'>\r\n" +
    "      <entry>\r\n" +
-   "         <string>example</string>\r\n" + 
+   "         <string>caleb</string>\r\n" +
    "         <bigDecimal/>\r\n" +
    "      </entry>\r\n" +
    "   </table>\r\n" +

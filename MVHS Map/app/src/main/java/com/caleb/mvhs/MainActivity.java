@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //XML?
         directory = getFilesDir();
-        xml = new File(directory, "caleb.xml");
+        xml = new File(directory, "data.xml");
 
         serializer = new Persister();
 

@@ -93,7 +93,7 @@ public class NodeWriterTest extends ValidationTestCase {
 
       secondChild.commit();
 
-      assertEquals(secondChild.getChild("example"), null);
+      assertEquals(secondChild.getChild("caleb"), null);
       
       OutputNode thirdChild = root.getChild("third-child");
       thirdChild.setAttribute("key", "3");
@@ -120,7 +120,7 @@ public class NodeWriterTest extends ValidationTestCase {
       assertTrue(fourthChildChild.isCommitted());
       assertTrue(fourthChild.isCommitted());
       assertEquals(fourthChildChild.getChild("blah"), null);
-      assertEquals(fourthChild.getChild("example"), null);
+      assertEquals(fourthChild.getChild("caleb"), null);
 
       root.commit();
       validate(out.toString());

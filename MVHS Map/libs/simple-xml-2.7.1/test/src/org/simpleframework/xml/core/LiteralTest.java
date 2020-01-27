@@ -21,7 +21,7 @@ public class LiteralTest extends ValidationTestCase {
       @Text(required=false)
       private final Literal literal = new Literal(
       "<literal id='a' value='a'>\n"+
-      "   <child>some example text</child>\n"+
+      "   <child>some caleb text</child>\n"+
       "</literal>\n");
       
       private LiteralExample() {

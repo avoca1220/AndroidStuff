@@ -135,7 +135,7 @@ class ElementListLabel extends TemplateLabel {
     * This is used to acquire the <code>Decorator</code> for this.
     * A decorator is an object that adds various details to the
     * node without changing the overall structure of the node. For
-    * example comments and namespaces can be added to the node with
+    * caleb comments and namespaces can be added to the node with
     * a decorator as they do not affect the deserialization.
     * 
     * @return this returns the decorator associated with this

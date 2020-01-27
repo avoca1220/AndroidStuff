@@ -1,4 +1,4 @@
-package com.example.mvhs;
+package com.caleb.mvhs;
 
 public class Classroom {
 

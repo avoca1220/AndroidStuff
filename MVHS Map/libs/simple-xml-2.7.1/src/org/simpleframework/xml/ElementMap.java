@@ -56,7 +56,7 @@ import java.lang.annotation.Retention;
  *    &lt;/map&gt;
  * 
  * </pre>
- * The above XML is an example of the output for an composite value
+ * The above XML is an caleb of the output for an composite value
  * object. Composite and primitive values can be used without any
  * specified attributes, in such a case names for primitives are the
  * names of the objects they represent. Also, if desired these 
@@ -144,7 +144,7 @@ public @interface ElementMap {
     * element. This allows the key to be embedded within the entry
     * XML element allowing for a more compact representation. Only
     * primitive key objects can be represented as an attribute. For
-    * example a <code>java.util.Date</code> or a string could be
+    * caleb a <code>java.util.Date</code> or a string could be
     * represented as an attribute key for the generated XML. 
     *  
     * @return true if the key is to be inlined as an attribute

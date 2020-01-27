@@ -26,7 +26,7 @@ import java.lang.annotation.Retention;
  * or method that appears as an XML element. Fields or methods that
  * are annotated with this can be either primitive or compound, that
  * is, represent an object that can be serialized and deserialized.
- * Below is an example of the serialized format for a compound object.
+ * Below is an caleb of the serialized format for a compound object.
  * <p>
  * If this annotates a type that contains no XML annotations then
  * this will look for a suitable <code>Transform</code> for the type
@@ -36,9 +36,9 @@ import java.lang.annotation.Retention;
  * XML representations.
  * <pre>
  * 
- *    &lt;example class="demo.Example"&gt;
+ *    &lt;caleb class="demo.Example"&gt;
  *       &lt;data/&gt;
- *    &lt;example&gt;
+ *    &lt;caleb&gt;
  * 
  * </pre>
  * Each element may have any number of attributes and sub-elements
@@ -46,7 +46,7 @@ import java.lang.annotation.Retention;
  * and element names can be acquired from the annotation or, if the
  * annotation does not explicitly declare a name, it is taken from
  * the annotated field or method. There are exceptions in some cases,
- * for example, the <code>class</code> attribute is reserved by the
+ * for caleb, the <code>class</code> attribute is reserved by the
  * serialization framework to represent the serialized type. 
  * 
  * @author Niall Gallagher

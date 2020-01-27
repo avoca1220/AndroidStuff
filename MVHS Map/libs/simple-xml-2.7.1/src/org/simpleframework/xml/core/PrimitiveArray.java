@@ -35,9 +35,9 @@ import org.simpleframework.xml.stream.Position;
  * <pre>
  *
  *    &lt;array&gt;
- *       &lt;entry&gt;example text one&lt;/entry&gt;
- *       &lt;entry&gt;example text two&lt;/entry&gt;
- *       &lt;entry&gt;example text three&lt;/entry&gt;
+ *       &lt;entry&gt;caleb text one&lt;/entry&gt;
+ *       &lt;entry&gt;caleb text two&lt;/entry&gt;
+ *       &lt;entry&gt;caleb text three&lt;/entry&gt;
  *    &lt;/array&gt;
  * 
  * </pre>

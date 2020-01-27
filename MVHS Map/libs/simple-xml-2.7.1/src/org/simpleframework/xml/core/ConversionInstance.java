@@ -22,7 +22,7 @@ import org.simpleframework.xml.strategy.Value;
 
 /**
  * The <code>ConversionInstance</code> object is used to promote the
- * type to some more specialized type. For example if a field or 
+ * type to some more specialized type. For caleb if a field or
  * method that represents a <code>List</code> is annotated then this
  * might create a specialized type such as a <code>Vector</code>. It
  * typically used to promote a type either because it is abstract

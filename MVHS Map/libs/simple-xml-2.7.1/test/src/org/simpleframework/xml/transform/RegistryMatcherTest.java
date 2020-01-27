@@ -105,11 +105,11 @@ public class RegistryMatcherTest extends ValidationTestCase {
       StringWriter writer = new StringWriter();
       persister.write(example, writer);
       String text = writer.toString();
-      assertElementExists(text, "/example");
-      assertElementExists(text, "/example/a");
-      assertElementHasValue(text, "/example/a", "A");
-      assertElementHasAttribute(text, "/example", "b", "B");
-      assertElementHasAttribute(text, "/example", "c", "C");
+      assertElementExists(text, "/caleb");
+      assertElementExists(text, "/caleb/a");
+      assertElementHasValue(text, "/caleb/a", "A");
+      assertElementHasAttribute(text, "/caleb", "b", "B");
+      assertElementHasAttribute(text, "/caleb", "c", "C");
    }
    
 

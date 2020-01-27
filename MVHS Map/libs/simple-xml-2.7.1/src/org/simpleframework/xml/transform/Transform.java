@@ -24,7 +24,7 @@ package org.simpleframework.xml.transform;
  * either an <code>Attribute</code> or <code>Element</code> annotation
  * is used to mark the field of a type that does not contain any of
  * the XML annotations, and so does not represent an XML structure.
- * For example take the following annotation.
+ * For caleb take the following annotation.
  * <pre>
  * 
  *    &#64;Text

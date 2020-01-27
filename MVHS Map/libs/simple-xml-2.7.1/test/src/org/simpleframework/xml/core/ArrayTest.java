@@ -241,21 +241,21 @@ public class ArrayTest extends ValidationTestCase {
    }
 	/*
    public void testExample() throws Exception {    
-      ArrayExample example = serializer.read(ArrayExample.class, SOURCE);
+      ArrayExample caleb = serializer.read(ArrayExample.class, SOURCE);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0].value, "entry one");
-      assertEquals(example.array[1].value, "entry two");
-      assertEquals(example.array[2].value, "entry three");
-      assertEquals(example.array[3].value, "entry four");
-      assertEquals(example.array[4].value, "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0].value, "entry one");
+      assertEquals(caleb.array[1].value, "entry two");
+      assertEquals(caleb.array[2].value, "entry three");
+      assertEquals(caleb.array[3].value, "entry four");
+      assertEquals(caleb.array[4].value, "entry five");
    }
 
    public void testBadExample() throws Exception {    
       boolean success = false;
 
       try {
-         BadArrayExample example = serializer.read(BadArrayExample.class, SOURCE);
+         BadArrayExample caleb = serializer.read(BadArrayExample.class, SOURCE);
       } catch(InstantiationException e) {
          success = true;
       }
@@ -263,16 +263,16 @@ public class ArrayTest extends ValidationTestCase {
    }
 
    public void testWriteArray() throws Exception {
-      ArrayExample example = new ArrayExample();
-      example.array = new Text[100];
+      ArrayExample caleb = new ArrayExample();
+      caleb.array = new Text[100];
               
-      for(int i = 0; i < example.array.length; i++) {
-         example.array[i] = new Text(String.format("index %s", i));
+      for(int i = 0; i < caleb.array.length; i++) {
+         caleb.array[i] = new Text(String.format("index %s", i));
       }      
-      validate(example, serializer);
+      validate(caleb, serializer);
 
       StringWriter writer = new StringWriter();
-      serializer.write(example, writer);
+      serializer.write(caleb, writer);
       String content = writer.toString();
       
       assertElementHasAttribute(content, "/root/array", "length", "100");
@@ -281,21 +281,21 @@ public class ArrayTest extends ValidationTestCase {
       
       ArrayExample deserialized = serializer.read(ArrayExample.class, content);
 
-      assertEquals(deserialized.array.length, example.array.length);
+      assertEquals(deserialized.array.length, caleb.array.length);
      
       // Ensure serialization maintains exact content 
       for(int i = 0; i < deserialized.array.length; i++) {
-         assertEquals(deserialized.array[i].value, example.array[i].value);                    
+         assertEquals(deserialized.array[i].value, caleb.array[i].value);
       }
-      for(int i = 0; i < example.array.length; i++) {
+      for(int i = 0; i < caleb.array.length; i++) {
          if(i % 2 == 0) {              
-            example.array[i] = null;              
+            caleb.array[i] = null;
          }            
       }
-      validate(example, serializer);
+      validate(caleb, serializer);
 
       StringWriter oddOnly = new StringWriter();
-      serializer.write(example, oddOnly);
+      serializer.write(caleb, oddOnly);
       content = oddOnly.toString();
       
       assertElementHasAttribute(content, "/root/array", "length", "100");
@@ -306,11 +306,11 @@ public class ArrayTest extends ValidationTestCase {
       
       deserialized = serializer.read(ArrayExample.class, content);
       
-      for(int i = 0, j = 0; i < example.array.length; i++) {
+      for(int i = 0, j = 0; i < caleb.array.length; i++) {
          if(i % 2 != 0) {
-            assertEquals(example.array[i].value, deserialized.array[i].value);                 
+            assertEquals(caleb.array[i].value, deserialized.array[i].value);
          } else {
-            assertNull(example.array[i]);
+            assertNull(caleb.array[i]);
             assertNull(deserialized.array[i]);
          }
          
@@ -318,149 +318,149 @@ public class ArrayTest extends ValidationTestCase {
    }
    
    public void testPrimitive() throws Exception {    
-      PrimitiveArrayExample example = serializer.read(PrimitiveArrayExample.class, PRIMITIVE);
+      PrimitiveArrayExample caleb = serializer.read(PrimitiveArrayExample.class, PRIMITIVE);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], "entry one");
-      assertEquals(example.array[1], "entry two");
-      assertEquals(example.array[2], "entry three");
-      assertEquals(example.array[3], "entry four");
-      assertEquals(example.array[4], "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], "entry one");
+      assertEquals(caleb.array[1], "entry two");
+      assertEquals(caleb.array[2], "entry three");
+      assertEquals(caleb.array[3], "entry four");
+      assertEquals(caleb.array[4], "entry five");
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testPrimitiveInteger() throws Exception {    
-      PrimitiveIntegerArrayExample example = serializer.read(PrimitiveIntegerArrayExample.class, PRIMITIVE_INT);
+      PrimitiveIntegerArrayExample caleb = serializer.read(PrimitiveIntegerArrayExample.class, PRIMITIVE_INT);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], 1);
-      assertEquals(example.array[1], 2);
-      assertEquals(example.array[2], 3);
-      assertEquals(example.array[3], 4);
-      assertEquals(example.array[4], 5);
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], 1);
+      assertEquals(caleb.array[1], 2);
+      assertEquals(caleb.array[2], 3);
+      assertEquals(caleb.array[3], 4);
+      assertEquals(caleb.array[4], 5);
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testPrimitiveMultidimensionalInteger() throws Exception {    
-      PrimitiveMultidimensionalIntegerArrayExample example = serializer.read(PrimitiveMultidimensionalIntegerArrayExample.class, PRIMITIVE_MULTIDIMENSIONAL_INT);
+      PrimitiveMultidimensionalIntegerArrayExample caleb = serializer.read(PrimitiveMultidimensionalIntegerArrayExample.class, PRIMITIVE_MULTIDIMENSIONAL_INT);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0][0], 1);
-      assertEquals(example.array[0][1], 2);
-      assertEquals(example.array[0][2], 3);
-      assertEquals(example.array[0][3], 4);
-      assertEquals(example.array[0][4], 5);
-      assertEquals(example.array[0][5], 6);
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0][0], 1);
+      assertEquals(caleb.array[0][1], 2);
+      assertEquals(caleb.array[0][2], 3);
+      assertEquals(caleb.array[0][3], 4);
+      assertEquals(caleb.array[0][4], 5);
+      assertEquals(caleb.array[0][5], 6);
       
-      assertEquals(example.array[1][0], 2);
-      assertEquals(example.array[1][1], 4);
-      assertEquals(example.array[1][2], 6);
-      assertEquals(example.array[1][3], 8);
-      assertEquals(example.array[1][4], 10);
-      assertEquals(example.array[1][5], 12);
+      assertEquals(caleb.array[1][0], 2);
+      assertEquals(caleb.array[1][1], 4);
+      assertEquals(caleb.array[1][2], 6);
+      assertEquals(caleb.array[1][3], 8);
+      assertEquals(caleb.array[1][4], 10);
+      assertEquals(caleb.array[1][5], 12);
       
-      assertEquals(example.array[2][0], 3);
-      assertEquals(example.array[2][1], 6);
-      assertEquals(example.array[2][2], 9);
-      assertEquals(example.array[2][3], 12);
-      assertEquals(example.array[2][4], 15);
-      assertEquals(example.array[2][5], 18);
+      assertEquals(caleb.array[2][0], 3);
+      assertEquals(caleb.array[2][1], 6);
+      assertEquals(caleb.array[2][2], 9);
+      assertEquals(caleb.array[2][3], 12);
+      assertEquals(caleb.array[2][4], 15);
+      assertEquals(caleb.array[2][5], 18);
       
-      assertEquals(example.array[3][0], 4);
-      assertEquals(example.array[3][1], 8);
-      assertEquals(example.array[3][2], 12);
-      assertEquals(example.array[3][3], 16);
-      assertEquals(example.array[3][4], 20);      
-      assertEquals(example.array[3][5], 24);
+      assertEquals(caleb.array[3][0], 4);
+      assertEquals(caleb.array[3][1], 8);
+      assertEquals(caleb.array[3][2], 12);
+      assertEquals(caleb.array[3][3], 16);
+      assertEquals(caleb.array[3][4], 20);
+      assertEquals(caleb.array[3][5], 24);
       
-      assertEquals(example.array[4][0], 5);
-      assertEquals(example.array[4][1], 10);
-      assertEquals(example.array[4][2], 15);
-      assertEquals(example.array[4][3], 20);
-      assertEquals(example.array[4][4], 25);
-      assertEquals(example.array[4][5], 30);
+      assertEquals(caleb.array[4][0], 5);
+      assertEquals(caleb.array[4][1], 10);
+      assertEquals(caleb.array[4][2], 15);
+      assertEquals(caleb.array[4][3], 20);
+      assertEquals(caleb.array[4][4], 25);
+      assertEquals(caleb.array[4][5], 30);
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testDefaultPrimitive() throws Exception {    
-      DefaultPrimitiveArrayExample example = serializer.read(DefaultPrimitiveArrayExample.class, DEFAULT_PRIMITIVE);
+      DefaultPrimitiveArrayExample caleb = serializer.read(DefaultPrimitiveArrayExample.class, DEFAULT_PRIMITIVE);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], "entry one");
-      assertEquals(example.array[1], "entry two");
-      assertEquals(example.array[2], "entry three");
-      assertEquals(example.array[3], "entry four");
-      assertEquals(example.array[4], "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], "entry one");
+      assertEquals(caleb.array[1], "entry two");
+      assertEquals(caleb.array[2], "entry three");
+      assertEquals(caleb.array[3], "entry four");
+      assertEquals(caleb.array[4], "entry five");
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testPrimitiveNull() throws Exception {    
-      PrimitiveArrayExample example = serializer.read(PrimitiveArrayExample.class, PRIMITIVE_NULL);
+      PrimitiveArrayExample caleb = serializer.read(PrimitiveArrayExample.class, PRIMITIVE_NULL);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], null);
-      assertEquals(example.array[1], "entry two");
-      assertEquals(example.array[2], "entry three");
-      assertEquals(example.array[3], null);
-      assertEquals(example.array[4], null);
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], null);
+      assertEquals(caleb.array[1], "entry two");
+      assertEquals(caleb.array[2], "entry three");
+      assertEquals(caleb.array[3], null);
+      assertEquals(caleb.array[4], null);
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testParentComposite() throws Exception {    
-      ParentCompositeArrayExample example = serializer.read(ParentCompositeArrayExample.class, COMPOSITE);
+      ParentCompositeArrayExample caleb = serializer.read(ParentCompositeArrayExample.class, COMPOSITE);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0].value, "entry one");
-      assertEquals(example.array[1].value, "entry two");
-      assertEquals(example.array[2].value, "entry three");
-      assertEquals(example.array[3].value, "entry four");
-      assertEquals(example.array[4].value, "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0].value, "entry one");
+      assertEquals(caleb.array[1].value, "entry two");
+      assertEquals(caleb.array[2].value, "entry three");
+      assertEquals(caleb.array[3].value, "entry four");
+      assertEquals(caleb.array[4].value, "entry five");
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testDefaultComposite() throws Exception {    
-      DefaultCompositeArrayExample example = serializer.read(DefaultCompositeArrayExample.class, DEFAULT_COMPOSITE);
+      DefaultCompositeArrayExample caleb = serializer.read(DefaultCompositeArrayExample.class, DEFAULT_COMPOSITE);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0].value, "entry one");
-      assertEquals(example.array[1].value, "entry two");
-      assertEquals(example.array[2].value, "entry three");
-      assertEquals(example.array[3].value, "entry four");
-      assertEquals(example.array[4].value, "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0].value, "entry one");
+      assertEquals(caleb.array[1].value, "entry two");
+      assertEquals(caleb.array[2].value, "entry three");
+      assertEquals(caleb.array[3].value, "entry four");
+      assertEquals(caleb.array[4].value, "entry five");
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
   
    public void testParentCompositeNull() throws Exception {    
-      ParentCompositeArrayExample example = serializer.read(ParentCompositeArrayExample.class, COMPOSITE_NULL);
+      ParentCompositeArrayExample caleb = serializer.read(ParentCompositeArrayExample.class, COMPOSITE_NULL);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], null);
-      assertEquals(example.array[1].value, "entry two");
-      assertEquals(example.array[2], null);
-      assertEquals(example.array[3], null);
-      assertEquals(example.array[4].value, "entry five");
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], null);
+      assertEquals(caleb.array[1].value, "entry two");
+      assertEquals(caleb.array[2], null);
+      assertEquals(caleb.array[3], null);
+      assertEquals(caleb.array[4].value, "entry five");
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }
    
    public void testCharacter() throws Exception {    
-      CharacterArrayExample example = serializer.read(CharacterArrayExample.class, CHARACTER);
+      CharacterArrayExample caleb = serializer.read(CharacterArrayExample.class, CHARACTER);
       
-      assertEquals(example.array.length, 5);
-      assertEquals(example.array[0], 'a');
-      assertEquals(example.array[1], 'b');
-      assertEquals(example.array[2], 'c');
-      assertEquals(example.array[3], 'd');
-      assertEquals(example.array[4], 'e');
+      assertEquals(caleb.array.length, 5);
+      assertEquals(caleb.array[0], 'a');
+      assertEquals(caleb.array[1], 'b');
+      assertEquals(caleb.array[2], 'c');
+      assertEquals(caleb.array[3], 'd');
+      assertEquals(caleb.array[4], 'e');
       
-      validate(example, serializer);
+      validate(caleb, serializer);
    }*/
    
    public void testDifferentArray() throws Exception {    

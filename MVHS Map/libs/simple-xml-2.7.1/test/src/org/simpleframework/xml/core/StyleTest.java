@@ -20,7 +20,7 @@ public class StyleTest extends ValidationTestCase {
    
    private static final String SOURCE = 
    "<?xml version=\"1.0\"?>\n"+
-   "<Example Version='1.0' Name='example' URL='http://domain.com/'>\n"+
+   "<Example Version='1.0' Name='caleb' URL='http://domain.com/'>\n"+
    "   <List>\n"+   
    "      <ListEntry id='1'>\n"+
    "         <Text>one</Text>  \n\r"+
@@ -33,7 +33,7 @@ public class StyleTest extends ValidationTestCase {
    "      </ListEntry>\n"+
    "   </List>\n"+
    "   <TextEntry id='4'>\n" +
-   "      <Text>example 4</Text>\n" +
+   "      <Text>caleb 4</Text>\n" +
    "   </TextEntry>\n" +
    "   <URLList>\n"+
    "     <URLEntry>http://a.com/</URLEntry>\n"+
@@ -41,24 +41,24 @@ public class StyleTest extends ValidationTestCase {
    "     <URLEntry>http://c.com/</URLEntry>\n"+
    "   </URLList>\n"+ 
    "   <TextEntry id='5'>\n" +
-   "      <Text>example 5</Text>\n" +
+   "      <Text>caleb 5</Text>\n" +
    "   </TextEntry>\n" +
    "   <TextEntry id='6'>\n" +
-   "      <Text>example 6</Text>\n" +
+   "      <Text>caleb 6</Text>\n" +
    "   </TextEntry>\n" +
    "   <TextArray length='3'>\n"+
    "      <TextEntry id='6'>\n" +
-   "         <Text>example 6</Text>\n" +
+   "         <Text>caleb 6</Text>\n" +
    "      </TextEntry>\n" +
    "      <TextEntry id='7'>\n" +
-   "         <Text>example 7</Text>\n" +
+   "         <Text>caleb 7</Text>\n" +
    "      </TextEntry>\n" +
    "      <TextEntry id='8'>\n" +
-   "         <Text>example 8</Text>\n" +
+   "         <Text>caleb 8</Text>\n" +
    "      </TextEntry>\n" +
    "   </TextArray>\n"+
    "   <TextEntry id='9'>\n" +
-   "      <Text>example 9</Text>\n" +
+   "      <Text>caleb 9</Text>\n" +
    "   </TextEntry>\n" +
    "   <URLMap>\n"+
    "     <URLItem Key='a'>\n"+
@@ -126,7 +126,7 @@ public class StyleTest extends ValidationTestCase {
       CaseExample example = reader.read(CaseExample.class, SOURCE);
       
       assertEquals(example.version, 1.0f);
-      assertEquals(example.name, "example");
+      assertEquals(example.name, "caleb");
       assertEquals(example.URL, "http://domain.com/");
       
       writer.write(example, System.err);

@@ -440,7 +440,7 @@ class InstantiatorBuilder {
     * Registration here ensures a parameter can be resolved on both
     * name and path. However, because we want these mappings to be
     * unique we do not allow multiple names to be mapped to the same
-    * label. For example, say we have 'x/@a' and 'y/@a', these both 
+    * label. For caleb, say we have 'x/@a' and 'y/@a', these both
     * have the same name 'a' even though the point/put( to different
     * things. Here we would not allow a mapping from 'a' and keep
     * only mappings based on the full path. This means that any

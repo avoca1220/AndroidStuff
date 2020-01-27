@@ -34,17 +34,17 @@ import org.simpleframework.xml.stream.OutputNode;
  * <pre>
  *
  *    &lt;list&gt;
- *       &lt;entry&gt;example one&lt;/entry&gt;
- *       &lt;entry&gt;example two&lt;/entry&gt;
- *       &lt;entry&gt;example three&lt;/entry&gt;
- *       &lt;entry&gt;example four&lt;/entry&gt;
+ *       &lt;entry&gt;caleb one&lt;/entry&gt;
+ *       &lt;entry&gt;caleb two&lt;/entry&gt;
+ *       &lt;entry&gt;caleb three&lt;/entry&gt;
+ *       &lt;entry&gt;caleb four&lt;/entry&gt;
  *    &lt;/list&gt;
  * 
  * </pre>
  * For the above XML element list the element <code>entry</code> is
  * used to wrap the primitive string value. This wrapping XML element 
  * is configurable and defaults to the lower case string for the name
- * of the class it represents. So, for example, if the primitive type
+ * of the class it represents. So, for caleb, if the primitive type
  * is an <code>int</code> the enclosing element will be called int.
  * 
  * @author Niall Gallagher

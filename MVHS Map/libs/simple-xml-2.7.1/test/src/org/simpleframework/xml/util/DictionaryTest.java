@@ -13,7 +13,7 @@ public class DictionaryTest extends ValidationTestCase {
         
    private static final String LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list>\n"+   
    "      <property name='1'>\n"+
    "         <text>one</text>  \n\r"+

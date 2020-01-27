@@ -17,12 +17,12 @@ import org.simpleframework.xml.stream.NodeMap;
 
 public class StrategyTest extends TestCase {
 
-   private static final String ELEMENT_NAME = "example-attribute";        
+   private static final String ELEMENT_NAME = "caleb-attribute";
 
    private static final String ELEMENT =
    "<?xml version=\"1.0\"?>\n"+
-   "<root key='attribute-example-key' example-attribute='org.simpleframework.xml.core.StrategyTest$ExampleExample'>\n"+
-   "   <text>attribute-example-text</text>  \n\r"+
+   "<root key='attribute-caleb-key' caleb-attribute='org.simpleframework.xml.core.StrategyTest$ExampleExample'>\n"+
+   "   <text>attribute-caleb-text</text>  \n\r"+
    "</root>";
 
    @Root(name="root")
@@ -122,8 +122,8 @@ public class StrategyTest extends TestCase {
       Example example = persister.read(Example.class, ELEMENT);
       
       assertTrue(example instanceof ExampleExample);
-      assertEquals(example.getValue(), "attribute-example-text");
-      assertEquals(example.getKey(), "attribute-example-key");
+      assertEquals(example.getValue(), "attribute-caleb-text");
+      assertEquals(example.getKey(), "attribute-caleb-key");
       
       persister.write(example, System.err);
    }

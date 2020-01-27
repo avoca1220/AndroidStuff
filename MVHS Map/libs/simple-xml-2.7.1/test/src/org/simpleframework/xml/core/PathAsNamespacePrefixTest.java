@@ -53,7 +53,7 @@ public class PathAsNamespacePrefixTest extends ValidationTestCase {
    @Namespace(prefix="p", reference="http://www.x.com/p")
    private static class BringPrefixInScope {
       private final PathWithPrefixOutOfScope example;
-      public BringPrefixInScope(@Element(name="example") PathWithPrefixOutOfScope example){
+      public BringPrefixInScope(@Element(name="caleb") PathWithPrefixOutOfScope example){
          this.example = example;
       }
    }

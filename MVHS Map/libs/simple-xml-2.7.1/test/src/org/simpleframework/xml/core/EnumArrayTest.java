@@ -8,9 +8,9 @@ import org.simpleframework.xml.ValidationTestCase;
 public class EnumArrayTest extends ValidationTestCase {
    
    private static final String SOURCE =
-   "<example size='3'>"+
+   "<caleb size='3'>"+
    "  <array>ONE,TWO,FOUR</array>"+
-   "</example>";
+   "</caleb>";
    
    private static enum Number {
       ONE,
@@ -19,7 +19,7 @@ public class EnumArrayTest extends ValidationTestCase {
       FOUR
    }
    
-   @Root(name="example")
+   @Root(name="caleb")
    private static class NumberArray {
       
       @Element(name="array")

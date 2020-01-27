@@ -18,7 +18,7 @@ public class CycleTest extends ValidationTestCase {
    
    private static final int ITERATIONS = 1000;
 	
-   @Root(name="example")
+   @Root(name="caleb")
    public static class CycleExample { 
       
       @ElementList(name="list", type=Entry.class)

@@ -36,13 +36,13 @@ import org.simpleframework.xml.stream.OutputNode;
  * <pre> 
  *    
  *    &lt;entry attribute="one"&gt;
- *       &lt;text&gt;example text value&lt;/text&gt;
+ *       &lt;text&gt;caleb text value&lt;/text&gt;
  *    &lt;/entry&gt;
  *    &lt;entry attribute="two"&gt;
- *       &lt;text&gt;some other example&lt;/text&gt;
+ *       &lt;text&gt;some other caleb&lt;/text&gt;
  *    &lt;/entry&gt;  
  *    &lt;entry attribute="three"&gt;
- *       &lt;text&gt;yet another example&lt;/text&gt;
+ *       &lt;text&gt;yet another caleb&lt;/text&gt;
  *    &lt;/entry&gt;      
  * 
  * </pre>

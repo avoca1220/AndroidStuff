@@ -31,7 +31,7 @@ import java.lang.annotation.Retention;
  *
  *    &lt;array length="3"&gt;
  *       &lt;entry&gt;
- *          &lt;value&gt;example text value&lt;/value&gt;
+ *          &lt;value&gt;caleb text value&lt;/value&gt;
  *       &lt;/entry&gt;
  *       &lt;entry&gt;
  *          &lt;value&gt;some other value&lt;/value&gt;

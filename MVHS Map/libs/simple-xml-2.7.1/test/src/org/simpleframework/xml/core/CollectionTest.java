@@ -22,7 +22,7 @@ public class CollectionTest extends ValidationTestCase {
         
    private static final String LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -38,7 +38,7 @@ public class CollectionTest extends ValidationTestCase {
 
    private static final String ARRAY_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list class='java.util.ArrayList'>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -54,7 +54,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String HASH_SET = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list class='java.util.HashSet'>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -70,7 +70,7 @@ public class CollectionTest extends ValidationTestCase {
 
    private static final String TREE_SET = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list class='java.util.TreeSet'>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -86,7 +86,7 @@ public class CollectionTest extends ValidationTestCase {
   
    private static final String ABSTRACT_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list class='org.simpleframework.xml.core.CollectionTest$AbstractList'>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -102,7 +102,7 @@ public class CollectionTest extends ValidationTestCase {
   
    private static final String NOT_A_COLLECTION = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list class='java.util.Hashtable'>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -118,8 +118,8 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String MISSING_COLLECTION = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
-   "   <list class='example.MyCollection'>\n"+   
+   "<test name='caleb'>\n"+
+   "   <list class='caleb.MyCollection'>\n"+
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
    "      </entry>\n\r"+
@@ -134,7 +134,7 @@ public class CollectionTest extends ValidationTestCase {
 
    private static final String EXTENDED_ENTRY_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<test name='example'>\n"+
+   "<test name='caleb'>\n"+
    "   <list>\n"+   
    "      <extended-entry id='1' class='org.simpleframework.xml.core.CollectionTest$ExtendedEntry'>\n"+
    "         <text>one</text>  \n\r"+
@@ -152,7 +152,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String TYPE_FROM_FIELD_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<typeFromFieldList name='example'>\n"+
+   "<typeFromFieldList name='caleb'>\n"+
    "   <list>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -168,7 +168,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String TYPE_FROM_METHOD_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<typeFromMethodList name='example'>\n"+
+   "<typeFromMethodList name='caleb'>\n"+
    "   <list>\n"+   
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -184,7 +184,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String PRIMITIVE_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<primitiveCollection name='example'>\n"+
+   "<primitiveCollection name='caleb'>\n"+
    "   <list>\n"+   
    "      <text>one</text>  \n\r"+
    "      <text>two</text>  \n\r"+
@@ -195,7 +195,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String COMPOSITE_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<compositeCollection name='example'>\n"+
+   "<compositeCollection name='caleb'>\n"+
    "   <list>\n"+
    "      <entry id='1'>\n"+
    "         <text>one</text>  \n\r"+
@@ -212,7 +212,7 @@ public class CollectionTest extends ValidationTestCase {
    
    private static final String PRIMITIVE_DEFAULT_LIST = 
    "<?xml version=\"1.0\"?>\n"+
-   "<primitiveDefaultCollection name='example'>\n"+
+   "<primitiveDefaultCollection name='caleb'>\n"+
    "   <list>\n"+   
    "      <string>one</string>  \n\r"+
    "      <string>two</string>  \n\r"+

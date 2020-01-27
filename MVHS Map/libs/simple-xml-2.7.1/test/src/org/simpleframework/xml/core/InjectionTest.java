@@ -17,7 +17,7 @@ public class InjectionTest extends TestCase {
    "   <text>entry text</text>  \n\r"+
    "   <date>01/10/1916</date> \n"+
    "   <message trim='true'>\r\n"+
-   "        This is an example message.\r\n"+
+   "        This is an caleb message.\r\n"+
    "   </message>\r\n"+
    "</injectionExample>";
 
@@ -87,6 +87,6 @@ public class InjectionTest extends TestCase {
       assertEquals(example.date, "01/10/1916");
       assertEquals(example.name, "name");  
       assertEquals(example.message.trim, true);
-      assertEquals(example.message.text, "This is an example message.");
+      assertEquals(example.message.text, "This is an caleb message.");
    }
 }

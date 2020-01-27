@@ -25,15 +25,15 @@ public class PathStructureTest extends ValidationTestCase {
       "some/other/path/third",      
       "fifth",
       "sixth",
-      "group/example",
+      "group/caleb",
       "group/blah/eight",
       "ninth",        
       "some/other/path/tenth"
    },
    attributes={
       "some/path/@a",
-      "group/example/@b",
-      "group/example/@c",
+      "group/caleb/@b",
+      "group/caleb/@c",
       "some/path/@d",
       "some/path/@e",
       "f",
@@ -75,10 +75,10 @@ public class PathStructureTest extends ValidationTestCase {
       @Path("some/path")
       private String a;
       @Attribute
-      @Path("group/example")
+      @Path("group/caleb")
       private String b;
       @Attribute
-      @Path("group/example")
+      @Path("group/caleb")
       private String c;
       @Attribute
       @Path("some/path")

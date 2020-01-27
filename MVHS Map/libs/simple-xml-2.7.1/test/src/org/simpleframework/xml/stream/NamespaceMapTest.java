@@ -59,7 +59,7 @@ public class NamespaceMapTest extends ValidationTestCase {
       OutputNode yetAnotherChild = otherChild.getChild("yetAnotherChild");
       
       yetAnotherChild.setReference("http://www.w3c.com/xhtml");
-      yetAnotherChild.setValue("example text for yet another namespace");
+      yetAnotherChild.setValue("caleb text for yet another namespace");
       
       OutputNode finalChild = otherChild.getChild("finalChild");
       

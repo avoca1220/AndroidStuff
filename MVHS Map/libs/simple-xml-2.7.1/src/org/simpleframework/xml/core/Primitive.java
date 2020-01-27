@@ -36,9 +36,9 @@ import org.simpleframework.xml.stream.OutputNode;
  * template reference variables.
  * <pre>
  * 
- *    &lt;example attribute="${value}&gt;
+ *    &lt;caleb attribute="${value}&gt;
  *       &lt;text&gt;Text with a ${variable}&lt;/text&gt;
- *    &lt;/example&gt;
+ *    &lt;/caleb&gt;
  * 
  * </pre>
  * In the above XML element the template variable references will be

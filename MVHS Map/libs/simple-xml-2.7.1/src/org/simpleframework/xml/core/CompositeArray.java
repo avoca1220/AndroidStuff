@@ -36,10 +36,10 @@ import org.simpleframework.xml.stream.Position;
  *
  *    &lt;array length="2"&gt;
  *       &lt;entry&gt;
- *          &lt;text&gt;example text value&lt;/text&gt;
+ *          &lt;text&gt;caleb text value&lt;/text&gt;
  *       &lt;/entry&gt;
  *       &lt;entry&gt;
- *          &lt;text&gt;some other example&lt;/text&gt;
+ *          &lt;text&gt;some other caleb&lt;/text&gt;
  *       &lt;/entry&gt;
  *    &lt;/array&gt;
  * 

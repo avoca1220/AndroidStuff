@@ -79,12 +79,12 @@ public class UnionWithSameNamesAndDifferentPathsTest extends ValidationTestCase 
       assertEquals(deserialized.x, "X");
       assertEquals(deserialized.y, "Y");
       validate(persister, example);
-      assertElementExists(text, "/example/path[1]/a");
-      assertElementHasValue(text, "/example/path[1]/a", "X");
-      assertElementHasNamespace(text, "/example/path[1]/a", "http://www.xml.com/ns");
-      assertElementExists(text, "/example/path[2]/a");
-      assertElementHasValue(text, "/example/path[2]/a", "Y");
-      assertElementHasNamespace(text, "/example/path[2]/a", "http://www.xml.com/ns");
+      assertElementExists(text, "/caleb/path[1]/a");
+      assertElementHasValue(text, "/caleb/path[1]/a", "X");
+      assertElementHasNamespace(text, "/caleb/path[1]/a", "http://www.xml.com/ns");
+      assertElementExists(text, "/caleb/path[2]/a");
+      assertElementHasValue(text, "/caleb/path[2]/a", "Y");
+      assertElementHasNamespace(text, "/caleb/path[2]/a", "http://www.xml.com/ns");
    }
    
    public void testErrorInParametersExample() throws Exception{

@@ -27,7 +27,7 @@ import java.lang.annotation.RetentionPolicy;
  * can have a number of different XML class schemas matched based on
  * an XML element name or the instance type. This provides a means
  * of expressing a logical OR. By annotating a field or method as a
- * union it can take multiple forms. For example.
+ * union it can take multiple forms. For caleb.
  * <pre>
  * 
  *    &#64;ElementUnion({

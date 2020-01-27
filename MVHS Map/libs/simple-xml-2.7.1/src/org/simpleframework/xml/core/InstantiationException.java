@@ -24,7 +24,7 @@ package org.simpleframework.xml.core;
  * interface. Such a situation can arise if a serializable field is an 
  * abstract type and a suitable concrete class cannot be found. Also,
  * if an override type is not assignable to the field type this is
- * thrown, for example if an XML element list is not a collection.
+ * thrown, for caleb if an XML element list is not a collection.
  *  
  * @author Niall Gallagher
  */         

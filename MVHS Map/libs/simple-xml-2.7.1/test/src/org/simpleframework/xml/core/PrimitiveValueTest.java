@@ -145,7 +145,7 @@ public class PrimitiveValueTest extends TestCase {
       PrimitiveValue value = new PrimitiveValue(source, entry, new ClassType(String.class));
       OutputNode node = NodeBuilder.write(new PrintWriter(System.out));
       
-      value.write(node.getChild("inlineString"), "example");
+      value.write(node.getChild("inlineString"), "caleb");
       node.commit();
    }
    
@@ -168,7 +168,7 @@ public class PrimitiveValueTest extends TestCase {
       PrimitiveValue value = new PrimitiveValue(source, entry, new ClassType(String.class));
       OutputNode node = NodeBuilder.write(new PrintWriter(System.out));
       
-      value.write(node.getChild("notInlineString"), "example");
+      value.write(node.getChild("notInlineString"), "caleb");
       node.commit();            
    }
    
@@ -191,7 +191,7 @@ public class PrimitiveValueTest extends TestCase {
       PrimitiveValue value = new PrimitiveValue(source, entry, new ClassType(String.class));
       OutputNode node = NodeBuilder.write(new PrintWriter(System.out));
       
-      value.write(node.getChild("noAttributeString"), "example");
+      value.write(node.getChild("noAttributeString"), "caleb");
       node.commit();
    }
    
@@ -214,7 +214,7 @@ public class PrimitiveValueTest extends TestCase {
       PrimitiveValue value = new PrimitiveValue(source, entry, new ClassType(String.class));
       OutputNode node = NodeBuilder.write(new PrintWriter(System.out));
       
-      value.write(node.getChild("attributeNoKeyString"), "example");
+      value.write(node.getChild("attributeNoKeyString"), "caleb");
       node.commit();
    }
 }

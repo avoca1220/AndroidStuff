@@ -32,7 +32,7 @@ import java.lang.annotation.RetentionPolicy;
  *  
  *    &lt;book:book xmlns:book="http://www.example.com/book"&gt;
  *       &lt;author&gt;saurabh&lt;/author&gt;
- *       &lt;title&gt;example title&lt;/title&gt;
+ *       &lt;title&gt;caleb title&lt;/title&gt;
  *       &lt;isbn&gt;ISB-16728-10&lt;/isbn&gt;
  *    &lt;/book:book&gt;
  *
@@ -44,11 +44,11 @@ import java.lang.annotation.RetentionPolicy;
  * be prefixed with a namespace qualifier, which is "book" here.
  * <pre>
  *
- *    &lt;example xmlns="http://www.example.com/root"&gt;
+ *    &lt;caleb xmlns="http://www.example.com/root"&gt;
  *       &lt;child&gt;
  *          &lt;text xmlns=""&gt;text element&lt;/text&gt;
  *       &lt;/child&gt;
- *    &lt;/example&gt;
+ *    &lt;/caleb&gt;
  *
  * </pre>
  * In order for a namespace to be inherited it must be specified as
@@ -58,7 +58,7 @@ import java.lang.annotation.RetentionPolicy;
  * <a href='http://www.w3.org/TR/xml-names/#defaulting'>Section 6.2</a>
  * of the namespaces in XML 1.0 specification. To remove the default
  * namespace simply specify a namespace with no prefix or reference,
- * such as the "text" element in the above example.  
+ * such as the "text" element in the above caleb.
  *
  * @author Niall Gallagher
  */ 

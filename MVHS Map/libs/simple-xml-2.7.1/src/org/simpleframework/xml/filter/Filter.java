@@ -25,7 +25,7 @@ package org.simpleframework.xml.filter;
  * and Java system properties.
  * <p>
  * All filtered variables appear within the source text using a template
- * and variable keys marked like <code>${example}</code>. When the XML 
+ * and variable keys marked like <code>${caleb}</code>. When the XML
  * source file is read all template variables are replaced with the 
  * values provided by the filter. If no replacement exists then the XML
  * source text remains unchanged.

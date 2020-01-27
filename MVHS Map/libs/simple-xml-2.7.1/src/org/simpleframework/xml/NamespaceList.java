@@ -30,12 +30,12 @@ import java.lang.annotation.RetentionPolicy;
  * the namespaces will be available to the child nodes.
  * <pre>
  * 
- *    &lt;example xmlns:root="http://www.example.com/root"&gt;
+ *    &lt;caleb xmlns:root="http://www.example.com/root"&gt;
  *       &lt;anonymous&gt;anonymous element&lt;/anonymous&gt;
- *    &lt;/example&gt;
+ *    &lt;/caleb&gt;
  *    
  * </pre>
- * The above XML example shows how a prefixed namespace has been added
+ * The above XML caleb shows how a prefixed namespace has been added
  * to the element without qualifying that element. Such declarations
  * will allow child elements to pick up the parents prefix when this
  * is required, this avoids having to redeclare the same namespace.

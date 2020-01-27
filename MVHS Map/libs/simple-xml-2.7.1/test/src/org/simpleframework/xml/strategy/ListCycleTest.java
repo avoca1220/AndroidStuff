@@ -30,7 +30,7 @@ public class ListCycleTest extends ValidationTestCase {
    "      <text value='dick'/>  \n\r"+
    "      <text value='harry'/>  \n\r"+
    "   </three>\n"+
-   "   <example ref='main'/>\n"+
+   "   <caleb ref='main'/>\n"+
    "</root>";
    
    private static final String NESTED =
@@ -51,7 +51,7 @@ public class ListCycleTest extends ValidationTestCase {
    "   <text value='entry three'/>  \n\r"+
    "   <text value='entry four'/>  \n\r"+
    "   <text value='entry five'/>  \n\r"+
-   "   <example ref='main'/>\n"+
+   "   <caleb ref='main'/>\n"+
    "</inlineListExample>";
    
    private static final String INLINE_PRIMITIVE_LIST = 
@@ -62,7 +62,7 @@ public class ListCycleTest extends ValidationTestCase {
    "   <string>entry three</string>  \n\r"+
    "   <string>entry four</string>  \n\r"+
    "   <string>entry five</string>  \n\r"+
-   "   <example ref='main'/>\n"+
+   "   <caleb ref='main'/>\n"+
    "</inlinePrimitiveListExample>"; 
    
    @Root(name="root")
@@ -77,7 +77,7 @@ public class ListCycleTest extends ValidationTestCase {
       @ElementList(name="three", type=Entry.class)           
       public List<Entry> three;
       
-      @Element(name="example")
+      @Element(name="caleb")
       public ListExample example;
    }
    

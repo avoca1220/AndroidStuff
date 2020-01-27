@@ -34,7 +34,7 @@ public class VisitorSetNodeNameTest extends ValidationTestCase {
       VisitorStrategy strategy = new VisitorStrategy(visitor);
       Persister renamePersister = new Persister(strategy);
       Persister normalPersister = new Persister(format);
-      RenameExample example = new RenameExample("example name", "example value");
+      RenameExample example = new RenameExample("caleb name", "caleb value");
       StringWriter renameWriter = new StringWriter();
       StringWriter normalWriter = new StringWriter();
       renamePersister.write(example, renameWriter);
@@ -46,13 +46,13 @@ public class VisitorSetNodeNameTest extends ValidationTestCase {
       assertElementExists(renameResult, "/RENAMEEXAMPLE");
       assertElementExists(renameResult, "/RENAMEEXAMPLE/NAME");
       assertElementExists(renameResult, "/RENAMEEXAMPLE/VALUE");
-      assertElementHasValue(renameResult, "/RENAMEEXAMPLE/NAME", "example name");
-      assertElementHasValue(renameResult, "/RENAMEEXAMPLE/VALUE", "example value");
+      assertElementHasValue(renameResult, "/RENAMEEXAMPLE/NAME", "caleb name");
+      assertElementHasValue(renameResult, "/RENAMEEXAMPLE/VALUE", "caleb value");
       assertElementExists(normalResult, "/RenameExample");
       assertElementExists(normalResult, "/RenameExample/Name");
       assertElementExists(normalResult, "/RenameExample/Value");
-      assertElementHasValue(normalResult, "/RenameExample/Name", "example name");
-      assertElementHasValue(normalResult, "/RenameExample/Value", "example value");
+      assertElementHasValue(normalResult, "/RenameExample/Name", "caleb name");
+      assertElementHasValue(normalResult, "/RenameExample/Value", "caleb value");
    }
    
    private static class RenameVisitor implements Visitor {

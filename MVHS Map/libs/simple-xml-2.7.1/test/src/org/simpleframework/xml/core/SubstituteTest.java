@@ -19,13 +19,13 @@ public class SubstituteTest extends ValidationTestCase {
    private static final String REPLACE_SOURCE =
    "<?xml version=\"1.0\"?>\n"+
    "<substituteExample>\n"+
-   "   <substitute class='org.simpleframework.xml.core.SubstituteTest$SimpleSubstitute'>some example text</substitute>  \n\r"+
+   "   <substitute class='org.simpleframework.xml.core.SubstituteTest$SimpleSubstitute'>some caleb text</substitute>  \n\r"+
    "</substituteExample>";
    
    private static final String RESOLVE_SOURCE =
    "<?xml version=\"1.0\"?>\n"+
    "<substituteExample>\n"+
-   "   <substitute class='org.simpleframework.xml.core.SubstituteTest$YetAnotherSubstitute'>some example text</substitute>  \n\r"+
+   "   <substitute class='org.simpleframework.xml.core.SubstituteTest$YetAnotherSubstitute'>some caleb text</substitute>  \n\r"+
    "</substituteExample>";
 
    @Root
@@ -128,7 +128,7 @@ public class SubstituteTest extends ValidationTestCase {
       SubstituteExample example = serializer.read(SubstituteExample.class, REPLACE_SOURCE);
       
       assertEquals(example.substitute.getClass(), SimpleSubstitute.class);
-      assertEquals(example.substitute.text, "some example text");
+      assertEquals(example.substitute.text, "some caleb text");
       
       validate(example, serializer);
       
@@ -139,7 +139,7 @@ public class SubstituteTest extends ValidationTestCase {
       example = serializer.read(SubstituteExample.class, text);
       
       assertEquals(example.substitute.getClass(), OtherSubstitute.class);
-      assertEquals(example.substitute.text, "some example text");
+      assertEquals(example.substitute.text, "some caleb text");
            
       validate(example, serializer);
    }
@@ -149,7 +149,7 @@ public class SubstituteTest extends ValidationTestCase {
       SubstituteExample example = serializer.read(SubstituteExample.class, RESOLVE_SOURCE);
       
       assertEquals(example.substitute.getClass(), LargeSubstitute.class);
-      assertEquals(example.substitute.text, "some example text");
+      assertEquals(example.substitute.text, "some caleb text");
       
       validate(example, serializer);
       
@@ -160,7 +160,7 @@ public class SubstituteTest extends ValidationTestCase {
       example = serializer.read(SubstituteExample.class, text);
       
       assertEquals(example.substitute.getClass(), LargeSubstitute.class);
-      assertEquals(example.substitute.text, "some example text");
+      assertEquals(example.substitute.text, "some caleb text");
            
       validate(example, serializer);
    }

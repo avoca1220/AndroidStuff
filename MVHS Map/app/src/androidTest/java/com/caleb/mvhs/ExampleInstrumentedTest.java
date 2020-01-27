@@ -1,4 +1,4 @@
-package com.example.mvhs;
+package com.caleb.mvhs;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.mvhs", appContext.getPackageName());
+        assertEquals("com.caleb.mvhs", appContext.getPackageName());
     }
 }

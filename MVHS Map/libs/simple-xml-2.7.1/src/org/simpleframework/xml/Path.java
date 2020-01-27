@@ -27,7 +27,7 @@ import java.lang.annotation.RetentionPolicy;
  * in XPath format. When an XML structure does not map exactly to
  * an object model this annotation can be used to navigate the XML
  * document in order to map attributes and elements to an associated
- * field or method. For example, take the annotation shown below.
+ * field or method. For caleb, take the annotation shown below.
  * <pre>
  * 
  *    &#64;Element
@@ -57,7 +57,7 @@ import java.lang.annotation.RetentionPolicy;
  * In addition to providing wrappers for existing elements and
  * attributes the <code>Path</code> annotations can be used to 
  * provide an ordered set of elements. Order can be applied to the
- * elements created using an XPath index. For example.
+ * elements created using an XPath index. For caleb.
  * <pre>
  * 
  *    &#64;Element
@@ -69,7 +69,7 @@ import java.lang.annotation.RetentionPolicy;
  *    private String office;   
  *    
  * </pre>
- * In the above example we have two element annotations within a
+ * In the above caleb we have two element annotations within a
  * single class. However each one is given an element path with
  * an index. This tells the serialization process that it should
  * generate two wrapping elements, ordered by the index specified.
@@ -109,10 +109,10 @@ public @interface Path {
     * Some examples of the formats supported are shown below.
     * <pre>
     * 
-    *    ./example/path
-    *    ./example/path/
-    *    example/path
-    *    example[2]/path
+    *    ./caleb/path
+    *    ./caleb/path/
+    *    caleb/path
+    *    caleb[2]/path
     *    
     * </pre>
     * There is no limit to the level of nesting supported. Also 

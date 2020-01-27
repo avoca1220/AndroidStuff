@@ -18,13 +18,13 @@ public class FilterTest extends TestCase {
    private static final String ENTRY =
    "<?xml version=\"1.0\"?>\n"+
    "<root number='1234' flag='true'>\n"+
-   "   <name>${example.name}</name>  \n\r"+
-   "   <path>${example.path}</path>\n"+
+   "   <name>${caleb.name}</name>  \n\r"+
+   "   <path>${caleb.path}</path>\n"+
    "   <constant>${no.override}</constant>\n"+
    "   <text>\n"+
-   "     Some example text where ${example.name} is replaced"+
+   "     Some caleb text where ${caleb.name} is replaced"+
    "     with the system property value and the path is "+
-   "     replaced with the path ${example.path}"+
+   "     replaced with the path ${caleb.path}"+
    "   </text>\n"+
    "</root>";
    
@@ -51,8 +51,8 @@ public class FilterTest extends TestCase {
    }
 
    static {
-      System.setProperty("example.name", "some name");
-      System.setProperty("example.path", "/some/path");
+      System.setProperty("caleb.name", "some name");
+      System.setProperty("caleb.path", "/some/path");
       System.setProperty("no.override", "some constant");
    } 
         
@@ -62,8 +62,8 @@ public class FilterTest extends TestCase {
 
    public void setUp() {
       HashMap map = new HashMap();
-      map.put("example.name", "override name");
-      map.put("example.path", "/some/override/path");      
+      map.put("caleb.name", "override name");
+      map.put("caleb.path", "/some/override/path");
       systemSerializer = new Persister();
       mapSerializer = new Persister(map);
    }
@@ -99,8 +99,8 @@ public class FilterTest extends TestCase {
       
       assertEquals(entry.number, 1234);
       assertEquals(entry.bool, true);
-      assertEquals(entry.name, "${example.name}");
-      assertEquals(entry.path, "${example.path}");
+      assertEquals(entry.name, "${caleb.name}");
+      assertEquals(entry.path, "${caleb.path}");
 
       Filter systemFilter = new SystemFilter();
       Filter environmentFilter = new EnvironmentFilter(systemFilter);
