@@ -1,4 +1,4 @@
-package com.example.newmap;
+package com.example.mvhs;
 
 import org.junit.Test;
 

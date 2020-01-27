@@ -1,11 +1,9 @@
-package com.example.newmap;
+package com.example.mvhs;
 
 import android.util.Log;
 
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
-
-import java.io.File;
 
 @Root
 public class Loader {

@@ -1,8 +1,4 @@
-package com.example.newmap;
-
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+package com.example.mvhs;
 
 public class Classroom {
 

@@ -19,11 +19,9 @@
  * 16.Stop crashing when everybody is deleted
  */
 
-package com.example.newmap;
+package com.caleb.mvhs;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +31,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -41,7 +38,6 @@ import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
-import java.lang.reflect.Array;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -85,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //XML?
         directory = getFilesDir();
-        xml = new File(directory, "example.xml");
+        xml = new File(directory, "caleb.xml");
 
         serializer = new Persister();
 

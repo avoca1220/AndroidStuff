@@ -1,4 +1,4 @@
-package com.example.newmap;
+package com.example.mvhs;
 
 public class Teacher {
 

@@ -1,13 +1,10 @@
-package com.example.newmap;
+package com.example.mvhs;
 
-import android.util.Log;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 
 /**
  * Stores all of the bullshit I need (Organization! Put the bad stuff in one place so we don't have
