@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
@@ -84,14 +86,22 @@ public class Entry extends AppCompatActivity implements AdapterView.OnItemSelect
                 String tempString2 = (String) classroomSpinner.getSelectedItem();
 
                 if(!tempString.equals("")) {
-                    loader.addEntry(tempString, tempString2);
-                    try {
-                        serializer.write(loader, xml);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Log.d("string", "Failed to write");
+                    if(tempString.contains(","))
+                    {
+                        Toast toast = Toast.makeText(getApplicationContext(),"Invalid characters", Toast.LENGTH_SHORT);
+                        //toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
                     }
-                    finish();
+                    else
+                    {
+                        loader.addEntry(tempString, tempString2);
+                        try {
+                            serializer.write(loader, xml);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        finish();
+                    }
                 }
             }
         });

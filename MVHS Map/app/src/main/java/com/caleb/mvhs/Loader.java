@@ -110,7 +110,7 @@ public class Loader {
     {
         for(int i = 0; i < teacherArray.length; i++)
         {
-            if(teacher.compareTo(teacherArray[i]) < 0)
+            if(teacher.compareToIgnoreCase(teacherArray[i]) < 0)
             {
                 addTeacher(teacher, i);
                 addRoom(room, i);

@@ -2,13 +2,17 @@ package com.caleb.mvhs;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -35,11 +39,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private TableLayout tb;
     private boolean shouldRestart = false;
 
+    //public ScrollView newView = findViewById(R.id.newView);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.d("strings", "Creating settings!");
+        //Log.d("strings", "Creating settings!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         /*getSupportFragmentManager()
@@ -61,10 +67,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         try {
             loader = serializer.read(Loader.class, xml);
-            Log.d("string", "Read successfully!");
+            //Log.d("string", "Read successfully!");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("strings", "Failed to read");
+            //Log.d("strings", "Failed to read");
         }
 
         //loader.addEntry("Andresen", "D6");
@@ -75,7 +81,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             serializer.write(loader, xml);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("strings", "Failed to write");
+            //Log.d("strings", "Failed to write");
         }
 
         tb = (TableLayout) findViewById(R.id.tb);
@@ -89,7 +95,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         lp.height=50;
 
         TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0);
-        //bp.setMargins(5, 30, 5, 30);
+        bp.setMargins(5, 30, 5, 30);
         //bp.height=50;
         //bp.width=50;
 
@@ -101,9 +107,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             TextView tv2 = new TextView(getApplicationContext());
             ImageButton bt = new ImageButton(getApplicationContext());
             tv1.setText(teacherArray[i]);
+            tv1.setTextColor(Color.parseColor("#8c8c8c"));
             tv1.setLayoutParams(lp);
+            tv1.setTextSize(16);
             tv2.setText(classroomArray[i]);
+            tv2.setTextColor(Color.parseColor("#8c8c8c"));
             tv2.setLayoutParams(lp);
+            tv2.setTextSize(16);
             bt.setId(i);
             bt.setLayoutParams(bp);
             //bt.setMaxHeight(5);
@@ -119,7 +129,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             tb.addView(row, i);
 
 
-            bt.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.clear_grey, null));
+            bt.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_cancel_black_24dp, null));
         }
 
 
@@ -151,16 +161,17 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v)
     {
-        Log.d("strings", Integer.toString(v.getId()));
+        //Log.d("strings", Integer.toString(v.getId()));
         loader.removeEntry(v.getId());
 
         try {
             serializer.write(loader, xml);
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("strings", "Failed to write");
+            //Log.d("strings", "Failed to write");
         }
 
+        //Parcelable state = newView.onSaveInstanceState();
         recreate();
     }
 
@@ -175,11 +186,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     {
 
         super.onResume();
-        Log.d("strings", "settings resuming");
+        //Log.d("strings", "settings resuming");
 
         if(shouldRestart)
         {
-            Log.d("strings", "settings reloading");
+            //Log.d("strings", "settings reloading");
             this.recreate();
         }
     }
@@ -188,7 +199,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onPause()
     {
-        Log.d("string", "settings will restart");
+        //Log.d("string", "settings will restart");
         super.onPause();
         shouldRestart = true;
     }

@@ -16,7 +16,7 @@
  * 13.Keep teacher in order                                                             --Resolved
  * 14.Fix glitch that corrupts xml when adding with blank fields                        --Resolved
  * 15.Make pretty                                                                       --Arguable
- * 16.Stop crashing when everybody is deleted
+ * 16.Stop crashing when everybody is deleted                                           --Resolved
  */
 
 package com.caleb.mvhs;
