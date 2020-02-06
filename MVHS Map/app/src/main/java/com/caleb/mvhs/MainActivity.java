@@ -79,6 +79,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setup();
+    }
+
+    private void setup()
+    {
         //XML?
         directory = getFilesDir();
         xml = new File(directory, "data.xml");
@@ -202,7 +207,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         map.setMaxZoom(20);
 
         shouldRestart = false;
-
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id)
@@ -338,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(shouldRestart)
         {
             Log.d("strings", "reloading");
-            this.recreate();
+            this.setup();
         }
     }
 

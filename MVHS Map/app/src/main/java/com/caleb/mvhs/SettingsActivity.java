@@ -45,15 +45,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //Log.d("strings", "Creating settings!");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-        /*getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment())
-                .commit();
 
-         */
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -67,13 +62,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         try {
             loader = serializer.read(Loader.class, xml);
-            //Log.d("string", "Read successfully!");
+
         } catch (Exception e) {
             e.printStackTrace();
-            //Log.d("strings", "Failed to read");
+
         }
 
-        //loader.addEntry("Andresen", "D6");
+
 
 
         //Write changes
@@ -81,7 +76,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             serializer.write(loader, xml);
         } catch (Exception e) {
             e.printStackTrace();
-            //Log.d("strings", "Failed to write");
+
         }
 
         tb = (TableLayout) findViewById(R.id.tb);
@@ -89,15 +84,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         teacherArray = loader.getTeacherArray();
         classroomArray = loader.getClassroomArray();
 
-        //TableLayout.LayoutParams lp = new TableLayout.LayoutParams();
+
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.FILL_PARENT, 1);
         lp.setMargins(5, 30, 5, 30);
         lp.height=50;
 
         TableRow.LayoutParams bp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0);
         bp.setMargins(5, 30, 5, 30);
-        //bp.height=50;
-        //bp.width=50;
 
 
 
@@ -161,18 +154,26 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v)
     {
-        //Log.d("strings", Integer.toString(v.getId()));
-        loader.removeEntry(v.getId());
+
+
+        //Parcelable state = newView.onSaveInstanceState();
+        for(int i = 0; i < tb.getChildCount(); i++)
+        {
+            if(tb.getChildAt(i).getId() == v.getId())
+            {
+                tb.removeView(tb.getChildAt(i));
+                loader.removeEntry(i);
+                break;
+            }
+
+        }
 
         try {
             serializer.write(loader, xml);
         } catch (Exception e) {
             e.printStackTrace();
-            //Log.d("strings", "Failed to write");
-        }
 
-        //Parcelable state = newView.onSaveInstanceState();
-        recreate();
+        }
     }
 
     @Override
@@ -186,11 +187,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     {
 
         super.onResume();
-        //Log.d("strings", "settings resuming");
 
         if(shouldRestart)
         {
-            //Log.d("strings", "settings reloading");
             this.recreate();
         }
     }
@@ -199,7 +198,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onPause()
     {
-        //Log.d("string", "settings will restart");
         super.onPause();
         shouldRestart = true;
     }
