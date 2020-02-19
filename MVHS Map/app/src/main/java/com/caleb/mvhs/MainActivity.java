@@ -24,6 +24,7 @@ package com.caleb.mvhs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,6 +38,9 @@ import android.widget.Spinner;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import com.larvalabs.svgandroid.*;
+
+
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -48,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private final float HEIGHT = 2160;
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
+
+
+    private SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.readymap);
+    //private Drawable svgDrawable = svg.createPictureDrawable();
 
     ArrayAdapter<String> teacherAdapter;
     ArrayAdapter<String> classroomAdapter;
@@ -203,6 +211,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         classroomObjectArray = teacherClassroomMap.getClassroomObjectArray();
 
         //Set up the actual map of the school
+        //map.setImageDrawable(svgDrawable);
         map = findViewById(R.id.map);
         map.setMaxZoom(20);
 
