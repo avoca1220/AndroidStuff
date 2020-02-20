@@ -37,7 +37,8 @@ import android.widget.ImageView;
 import android.widget.OverScroller;
 import android.widget.Scroller;
 
-public class TouchImageView extends ImageView {
+//Modfied from ImageView
+public class TouchImageView extends com.caverock.androidsvg.SVGImageView {
 	
 	private static final String DEBUG = "DEBUG";
 	

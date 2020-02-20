@@ -33,12 +33,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
-import com.larvalabs.svgandroid.*;
 
 
 import java.io.File;
@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private Teacher[] teacherObjectArray;
     private Classroom[] classroomObjectArray;
 
-
-    private SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.readymap);
-    //private Drawable svgDrawable = svg.createPictureDrawable();
 
     ArrayAdapter<String> teacherAdapter;
     ArrayAdapter<String> classroomAdapter;
@@ -121,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         /*
-        Why is this here?
+        Why did I put this here?
         try {
             serializer.write(loader, xml);
         } catch (Exception e) {
@@ -210,10 +207,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         teacherObjectArray = teacherClassroomMap.getTeacherObjectArray();
         classroomObjectArray = teacherClassroomMap.getClassroomObjectArray();
 
+
         //Set up the actual map of the school
-        //map.setImageDrawable(svgDrawable);
         map = findViewById(R.id.map);
+        //map.setImageDrawable(svgDrawable);
         map.setMaxZoom(20);
+
+        //ImageView testView = findViewById(R.id.testView);
+        //testView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        //testView.setImageDrawable(svgDrawable);
 
         shouldRestart = false;
     }
